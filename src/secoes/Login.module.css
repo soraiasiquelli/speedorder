@@ -1,0 +1,91 @@
+main {
+    display: flex;
+    height: 80vh;
+    width: 80% !important;
+    margin-top: 0% !important;
+    flex-wrap: wrap;
+    margin: auto;
+    font-family: 'Helvetica';
+}
+
+.secaoform, .secaoimagem {
+    width: 100%;
+    height: auto; /* Ajustando altura para conteúdo */
+    margin: auto;
+    margin-bottom: 20px; /* Espaço entre os elementos */
+}
+
+.form {
+    width: 100%;
+    height: auto; /* Ajustando altura para conteúdo */
+    margin-top: 5%;
+    text-align: center;
+}
+
+.form > img {
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.form > h1 {
+    margin-top: 15%;
+    font-size: 25px;
+    color: #d33333;
+}
+p {
+    text-transform: uppercase;
+    color: #d33333;
+    font-weight: 700;
+  }
+
+.btn {
+    width: 250px;
+    height: 50px;
+    margin-top: 50px;
+    background-color: #d33333; 
+   color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
+    background-color: #d33333; 
+
+}
+
+.secaoimagem {
+    text-align: center;
+}
+
+.secaoimagem > img {
+    width: 60%;
+    margin-top: 15%;
+    border-radius: 20px;
+}
+
+.esqueceuasenhap{
+    font-size: 12px;
+    color: black;
+}
+/* Media Queries para tamanhos de tela específicos */
+@media (min-width: 768px) {
+    .secaoform, .secaoimagem {
+        width: 45%; /* Ajustando para 45% em telas médias */
+        height: 100%; /* Restaurando altura fixa em telas médias */
+    }
+
+    .form > h1 {
+        font-size: 50px; /* Restaurando tamanho da fonte em telas médias */
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        width: 80% !important;
+    }
+
+    .secaoform, .secaoimagem {
+        width: 45%; /* Mantendo 45% em telas maiores */
+    }
+}

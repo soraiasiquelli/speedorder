@@ -1,0 +1,15 @@
+*{
+    font-family: 'Helvetica';
+}
+.botaoiniciar{
+   background-color: #d33333ff;
+   margin-top: -80px !important;
+   width: 250px;
+}
+main{
+    margin-top: 10% !important;
+}
+main > img{
+    margin-top: 40%;
+    height: 30%;
+}

@@ -1,0 +1,123 @@
+* {
+    font-family: 'Helvetica';
+}
+
+.secaopedidoclique {
+    width: 100%; /* Ajuste para telas pequenas */
+    height: 100vh; /* Ajuste automático de altura para conteúdo */
+    display: flex;
+    text-align: center;
+    flex-direction: column; /* Layout em coluna para telas pequenas */
+    flex-wrap: wrap;
+    justify-content: center; /* Centralizar conteúdo em telas pequenas */
+    align-items: center;
+    box-shadow: 5px 5px 10px 5px grey;
+}
+
+div.imagempedidoescolhido {
+    width: 100%; /* Ajuste para telas pequenas */
+    text-align: center;
+}
+
+div.imagempedidoescolhido > img {
+    width: 80%; /* Ajuste para telas pequenas */
+    height: auto; /* Ajuste automático de altura */
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px grey;
+}
+
+div.detalhespedidoescolhido {
+    width: 100%; /* Ajuste para telas pequenas */
+    padding: 10px;
+    text-align: center;
+}
+
+div.detalhespedidoescolhido > h1 {
+    font-size: 36px; /* Fonte menor para telas pequenas */
+    font-weight: 500;
+}
+
+.p_prato_descricao {
+    font-size: 18px;
+    width: 100%; /* Ajuste para telas pequenas */
+    margin-top: 10px; /* Espaçamento superior */
+}
+
+textarea {
+    width: 100%; /* Ajuste para telas pequenas */
+    height: 20%;
+    font-size: 16px; /* Fonte menor para telas pequenas */
+    margin-top: 2%;
+}
+
+div.detalhespedidoescolhido > ::placeholder {
+    padding: 10px;
+    font-size: 16px; /* Fonte menor para telas pequenas */
+}
+
+/* Media Queries para tamanhos de tela específicos */
+@media (min-width: 768px) {
+    .secaopedidoclique {
+        width: 90%; /* Ajuste para telas médias */
+        height: 75vh;
+        flex-direction: row; /* Layout em linha para telas médias */
+        justify-content: space-between;
+        align-items: flex-start; /* Alinhar ao topo */
+    }
+
+    div.imagempedidoescolhido {
+        width: 40%; /* Ajuste para telas médias */
+    }
+
+    div.imagempedidoescolhido > img {
+        width: 100%; /* Ajuste para telas médias */
+        height: 80%; /* Altura fixa */
+        margin-left: 5%;
+    }
+
+    div.detalhespedidoescolhido {
+        width: 50%; /* Ajuste para telas médias */
+        margin-left: 2%;
+    }
+
+    div.detalhespedidoescolhido > h1 {
+        font-size: 48px; /* Fonte maior para telas médias */
+    }
+
+    .p_prato_descricao {
+        font-size: 20px; /* Fonte maior para telas médias */
+        width: 85%; /* Ajuste para telas médias */
+    }
+
+    textarea {
+        width: 70%; /* Ajuste para telas médias */
+        height: 500px !important;
+        font-size: 18px; /* Fonte maior para telas médias */
+    }
+}
+
+@media (min-width: 1024px) {
+    .secaopedidoclique {
+        width: 72%; /* Ajuste para telas grandes */
+    }
+
+    div.detalhespedidoescolhido > h1 {
+        font-size: 55px; /* Fonte maior para telas grandes */
+    }
+
+    .p_prato_descricao {
+        font-size: 20px; /* Fonte maior para telas grandes */
+    }
+
+    textarea {
+        font-size: 18px; /* Fonte maior para telas grandes */
+        height: 50% !important;
+
+    }
+}
+
+.textareadesc{
+    height: 200px;
+    width: 80%;
+}

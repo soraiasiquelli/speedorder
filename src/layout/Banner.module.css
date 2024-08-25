@@ -1,0 +1,13 @@
+.banner{
+    border: 2px solid black;
+    height: 200px;
+    margin-top: 2% !important;
+    width: 80%;
+    margin: auto;
+    background-image: url("13351.jpg");
+    object-fit: cover;
+    
+}
+img{
+    width: 100%;
+}   

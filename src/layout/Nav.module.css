@@ -1,0 +1,19 @@
+nav{
+    width: 80%;
+    margin: auto;
+    font-family: 'Helvetica';
+    color: rgb(86, 85, 85);
+    font-weight: 400 !important;
+
+}
+nav h1 {
+    padding: 35px;
+    font-size: 25px;
+    font-weight: 300;
+    color: #333; /* Cor do texto */
+    font-family: 'Arial', sans-serif; /* Fonte limpa e moderna */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    border-bottom: 2px solid #ddd; /* Linha sutil abaixo do título */
+    margin: 0; /* Remove a margem padrão */
+}

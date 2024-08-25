@@ -1,0 +1,61 @@
+.secaonumerodamesa {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.secaonumerodamesa > h2 {
+    font-size: 22px;
+    font-weight: 600 !important;
+}
+
+.statusmesas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre as linhas de mesa */
+margin-top: 30px}
+
+.mesasituacao {
+    display: flex;
+    padding: 20px !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Ajuste o tamanho máximo conforme necessário */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd; /* Opcional: Adiciona uma borda para visualização */
+    border-radius: 5px; /* Opcional: Arredondar os cantos */
+}
+
+.mesasituacao button {
+    background-color: #d33333;
+    border: none;
+    color: white;
+    width: 120px; /* Ajuste a largura do botão */
+    padding: 15px 0; /* Ajuste o padding para melhor visualização */
+    font-size: 18px; /* Ajuste o tamanho da fonte do botão */
+    cursor: pointer;
+    border-radius: 5px; /* Opcional: Arredondar os cantos do botão */
+    margin: 0% ;
+}   
+
+.mesasituacao p {
+    margin: 0; /* Remove margens padrão do parágrafo */
+    font-size: 18px; /* Ajuste o tamanho da fonte do parágrafo */
+    text-align: center; /* Alinha o texto ao centro */
+    width: 200px; /* Ajuste a largura para igualar ao botão */
+    color: black;
+}
+
+.footeropcoes {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}

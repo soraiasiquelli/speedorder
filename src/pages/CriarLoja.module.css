@@ -1,0 +1,30 @@
+*{
+    font-family:  "Helvetica";
+
+}
+.secaoprincipal{
+    text-align: center;
+    border: 1px solid black;
+}
+.secaoprincipal > h1{
+    margin-top: 15%;
+    font-size: 25px;
+    color: #d33333;
+}
+.secaoprincipal > h2{
+    font-size: 20px;
+    padding: 20px;
+}
+p{
+    color: grey;
+    padding: 5px;
+}
+.btn{
+    width: 250px;
+    margin-top: 25px !important;
+    height: 50px;
+    background-color: #d33333; 
+   color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}

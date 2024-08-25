@@ -1,0 +1,51 @@
+.divpesquisa {
+    width: 100%; /* Ajuste para telas pequenas */
+    height: auto; /* Ajuste de altura automático */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap; /* Permitir quebra de linha em telas pequenas */
+    align-items: center;
+    justify-content: center; /* Centralizar itens em telas pequenas */
+}
+
+.search_input {
+    width: 80%; /* Ajuste para telas pequenas */
+    height: 50px; /* Altura fixa para consistência */
+    font-size: 18px; /* Fonte menor para telas pequenas */
+    border: 1px solid rgba(0, 0, 0, 0.332);
+    background-color: rgba(28, 65, 87, 0.1);
+    border-radius: 5px;
+    margin: 10px 0; /* Espaçamento superior e inferior */
+}
+
+::placeholder {
+    color: grey;
+    padding: 10px; /* Redução de padding para placeholder */
+}
+
+/* Media Queries para tamanhos de tela específicos */
+@media (min-width: 768px) {
+    .divpesquisa {
+        width: 90%; /* Ajuste para telas médias */
+        height: 10vh;
+    }
+
+    .search_input {
+        width: 60%; /* Ajuste para telas médias */
+        height: 50%; /* Altura ajustada */
+        font-size: 22px; /* Fonte maior para telas médias */
+    }
+}
+
+@media (min-width: 1024px) {
+    .divpesquisa {
+        width: 80%; /* Ajuste para telas grandes */
+        height: 10vh;
+    }
+
+    .search_input {
+        width: 40%; /* Ajuste para telas grandes */
+        height: 50%; /* Altura ajustada */
+        font-size: 25px; /* Fonte original para telas grandes */
+    }
+}
