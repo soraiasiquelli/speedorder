@@ -1,0 +1,23 @@
+main {
+    width: 90% !important;
+}
+.secaochat{
+    border: 2px solid black;
+    margin-top: 20%;
+    height: 85%;
+    width: 90%;
+}
+h2{
+    margin-bottom: 0% !important;
+    height: 0%;
+}
+.campodigitacao{
+    background-color: rgb(169, 165, 165);
+    width: 100%;
+    height: 10%;
+    margin-top: 128%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -5,8 +5,12 @@
 .secaoprincipal{
     text-align: center;
     border: 1px solid black;
+    height: 100vh;
 }
-.secaoprincipal > h1{
+form{
+    width: 100%;
+}
+.secaoprincipal > h2{
     margin-top: 15%;
     font-size: 25px;
     color: #d33333;
@@ -18,6 +22,11 @@
 p{
     color: grey;
     padding: 5px;
+    
+}
+.plink{
+    text-decoration: underline;
+    color: rgb(56, 56, 212);
 }
 .btn{
     width: 250px;

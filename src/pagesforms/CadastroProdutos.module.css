@@ -1,0 +1,41 @@
+/* Define a fonte padrão para o projeto */
+* {
+    font-family: "Helvetica";
+}
+
+/* Estilo principal da seção */
+.secaoprincipal {
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Estilo do título principal */
+.secaoprincipal > h2 {
+    margin-top: 10%;
+    font-size: 20px;
+    color: #d33333;
+}
+
+/* Estilo dos parágrafos */
+p {
+    color: grey;
+    padding: 5px;
+}
+
+/* Estilo dos links */
+.plink {
+    text-decoration: underline;
+    color: rgb(56, 56, 212);
+}
+
+/* Estilo do botão de submissão */
+.btn {
+    width: 250px;
+    margin-top: 25px !important;
+    height: 50px;
+    background-color: #d33333; 
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}

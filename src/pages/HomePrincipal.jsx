@@ -1,76 +1,47 @@
-import Header from "../layout/Header"
-import styles from "./HomePrincipal.module.css"
+// src/pages/HomePrincipal.jsx
+import Header from "../layout/Header";
+import styles from "./HomePrincipal.module.css";
 import { Link } from 'react-router-dom';
-import Login from "../secoes/Login";
-import { useEffect, useState } from 'react';
 import FooterOpcoes from "../layout/FooterOpcoes";
+import { useEffect, useState } from 'react';
 
+function HomePrincipal() {
+  const [nome, setNome] = useState('');
 
-function HomePrincipal({usuario}){
+  useEffect(() => {
+    const nomeUsuario = localStorage.getItem("nome_usuario");
+    if (nomeUsuario) {
+      setNome(nomeUsuario);
+    }
+  }, []); // Adicionei [] para que o efeito só rode uma vez
 
+  return (
+    <div className={styles.mainpage}>
 
-    const[nome, setNome] = useState('');
+      <main className={styles.mainContent}>
+        <header className={styles.headerWelcome}>
+          <h2>Bom dia, {nome}</h2>
+        </header>
 
+        <section className={styles.sectionBlocos}>
+          <div className={styles.opcaoBloco}>
+            <Link to="/ultimos-pedidos" className={styles.link}>Últimos Pedidos</Link>
+          </div>
+          <div className={styles.opcaoBloco}>
+            <Link to="/pedidos-prontos" className={styles.link}>Pedidos Prontos</Link>
+          </div>
+          <div className={styles.opcaoBloco}>
+            <Link to="/pedidos-em-preparo" className={styles.link}>Pedidos em Preparo</Link>
+          </div>
+          <div className={styles.opcaoBloco}>
+            <Link to="/historico-pedidos" className={styles.link}>Histórico de Pedidos</Link>
+          </div>
+        </section>
 
-    useEffect(()=>{
-
-        const nomeUsuario = localStorage.getItem("nome_usuario")
-
-        if (nomeUsuario) {
-            setNome(nomeUsuario);
-        }
-    })
-
-
-
-
-
-    return(
-        <div className={styles.mainpage}>
-
-            <Header nomepage="Pedidos e Serviços Flex"/>
-        
-
-
-            <main>
-                <div className={styles.sectionmain}>
-                    <header className={styles.header_welcome}>
-                        <h2>Bom dia <br></br> {nome} </h2>
-                        <img src="chapeuchefprincipal.png" alt="" />
-                    </header>
-
-                <section className={styles.secaoblocos}>
-
-                <div className={styles.opcaobloco}>
-                
-                <Link> <p>Últimos Pedidos</p></Link>
-                </div>
-                <div className={styles.opcaobloco}>
-                <Link> <p>Pedidos Prontos</p></Link>
-                </div>
-                <div className={styles.opcaobloco}>
-                <Link> <p>Pedidos Prontos</p></Link>
-
-                </div>
-                <div className={styles.opcaobloco}> 
-                <Link> <p>Pedidos Prontos</p></Link>
-                </div>
-
-                </section>
-
-             <FooterOpcoes/>
-
-                 </div>
-                
-            </main>
-
-
-
-
-
-
-        </div>
-    )
+        <FooterOpcoes />
+      </main>
+    </div>
+  );
 }
 
-export default HomePrincipal
+export default HomePrincipal;

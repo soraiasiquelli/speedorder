@@ -1,0 +1,65 @@
+/* Define a fonte padrão para o projeto */
+* {
+    font-family: "Helvetica";
+}
+
+/* Estilo principal da seção */
+.container {
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+    border: 1px solid black;
+}
+
+/* Estilo da navegação */
+.nav {
+    margin-top: 60%;
+}
+
+/* Estilo dos botões de navegação */
+.nav button {
+    margin: 0 10px;
+    margin-top: 5%;
+    padding: 10px 20px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d33333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilo dos botões de navegação quando ativos */
+.nav button.active {
+    background-color: #b32d2d;
+}
+
+
+/* Estilo do conteúdo */
+.content {
+    margin-top: 20px;
+}
+
+/* Estilo dos parágrafos dentro do conteúdo */
+.content p {
+    color: grey;
+    padding: 5px;
+}
+
+/* Estilo dos links dentro do conteúdo */
+.content .plink {
+    text-decoration: underline;
+    color: rgb(56, 56, 212);
+}
+
+/* Estilo do botão de submissão dentro do conteúdo */
+.content .btn {
+    width: 250px;
+    margin-top: 5px !important;
+    height: 50px;
+    background-color: #d33333;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}

@@ -1,53 +1,34 @@
-import Header from "../layout/Header";
-import styles from "./PersonalizacaoLoja.module.css";
-import { Link } from 'react-router-dom';
-import Login from "../secoes/Login";
-import { useEffect, useState } from 'react';
-import FooterOpcoes from "../layout/FooterOpcoes";
+// src/pages/PersonalizacaoLoja.jsx
+import React from 'react';
+import styles from './PersonalizacaoLoja.module.css';
+import FooterOpcoes from '../layout/FooterOpcoes';
 
 function PersonalizacaoLoja() {
     return (
-        <div className={styles.secaoprincipalpersonalizacao}>
-            <div className={styles.secaoaparecia}> 
-                <img src="" alt="" />
-                <p>Nome da Loja</p>
-                <p>Endereco da Loja</p>
-            </div>
-
-            <div className={styles.secaoconfig}>
-
-
-                <div className={styles.blococonfig}>
-                  
-                    <div className={styles.blococoluna}>
-                <p>Telefone</p>                  
-                  </div>
-
-                    <div className={styles.blococoluna}>
-
+        <div className={styles.container}>
+            <header className={styles.header}>
+                <h1>Personalização da Loja</h1>
+            </header>
+            <section className={styles.aparencia}>
+                <img src="" alt="Imagem da Loja" className={styles.logo} />
+                <div className={styles.info}>
+                    <h2>Nome da Loja</h2>
+                    <p>Endereço da Loja</p>
+                </div>
+            </section>
+            <section className={styles.configuracoes}>
+                <div className={styles.configItem}>
+                    <h3>Telefone</h3>
                     <p>11944007513</p>
-                    </div>
                 </div>
-
-                <div className={styles.blococonfig}>
-                  
-                    <div className={styles.blococoluna}>
-                <p>Site</p>                  
-                  </div>
-
-                    <div className={styles.blococoluna}>
-
+                <div className={styles.configItem}>
+                    <h3>Site</h3>
                     <p>siquelliweb.com.br</p>
-                    </div>
                 </div>
-
-                
-
-                <FooterOpcoes/>
-
-            </div>
-        </div> 
-    ); // Fechamento da função PersonalizacaoLoja
+            </section>
+            <FooterOpcoes />
+        </div>
+    );
 }
 
 export default PersonalizacaoLoja;

@@ -43,7 +43,23 @@ div.detalhespedidoescolhido > h1 {
     width: 100%; /* Ajuste para telas pequenas */
     margin-top: 10px; /* Espaçamento superior */
 }
+nav.infos{
+    
+    border: 1px solid violet;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+.infos > ul{
+    display: flex;
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+    margin: 0;}
+.infos > ul li´{
+    display: inline;
+}
 textarea {
     width: 100%; /* Ajuste para telas pequenas */
     height: 20%;

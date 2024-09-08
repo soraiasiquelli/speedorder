@@ -6,7 +6,8 @@ function FooterOpcoes(){
         <footer className={styles.footermenu}>
 
 
-        <div className={styles.topicomenu}>1</div>
+        <div className={styles.topicomenu}> <Link to="/homeprincipal">1
+        </Link></div>
         <div className={styles.topicomenu}>2</div>
         <div className={styles.topicomenu}>
 
@@ -15,7 +16,8 @@ function FooterOpcoes(){
         </Link>
 
         </div>
-        <div className={styles.topicomenu}>4</div>
+        <div className={styles.topicomenu}> <Link to="/chamadocozinha">4
+        </Link></div>
 
         <div className={styles.topicomenu}>
             <Link to="/personalizacaoloja">5

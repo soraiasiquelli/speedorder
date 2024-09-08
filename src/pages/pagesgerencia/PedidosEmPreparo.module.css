@@ -1,0 +1,24 @@
+/* src/pages/PedidosEmPreparo.module.css */
+.pageContainer {
+    padding: 20px;
+    background-color: #f0f2f5;
+    height: 100vh;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    color: #333;
+  }
+  
+  .mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    font-size: 18px;
+  }
+  

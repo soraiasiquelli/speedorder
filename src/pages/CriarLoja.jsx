@@ -5,31 +5,52 @@ import { useState } from 'react';
 
 function CriarLoja() {
     const [email, setEmail] = useState('');
-    const [nomedaloja, setNomeLoja] = useState('');
-    const [nomecompleto, setNomeCompleto] = useState('');
-    const [nomeusuario, setNomeUsuario] = useState('');
+    const [nomeEstabelecimento, setNomeEstabelecimento] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [telefone, setTelefone] = useState('');
 
     const navigate = useNavigate(); // Inicializa o hook useNavigate
-
-    const criacaoLoja = (e) => {
+    const criacaoLoja = async (e) => {
         e.preventDefault(); // Previne o comportamento padrão do formulário
-
-        // Salvando os dados no localStorage
-        localStorage.setItem("email", email);
-        localStorage.setItem("nomedaloja", nomedaloja);
-        localStorage.setItem("nomecompleto", nomecompleto);
-        localStorage.setItem("nomedeusuario", nomeusuario);
-
-        // Redireciona para a página home01
-        navigate("/homeprincipal");
+    
+        // Verificação simples antes de enviar os dados
+        if (!email || !nomeEstabelecimento || !endereco || !telefone) {
+            console.error("Todos os campos são obrigatórios!");
+            return;
+        }
+    
+        try {
+            const response = await fetch("http://localhost:3000/cadastroestabelecimento", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    nome_estabelecimento: nomeEstabelecimento,
+                    endereco,
+                    telefone
+                })
+            });
+            console.log(response);
+            if (response.ok) {
+                console.log("Estabelecimento cadastrado com sucesso!");
+                navigate("/pagesforms/cadastroadmin"); // Redireciona para a próxima página
+            } else {
+                console.error("Erro ao cadastrar o estabelecimento:", await response.text());
+            }
+        } catch (err) {
+            console.error("Erro na requisição:", err);
+        }
     };
+    
 
     return (
         <div className={styles.secaoprincipal}>
-            <h2>Registre Seu Restaurante</h2>
-            <p> Descubra a facilidade e eficiência de gerenciar pedidos com nossa plataforma intuitiva.</p>
+            <h2>Registre Seu Estabelecimento</h2>
+            <p>Descubra a facilidade e eficiência de gerenciar pedidos com nossa plataforma intuitiva.</p>
 
-            <form onSubmit={criacaoLoja}>
+            <form onSubmit={criacaoLoja} method="POST">
                 <Input
                     type="email"
                     text="Digite seu email: "
@@ -39,42 +60,30 @@ function CriarLoja() {
                 />
                 <Input
                     type="text"
-                    text="Digite o nome da sua loja: "
-                    name="nomeloja"
-                    placeholder="Nome da Loja:"
-                    handleOnChange={(e) => setNomeLoja(e.target.value)}
+                    text="Digite o nome do estabelecimento: "
+                    name="nome_estabelecimento"
+                    placeholder="Nome do estabelecimento"
+                    handleOnChange={(e) => setNomeEstabelecimento(e.target.value)}
                 />
                 <Input
                     type="text"
-                    text="Digite seu nome completo: "
-                    name="nomecompleto"
-                    placeholder="Nome completo:"
-                    handleOnChange={(e) => setNomeCompleto(e.target.value)}
+                    text="Digite o endereço: "
+                    name="endereco"
+                    placeholder="Endereço:"
+                    handleOnChange={(e) => setEndereco(e.target.value)}
                 />
                 <Input
                     type="text"
-                    text="Digite seu usuário "
-                    name="nomeusuario"
-                    placeholder="Nome de usuário: "
-                    handleOnChange={(e) => setNomeUsuario(e.target.value)}
+                    text="Digite o telefone: "
+                    name="telefone"
+                    placeholder="Telefone"
+                    handleOnChange={(e) => setTelefone(e.target.value)}
                 />
-                <Input
-                    type="password"
-                    text="Digite sua senha: "
-                    name="senha"
-                    placeholder="Digite sua senha:"
-                />
-                <Input
-                    type="password"
-                    text="Confirme sua senha: "
-                    name="confirm_senha"
-                    placeholder="Confirme sua senha:"
-                />
-                <button className={styles.btn} type="submit">ENTRAR</button>
+               
+                <button className={styles.btn} type="submit">Cadastrar</button>
             </form>
 
-           
-            <Link to="/home"><p>Já tenho uma loja/Sou funcionário de uma loja</p></Link>
+            <Link to="/home"><p className={styles.plink}>Já tenho uma loja/Sou funcionário de uma loja</p></Link>
         </div>
     );
 }

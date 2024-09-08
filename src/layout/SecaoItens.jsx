@@ -10,7 +10,9 @@ function SecaoItens(){
   src="./imagescomidas/hamburguer1.jpeg" 
   label_title="Cheeseburger" 
   p_descricao="Hambúrguer com queijo, alface, tomate e maionese." 
-  p_preco="R$25,00" 
+  p_preco="R$25,00"
+  time_info = "12 mins"
+  calorias_info = "121.9" 
 />
 
 <CardItem 
