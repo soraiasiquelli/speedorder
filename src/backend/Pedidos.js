@@ -5,14 +5,14 @@ const Pedidos = db.sequelize.define('pedidos', {
   id_pedido: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
-    primaryKey: true // Corrigido de 'primarykey' para 'primaryKey'
+    primaryKey: true
   },
   id_estabelecimento: {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
       model: 'estabelecimentos',
-      key: 'id_estabelecimento' // Corrigido de 'id_estabelecimentos' para 'id_estabelecimento'
+      key: 'id_estabelecimento'
     }
   },
   id_garcom: {
@@ -20,7 +20,7 @@ const Pedidos = db.sequelize.define('pedidos', {
     allowNull: false,
     references: {
       model: 'garcons',
-      key: 'id_garcom' // Corrigido de 'id_garcons' para 'id_garcom'
+      key: 'id_garcom'
     }
   },
   id_mesa: {

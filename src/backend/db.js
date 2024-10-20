@@ -1,10 +1,9 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('speedorder', 'root', '123456', {
+const sequelize = new Sequelize('bd_speedorder', 'root', '123456', {
     host: 'localhost',
     dialect: 'mysql'
 });
-
 
 const db = {
     sequelize,
@@ -26,9 +25,5 @@ db.sequelize.sync({ force: false })
   .catch(err => {
     console.error("Erro ao sincronizar tabelas:", err);
   });
-module.exports = {
-    Sequelize: Sequelize,
-    sequelize: sequelize
-};
 
 module.exports = db;

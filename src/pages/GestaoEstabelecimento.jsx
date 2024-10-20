@@ -4,6 +4,7 @@ import styles from './GestaoEstabelecimento.module.css';
 import CadastroMesas from '../pagesforms/CadastroMesas';
 import CadastroGarcons from '../pagesforms/CadastroGarcons';
 import CadastroProdutos from '../pagesforms/CadastroProdutos';
+import FooterOpcoes from '../layout/FooterOpcoes';
 
 
 function GestaoEstabelecimento() {
@@ -19,7 +20,8 @@ function GestaoEstabelecimento() {
 
             </nav>
 
-           
+            <FooterOpcoes />
+
         </div>
     );
 }

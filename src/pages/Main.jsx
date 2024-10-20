@@ -2,6 +2,8 @@
 import styles from "./Main.module.css"
 import { Link } from "react-router-dom"
 import logo from '../images/logo.png';  // Caminho relativo a partir do arquivo onde você está usando a imagem
+import logospeed from '../images/logospeed.png';  // Caminho relativo a partir do arquivo onde você está usando a imagem
+
 
 function Main(){
 
@@ -11,18 +13,26 @@ function Main(){
 
 
 
-        <img src={logo} alt="" />
+        <img src={logospeed} alt="" />
 
+        <Link to="/pagesforms/cadastroadmin">
 
-        <Link to="/cadastroestabelecimento">
         <button className={styles.botaoiniciar}> 
     
-            Iniciar Agora
+            Começar Agora
         </button>
         </Link>
+
+
+        <footer>
+
+        Desenvolvido com ❤️ por Soraia Siquelli
+
+        </footer>
+
       </main>
 
-
+      
 
 
     )

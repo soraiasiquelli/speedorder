@@ -4,7 +4,6 @@
 }
 .secaoprincipal{
     text-align: center;
-    border: 1px solid black;
     height: 100vh;
 }
 form{
@@ -13,16 +12,17 @@ form{
 .secaoprincipal > h2{
     margin-top: 15%;
     font-size: 25px;
-    color: #d33333;
+    color: #d33333 !important;
 }
 .secaoprincipal > h2{
     font-size: 20px;
+    margin-top: 20%;
     padding: 20px;
 }
 p{
     color: grey;
     padding: 5px;
-    
+    margin-top: 50px;
 }
 .plink{
     text-decoration: underline;

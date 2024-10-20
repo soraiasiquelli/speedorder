@@ -28,26 +28,27 @@ function CadastroAdmin() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: email, // Verifique se esse nome está correto
-                    nome: nome, // Verifique se esse nome está correto
-                    telefone: telefone, // Verifique se esse nome está correto
-                    senha: senha// Verifique se esse nome está correto
+                    email: email, // Altere conforme o campo enviado no corpo da requisição
+                    nome: nome, // Altere conforme o campo enviado no corpo da requisição
+                    telefone: telefone, // Altere conforme o campo enviado no corpo da requisição
+                    senha: senha // Altere conforme o campo enviado no corpo da requisição
                 })
             });
     
             console.log(response);
             if (response.ok) {
-                console.log("Adm cadastrado com sucesso!");
-                navigate("/gestaoestabelecimento"); // Redireciona para a próxima página
+                console.log("Administrador cadastrado com sucesso!");
+                navigate("/cadastroestabelecimento"); // Redireciona para a próxima página
             } else {
-                console.error("Erro ao cadastrar o adm:", await response.text());
+                const errorMessage = await response.text();
+                console.error("Erro ao cadastrar o administrador:", errorMessage);
+                setError(errorMessage); // Define a mensagem de erro para exibição
             }
         } catch (err) {
             console.error("Erro na requisição:", err);
+            setError("Erro ao cadastrar o administrador. Tente novamente."); // Define uma mensagem de erro genérica
         }
     };
-    
-    
 
     return (
         <main className={styles.secaoprincipal}>
@@ -99,8 +100,6 @@ function CadastroAdmin() {
 
                 <button className={styles.btn} type="submit">Cadastrar</button>
             </form>
-
-    
         </main>
     );
 }

@@ -4,7 +4,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./db'); // Importando a configuração do banco de dados
 const Estabelecimento = require(path.join(__dirname, 'Loja'));
-const Administrador = require(path.join(__dirname, 'Administradores'));
+const Administrador = require(path.join(__dirname, 'Administrador'));
+const Mesa = require(path.join(__dirname, 'Mesas')); // Importando o modelo de Mesa
+const Itens = require('./Itens'); // Importa o modelo de itens
+
 
 const app = express();
 
@@ -19,16 +22,16 @@ app.use(bodyParser.json());
 // Rota para cadastro de lojas
 app.post("/cadastroestabelecimento", async (req, res) => {
     console.log("Rota /cadastroestabelecimento chamada");
-    console.log("Dados recebidos:", req.body); // Log para ver os dados recebidos
+    console.log("Dados recebidos:", req.body);  // Verificando dados recebidos
 
     try {
-        await Estabelecimento.create({
+        const novoEstabelecimento = await Estabelecimento.create({
             nome_estabelecimento: req.body.nome_estabelecimento,
             email: req.body.email,
             endereco: req.body.endereco,
             telefone: req.body.telefone
         });
-        console.log("Estabelecimento cadastrado com sucesso!");
+        console.log("Estabelecimento cadastrado com sucesso!", novoEstabelecimento);
         res.status(201).send("Estabelecimento cadastrado com sucesso!");
     } catch (err) {
         if (err.name === 'SequelizeUniqueConstraintError') {
@@ -41,18 +44,19 @@ app.post("/cadastroestabelecimento", async (req, res) => {
     }
 });
 
+// Rota para cadastrar administrador
 app.post("/pagesforms/cadastroadmin", async (req, res) => {
     console.log("Rota /pagesforms/cadastroadmin chamada");
-    console.log("Dados recebidos:", req.body); // Log para ver os dados recebidos
+    console.log("Dados recebidos:", req.body);  // Verificando dados recebidos
 
     try {
-        await Administrador.create({
-            nome: req.body.nome, // Ajuste o nome dos campos aqui
+        const novoAdministrador = await Administrador.create({
+            nome: req.body.nome,
             email: req.body.email,
-            senha: req.body.senha, // Adicione o campo senha
+            senha: req.body.senha,
             telefone: req.body.telefone
         });
-        console.log("Administrador cadastrado com sucesso!");
+        console.log("Administrador cadastrado com sucesso!", novoAdministrador);
         res.status(201).send("Administrador cadastrado com sucesso!");
     } catch (err) {
         if (err.name === 'SequelizeUniqueConstraintError') {
@@ -64,6 +68,46 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
         }
     }
 });
+
+// Rota para cadastrar mesas
+app.post("/cadastromesas", async (req, res) => {
+    console.log("Rota /cadastromesa chamada");
+    console.log("Dados recebidos:", req.body);  // Verificando dados recebidos
+
+    try {
+        const novaMesa = await Mesa.create({
+            capacidade: req.body.capacidade, // Recebendo a capacidade da mesa
+            status: req.body.status || 'livre' // Recebendo o status da mesa (opcional, padrão é 'livre')
+        });
+        console.log("Mesa cadastrada com sucesso!", novaMesa);
+        res.status(201).send("Mesa cadastrada com sucesso!");
+    } catch (err) {
+        console.error("Erro ao cadastrar a mesa: ", err);
+        res.status(500).send("Erro ao cadastrar a mesa.");
+    }
+});
+
+// Rota para cadastrar itens
+app.post("/cadastroprodutos", async (req, res) => {
+    console.log("Rota /cadastroprodutos chamada");
+    console.log("Dados recebidos:", req.body);  // Verificando dados recebidos
+
+    try {
+        const novoItem = await Itens.create({
+            nome_item: req.body.nome_item,
+            descricao: req.body.descricao,
+            preco: req.body.preco,
+            categoria: req.body.categoria,
+            imagem: req.body.imagem // Adicionando o campo da imagem
+        });
+        console.log("Item cadastrado com sucesso!", novoItem);
+        res.status(201).send("Item cadastrado com sucesso!");
+    } catch (err) {
+        console.error("Erro ao cadastrar o item: ", err);
+        res.status(500).send("Erro ao cadastrar o item.");
+    }
+});
+
 
 // Sincroniza o modelo com o banco de dados
 db.sequelize.sync()

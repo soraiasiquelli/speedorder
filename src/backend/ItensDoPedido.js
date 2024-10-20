@@ -34,7 +34,7 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
 });
 
 // Sincroniza o modelo com o banco de dados
-ItensDoPedido.sync({ force: false })
+ItensDoPedido.sync({ force: false }) // `force: false` impede que a tabela seja recriada se já existir
   .then(() => {
     console.log("Tabela 'itens_do_pedido' sincronizada com sucesso");
   })

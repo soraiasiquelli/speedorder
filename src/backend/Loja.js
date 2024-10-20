@@ -1,49 +1,32 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
+const { DataTypes } = require('sequelize');
+const db = require('./db'); // Importando a configuração do banco de dados
 
-const Estabelecimento = db.sequelize.define("estabelecimentos", {
-    id_estabelecimento: {
-      type: db.Sequelize.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+const Estabelecimento = db.sequelize.define('loja', {
+    id_loja: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
     },
-    nome_estabelecimento: { 
-      type: db.Sequelize.STRING,
-      allowNull: false
+    nome_estabelecimento: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     endereco: {
-      type: db.Sequelize.STRING,
-      allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
     },
     telefone: {
-      type: db.Sequelize.STRING,
-      allowNull: false
+        type: DataTypes.STRING,
+        allowNull: true
     },
     email: {
-      type: db.Sequelize.STRING,
-      allowNull: false,
-      unique: true
-    },
-    licenca_ativa: {
-      type: db.Sequelize.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
-    },
-    data_criacao: {
-      type: db.Sequelize.DATE,
-      defaultValue: db.Sequelize.NOW
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     }
-  });
-  
-  
-  module.exports = Estabelecimento;
-  
+}, {
+    tableName: 'loja', // Nome da tabela no banco de dados
+    timestamps: false // Se você não está usando timestamps
+});
 
-// Sincroniza o modelo com o banco de dados
-Estabelecimento.sync({ force: false })
-    .then(() => {
-        console.log("Tabela 'estabelecimentos' sincronizada.");
-    })
-    .catch(err => {
-        console.error("Erro ao sincronizar a tabela 'estabelecimentos': ", err);
-    });
+module.exports = Estabelecimento;

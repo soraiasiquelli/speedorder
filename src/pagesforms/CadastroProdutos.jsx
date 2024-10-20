@@ -1,100 +1,103 @@
 import { useState } from 'react';
-import styles from './CadastroProdutos.module.css'; // Supondo que o CSS é nomeado como CadastroProdutos.module.css
-import Input from "../form/Input"; // Certifique-se de que o caminho para Input está correto
+import styles from './CadastroProdutos.module.css';
+import Input from "../form/Input"; // Importando o componente de input
+import { useNavigate } from 'react-router-dom';
 
-function CadastroProdutos() {
-    const [idEstabelecimento, setIdEstabelecimento] = useState('');
-    const [nomeProduto, setNomeProduto] = useState('');
+function CadastroItens() {
+    const [nomeItem, setNomeItem] = useState('');
     const [descricao, setDescricao] = useState('');
     const [preco, setPreco] = useState('');
     const [categoria, setCategoria] = useState('');
-    const [disponibilidade, setDisponibilidade] = useState('');
+    const [imagem, setImagem] = useState(''); // Novo estado para a imagem
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Lógica para enviar dados do produto
-        const produtoData = {
-            id_estabelecimento: idEstabelecimento,
-            nome_produto: nomeProduto,
-            descricao,
-            preco,
-            categoria,
-            disponibilidade
-        };
+    const navigate = useNavigate(); // Inicializa o hook useNavigate
 
-        // Exemplo de envio de dados para o backend
-        fetch('http://localhost:3000/adicionarProduto', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(produtoData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Produto cadastrado:', data);
-        })
-        .catch(error => {
-            console.error('Erro ao cadastrar produto:', error);
-        });
+    const cadastroItem = async (e) => {
+        e.preventDefault(); // Previne o comportamento padrão do formulário
+
+        // Verificação simples antes de enviar os dados
+        if (!nomeItem || !preco) {
+            alert("Todos os campos obrigatórios!");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:3000/cadastroprodutos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome_item: nomeItem,
+                    descricao,
+                    preco,
+                    categoria,
+                    imagem // Enviando a imagem
+                })
+            });
+
+            if (response.ok) {
+                console.log("Item cadastrado com sucesso!");
+                navigate("/gestaoestabelecimento"); // Redireciona para a próxima página
+            } else {
+                const errorText = await response.text();
+                console.error("Erro ao cadastrar o item:", errorText);
+                alert(`Erro ao cadastrar o item: ${errorText}`); // Mostra um alerta com a mensagem de erro
+            }
+        } catch (err) {
+            console.error("Erro na requisição:", err);
+            alert(`Erro na requisição: ${err.message}`); // Mostra um alerta com a mensagem de erro
+        }
     };
 
     return (
         <main className={styles.secaoprincipal}>
-            <h2>Cadastro de Produtos</h2>
-            <form onSubmit={handleSubmit}>
-                <Input 
-                    type="number"
-                    text="ID do Estabelecimento"
-                    name="id_estabelecimento"
-                    placeholder="ID do Estabelecimento"
-                    value={idEstabelecimento}
-                    onChange={(e) => setIdEstabelecimento(e.target.value)}
-                />
+            <h2>Cadastro de Itens</h2>
+            <form onSubmit={cadastroItem} method='POST'>
                 <Input 
                     type="text"
-                    text="Nome do Produto"
-                    name="nome_produto"
-                    placeholder="Nome do Produto"
-                    value={nomeProduto}
-                    onChange={(e) => setNomeProduto(e.target.value)}
+                    text="Nome do Item"
+                    name="nome_item"
+                    placeholder="Nome do Item"
+                    value={nomeItem}
+                    handleOnChange={(e) => setNomeItem(e.target.value)}
                 />
                 <Input 
                     type="text"
                     text="Descrição"
                     name="descricao"
-                    placeholder="Descrição do Produto"
+                    placeholder="Descrição do Item"
                     value={descricao}
-                    onChange={(e) => setDescricao(e.target.value)}
+                    handleOnChange={(e) => setDescricao(e.target.value)}
                 />
                 <Input 
                     type="number"
                     text="Preço"
                     name="preco"
-                    placeholder="Preço"
+                    placeholder="Preço do Item"
                     value={preco}
-                    onChange={(e) => setPreco(e.target.value)}
+                    handleOnChange={(e) => setPreco(e.target.value)}
                 />
                 <Input 
                     type="text"
                     text="Categoria"
                     name="categoria"
-                    placeholder="Categoria do Produto"
+                    placeholder="Categoria do Item"
                     value={categoria}
-                    onChange={(e) => setCategoria(e.target.value)}
+                    handleOnChange={(e) => setCategoria(e.target.value)}
                 />
                 <Input 
                     type="text"
-                    text="Disponibilidade"
-                    name="disponibilidade"
-                    placeholder="Disponibilidade"
-                    value={disponibilidade}
-                    onChange={(e) => setDisponibilidade(e.target.value)}
+                    text="URL da Imagem"
+                    name="imagem"
+                    placeholder="URL da Imagem do Item"
+                    value={imagem}
+                    handleOnChange={(e) => setImagem(e.target.value)}
                 />
-                <button className={styles.btn} type="submit">Cadastrar Produto</button>
+                <button className={styles.btn} type="submit">Cadastrar Item</button>
             </form>
         </main>
     );
 }
 
-export default CadastroProdutos;
+export default CadastroItens;

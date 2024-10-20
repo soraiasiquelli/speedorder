@@ -16,7 +16,7 @@ function FooterOpcoes(){
         </Link>
 
         </div>
-        <div className={styles.topicomenu}> <Link to="/chamadocozinha">4
+        <div className={styles.topicomenu}> <Link to="/gestaoestabelecimento">4
         </Link></div>
 
         <div className={styles.topicomenu}>

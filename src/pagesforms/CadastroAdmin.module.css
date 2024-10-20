@@ -7,20 +7,24 @@
 .secaoprincipal {
     text-align: center;
     height: 100vh;
-    width: 100%;
 }
 
 /* Estilo do título principal */
-.secaoprincipal > h2 {
-    margin-top: 10%;
-    font-size: 20px;
-    color: #d33333;
+.secaoprincipal > h2{
+    margin-top: 15%;
+    font-size: 25px;
+    color: #d33333 !important;
 }
-
-/* Estilo dos parágrafos */
-p {
+.secaoprincipal > h2{
+    font-size: 20px;
+    margin-top: 20%;
+    padding: 20px;
+}
+p{
     color: grey;
     padding: 5px;
+
+    
 }
 
 /* Estilo dos links */

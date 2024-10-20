@@ -9,17 +9,26 @@ function CriarLoja() {
     const [endereco, setEndereco] = useState('');
     const [telefone, setTelefone] = useState('');
 
-    const navigate = useNavigate(); // Inicializa o hook useNavigate
+    const navigate = useNavigate();
+
     const criacaoLoja = async (e) => {
-        e.preventDefault(); // Previne o comportamento padrão do formulário
-    
+        e.preventDefault();
+
         // Verificação simples antes de enviar os dados
         if (!email || !nomeEstabelecimento || !endereco || !telefone) {
             console.error("Todos os campos são obrigatórios!");
             return;
         }
-    
+
         try {
+            // Verificando os dados antes de enviar
+            console.log({
+                email,
+                nome_estabelecimento: nomeEstabelecimento,
+                endereco,
+                telefone
+            });
+
             const response = await fetch("http://localhost:3000/cadastroestabelecimento", {
                 method: "POST",
                 headers: {
@@ -32,18 +41,18 @@ function CriarLoja() {
                     telefone
                 })
             });
-            console.log(response);
+
             if (response.ok) {
                 console.log("Estabelecimento cadastrado com sucesso!");
-                navigate("/pagesforms/cadastroadmin"); // Redireciona para a próxima página
+                navigate("/homeprincipal");
             } else {
-                console.error("Erro ao cadastrar o estabelecimento:", await response.text());
+                const errorMessage = await response.text();
+                console.error("Erro ao cadastrar o estabelecimento:", errorMessage);
             }
         } catch (err) {
             console.error("Erro na requisição:", err);
         }
     };
-    
 
     return (
         <div className={styles.secaoprincipal}>
@@ -79,7 +88,6 @@ function CriarLoja() {
                     placeholder="Telefone"
                     handleOnChange={(e) => setTelefone(e.target.value)}
                 />
-               
                 <button className={styles.btn} type="submit">Cadastrar</button>
             </form>
 

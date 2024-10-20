@@ -4,18 +4,15 @@ import Input from "../form/Input";
 import { useNavigate } from 'react-router-dom';
 
 function CadastroMesas() {
-    const [numero, setNumero] = useState('');
-    const [capacidade, setCapacidade] = useState('');
-    const [idEstabelecimento, setIdEstabelecimento] = useState('');
-
+    const [capacidade, setCapacidade] = useState(''); // Removido o estado para número da mesa
     const navigate = useNavigate(); // Inicializa o hook useNavigate
 
     const cadastroMesa = async (e) => {
         e.preventDefault(); // Previne o comportamento padrão do formulário
 
         // Verificação simples antes de enviar os dados
-        if (!numero || !capacidade || !idEstabelecimento) {
-            alert("Todos os campos são obrigatórios!");
+        if (!capacidade) {
+            alert("A capacidade é obrigatória!");
             return;
         }
 
@@ -26,9 +23,8 @@ function CadastroMesas() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    id_estabelecimento: idEstabelecimento,
-                    numero_mesa: numero,
-                    capacidade
+                    capacidade, // Apenas a capacidade está sendo enviada
+                    // O status pode ser definido aqui se necessário
                 })
             });
 
@@ -52,27 +48,11 @@ function CadastroMesas() {
             <form onSubmit={cadastroMesa} method='POST'>
                 <Input 
                     type="number"
-                    text="Número da Mesa"
-                    name="numero_mesa"
-                    placeholder="Número da Mesa"
-                    value={numero}
-                    handleOnChange={(e) => setNumero(e.target.value)}
-                />
-                <Input 
-                    type="number"
                     text="Capacidade"
                     name="capacidade"
                     placeholder="Capacidade da Mesa"
                     value={capacidade}
                     handleOnChange={(e) => setCapacidade(e.target.value)}
-                />
-                <Input 
-                    type="number"
-                    text="ID do Estabelecimento"
-                    name="id_estabelecimento"
-                    placeholder="ID do Estabelecimento"
-                    value={idEstabelecimento}
-                    handleOnChange={(e) => setIdEstabelecimento(e.target.value)}
                 />
                 <button className={styles.btn} type="submit">Cadastrar Mesa</button>
             </form>

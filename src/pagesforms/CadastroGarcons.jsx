@@ -19,20 +19,26 @@ function CadastroGarcons() {
         };
 
         // Exemplo de envio de dados para o backend
-        fetch('http://localhost:3000/adicionarGarcom', {
+        fetch('http://localhost:3000/pagesforms/cadastrogarcons', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(garcomData)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na resposta: ${response.status}`);
+            }
+            return response.json(); // Certifique-se de que a resposta está em JSON
+        })
         .then(data => {
             console.log('Garçom cadastrado:', data);
         })
         .catch(error => {
             console.error('Erro ao cadastrar garçom:', error);
         });
+        
     };
 
     return (
