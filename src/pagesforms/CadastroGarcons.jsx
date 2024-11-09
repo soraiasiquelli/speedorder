@@ -1,82 +1,92 @@
 import { useState } from 'react';
-import styles from './CadastroGarcons.module.css';  // Supondo que o CSS é nomeado como CadastroGarcons.module.css
-import Input from "../form/Input";  // Certifique-se de que o caminho para Input está correto
+import styles from './CadastroGarcons.module.css';
+import { useNavigate } from 'react-router-dom';
+import Input from "../form/Input";
 
 function CadastroGarcons() {
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
     const [dataContratacao, setDataContratacao] = useState('');
+    const [error, setError] = useState(''); // Estado para armazenar a mensagem de erro
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
+
+    const cadastroGarcom = async (e) => {
         e.preventDefault();
-        // Lógica para enviar dados do garçom
-        const garcomData = {
-            nome,
-            telefone,
-            email,
-            dataContratacao
-        };
 
-        // Exemplo de envio de dados para o backend
-        fetch('http://localhost:3000/pagesforms/cadastrogarcons', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(garcomData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro na resposta: ${response.status}`);
+        try {
+            const response = await fetch("http://localhost:3000/cadastrogarcons", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome,
+                    telefone,
+                    email,
+                    dataContratacao
+                })
+            });
+
+            if (response.ok) {
+                console.log("Garçom cadastrado com sucesso!");
+                navigate("/pagina-de-sucesso"); // Redireciona para a página de sucesso ou outra rota
+            } else {
+                const errorMessage = await response.text();
+                console.error("Erro ao cadastrar o garçom:", errorMessage);
+                setError(errorMessage); // Define a mensagem de erro para exibição
             }
-            return response.json(); // Certifique-se de que a resposta está em JSON
-        })
-        .then(data => {
-            console.log('Garçom cadastrado:', data);
-        })
-        .catch(error => {
-            console.error('Erro ao cadastrar garçom:', error);
-        });
-        
+        } catch (err) {
+            console.error("Erro na requisição:", err);
+            setError("Erro ao cadastrar o garçom. Tente novamente."); // Define uma mensagem de erro genérica
+        }
     };
 
     return (
         <main className={styles.secaoprincipal}>
-            <h2>Cadastro de Garçons</h2>
-            <form onSubmit={handleSubmit}>
+            <h2>Cadastro de Garçom</h2>
+            <p>Preencha o formulário abaixo para cadastrar um novo garçom</p>
+
+            <form onSubmit={cadastroGarcom}>
                 <Input 
                     type="text"
-                    text="Nome"
+                    text="Nome do Garçom"
                     name="nome"
-                    placeholder="Nome do Garçom"
+                    placeholder="Nome completo do garçom"
                     value={nome}
-                    onChange={(e) => setNome(e.target.value)}
+                    handleOnChange={(e) => setNome(e.target.value)}            
                 />
+
                 <Input 
                     type="text"
                     text="Telefone"
                     name="telefone"
-                    placeholder="Telefone"
+                    placeholder="Telefone com DDD"
                     value={telefone}
-                    onChange={(e) => setTelefone(e.target.value)}
+                    handleOnChange={(e) => setTelefone(e.target.value)}            
                 />
+
                 <Input 
                     type="email"
                     text="Email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Email do Garçom"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    handleOnChange={(e) => setEmail(e.target.value)}            
                 />
+
                 <Input 
                     type="date"
                     text="Data de Contratação"
                     name="dataContratacao"
-                    placeholder="Data de Contratação"
+                    placeholder="Data de contratação"
                     value={dataContratacao}
-                    onChange={(e) => setDataContratacao(e.target.value)}
+                    handleOnChange={(e) => setDataContratacao(e.target.value)}            
                 />
+
+                {error && <p className={styles.error}>{error}</p>} {/* Exibe a mensagem de erro, se houver */}
+
                 <button className={styles.btn} type="submit">Cadastrar Garçom</button>
             </form>
         </main>

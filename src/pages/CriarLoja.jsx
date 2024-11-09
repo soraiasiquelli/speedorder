@@ -57,9 +57,8 @@ function CriarLoja() {
     return (
         <div className={styles.secaoprincipal}>
             <h2>Registre Seu Estabelecimento</h2>
-            <p>Descubra a facilidade e eficiência de gerenciar pedidos com nossa plataforma intuitiva.</p>
 
-            <form onSubmit={criacaoLoja} method="POST">
+            <form onSubmit={criacaoLoja} method="POST" className={styles.formulario}>
                 <Input
                     type="email"
                     text="Digite seu email: "
@@ -88,7 +87,7 @@ function CriarLoja() {
                     placeholder="Telefone"
                     handleOnChange={(e) => setTelefone(e.target.value)}
                 />
-                <button className={styles.btn} type="submit">Cadastrar</button>
+                <Link to="/homeprincipal"><button className={styles.btn} type="submit">Cadastrar</button></Link>
             </form>
 
             <Link to="/home"><p className={styles.plink}>Já tenho uma loja/Sou funcionário de uma loja</p></Link>

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import FooterOpcoes from "../layout/FooterOpcoes";
 import { useEffect, useState } from 'react';
 
+
+
 function HomePrincipal() {
   const [nome, setNome] = useState('');
 

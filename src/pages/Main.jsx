@@ -13,9 +13,9 @@ function Main(){
 
 
 
-        <img src={logospeed} alt="" />
+        <img src={logospeed} alt=""  className={styles.imagemLogo}/>
 
-        <Link to="/pagesforms/cadastroadmin">
+        <Link to="/home">
 
         <button className={styles.botaoiniciar}> 
     

@@ -21,8 +21,11 @@
     padding: 20px;
 }
 p{
-    color: grey;
-    padding: 5px;
+    color: black !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+
 
     
 }

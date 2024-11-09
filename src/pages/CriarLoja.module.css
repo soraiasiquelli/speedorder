@@ -19,7 +19,7 @@ form{
     margin-top: 20%;
     padding: 20px;
 }
-p{
+.secaoprincipal > p{
     color: grey;
     padding: 5px;
     margin-top: 50px;
@@ -30,10 +30,15 @@ p{
 }
 .btn{
     width: 250px;
-    margin-top: 25px !important;
+    margin-top: 35px !important;
     height: 50px;
     background-color: #d33333; 
    color: white;
     border-radius: 10px;
     font-size: 16px;
+}
+
+.formulario{
+    margin-top: 30%;
+    margin-bottom: 20%;
 }

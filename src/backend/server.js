@@ -7,7 +7,8 @@ const Estabelecimento = require(path.join(__dirname, 'Loja'));
 const Administrador = require(path.join(__dirname, 'Administrador'));
 const Mesa = require(path.join(__dirname, 'Mesas')); // Importando o modelo de Mesa
 const Itens = require('./Itens'); // Importa o modelo de itens
-
+const Garcons = require("./Garcons");
+const { where } = require('sequelize');
 
 const app = express();
 
@@ -107,6 +108,78 @@ app.post("/cadastroprodutos", async (req, res) => {
         res.status(500).send("Erro ao cadastrar o item.");
     }
 });
+
+
+app.post("/cadastrogarcons", async (req, res) => {
+    console.log("Rota /cadastrogarcons chamada");
+    console.log("Dados recebidos:", req.body); // Verificando dados recebidos
+
+    try {
+        const novoGarcom = await Garcons.create({
+            nome: req.body.nome,
+            telefone: req.body.telefone,
+            email: req.body.email,
+            data_contratacao: req.body.dataContratacao // Verifique o nome do campo aqui
+        });
+
+        console.log("Garçom cadastrado com sucesso:", novoGarcom); // Verifique se o garçom foi criado
+
+        res.status(201).json({
+            message: "Garçom cadastrado com sucesso!",
+            garcom: novoGarcom
+        });
+    } catch (error) {
+        console.error("Erro ao cadastrar garçom:", error.message);
+        console.error(error);
+        res.status(500).json({ error: "Erro ao cadastrar garçom", details: error.message });
+    }
+});
+
+
+
+
+/*Verificacao de Login*/
+
+
+app.post("/login", async (req, res) => {
+  const { email, senha } = req.body;
+
+  try {
+    // Verifica se é um administrador
+    const admin = await Administrador.findOne({
+      where: { email: email, senha: senha }
+    });
+
+    if (admin) {
+      console.log("O usuário é um administrador");
+      return res.status(200).json({ tipo: "administrador" });
+    } 
+
+    // Se não for um administrador, verifica se é um garçom
+    const garcom = await Garcons.findOne({
+      where: { email: email, senha: senha }
+    });
+
+    if (garcom) {
+      console.log("O usuário é um garçom");
+      return res.status(200).json({ tipo: "garçom" });
+    }
+
+    // Caso não encontre nem o administrador nem o garçom
+    return res.status(400).json({ message: "Usuário ou senha incorretos." });
+  } catch (error) {
+    console.error("Erro ao tentar fazer login:", error);
+    return res.status(500).json({ message: "Erro ao tentar fazer login." });
+  }
+});
+
+
+
+
+
+
+
+
 
 
 // Sincroniza o modelo com o banco de dados

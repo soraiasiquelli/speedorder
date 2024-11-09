@@ -14,19 +14,19 @@ import GestaoEstabelecimento from './pages/GestaoEstabelecimento';
 import CadastroMesas from './pagesforms/CadastroMesas';
 import CadastroGarcons from './pagesforms/CadastroGarcons';
 import CadastroProdutos from './pagesforms/CadastroProdutos';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './telacozinha/Dashboard';
 import HistoricoPedidos from './pages/HistoricoPedidos';
 import UltimosPedidos from './pages/pagesgerencia/UltimosPedidos'
 import PedidosProntos from './pages/pagesgerencia/PedidosProntos'
 import PedidosEmPreparo from './pages/pagesgerencia/PedidosEmPreparo'
+import TelaCozinha from './telacozinha/TelaCozinha';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/speedorder" element={<Main />} />
+        <Route path="/" element={<Main />} /> 
         <Route path="/cadastroestabelecimento" element={<CriarLoja />} />
-        
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />
         <Route path="/numerodamesa" element={<NumeroDaMesa />} />

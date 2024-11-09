@@ -20,7 +20,6 @@ function Dashboard() {
   }, []);
 
   const marcarComoPronto = (id) => {
-    // Implementar lógica para marcar o pedido como pronto
     console.log(`Pedido #${id} marcado como pronto.`);
   };
 
@@ -44,12 +43,19 @@ function Dashboard() {
             </button>
           </div>
         ))}
+
+
+  <section>
+         <button className={styles.filterButton}>Todos os Pedidos</button>
+         <button className={styles.filterButton}>Em Preparo</button>
+         <button className={styles.filterButton}>Pronto para Entrega</button>
+        </section>
+
       </main>
-      <footer className={styles.footer}>
-        <button className={styles.filterButton}>Todos os Pedidos</button>
-        <button className={styles.filterButton}>Em Preparo</button>
-        <button className={styles.filterButton}>Pronto para Entrega</button>
-      </footer>
+
+       
+
+      
     </div>
   );
 }

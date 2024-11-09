@@ -22,7 +22,7 @@
     "sequelize": "^6.37.3",
     "web-vitals": "^2.1.4"
   },
-"scripts": {
+  "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
@@ -31,11 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-},
-
-
-
-
+    
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -55,8 +52,7 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^9.0.1",
+    "concurrently": "^9.1.0",
     "gh-pages": "^6.1.1"
   }
-
 }

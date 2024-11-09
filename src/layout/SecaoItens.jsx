@@ -27,7 +27,7 @@ function SecaoItens(){
   label_title="Double Cheeseburger" 
   p_descricao="Dois hambúrgueres com queijo, alface, tomate e molho especial." 
   p_preco="R$35,00" 
-/>
+/>q
 
 <CardItem 
   src="hamburguer4.jpg" 
