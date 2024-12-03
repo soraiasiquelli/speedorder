@@ -2,7 +2,7 @@
 .itensform > input {
     width: 300px;
     height: 40px; /* Altura ajustada para ser mais consistente */
-    margin-top: 10px;
+    margin-top: 5%;
     font-size: 16px; /* Fonte um pouco menor para um visual mais compacto */
     border-radius: 5px; /* Menor arredondamento para um visual mais simples */
     background-color: #fff; /* Fundo branco */

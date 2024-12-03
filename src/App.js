@@ -2,18 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePrincipal from './pages/HomePrincipal';
 import Home from './pages/Home';
-import NumeroDaMesa from './pages/NumeroDaMesa';
-import NovoPedido from './pages/NovoPedido';
-import CriarLoja from './pages/CriarLoja';
+import MesaParaPedido from './garcom/MesaParaPedido';
+import NovoPedido from './garcom/NovoPedido';
+import CriarEstabelecimento from './administrador/CriarEstabelecimento';
 import PedidoClique from './pages/PedidoClique';
-import PersonalizacaoLoja from './pages/PersonalizacaoLoja';
+import PersonalizacaoLoja from './administrador/PersonalizacaoLoja';
 import Main from './pages/Main';
-import ChamadoCozinha from './pages/ChamadoCozinha';
-import CadastroAdmin from './pagesforms/CadastroAdmin';
-import GestaoEstabelecimento from './pages/GestaoEstabelecimento';
-import CadastroMesas from './pagesforms/CadastroMesas';
-import CadastroGarcons from './pagesforms/CadastroGarcons';
-import CadastroProdutos from './pagesforms/CadastroProdutos';
+import ChamadoCozinha from './garcom/ChamadoCozinha';
+import CadastroAdmin from './administrador/CadastroAdmin';
+import GestaoEstabelecimento from './administrador/GestaoEstabelecimento';
+import CadastroMesas from './administrador/CadastroMesas';
+import CadastroGarcons from './administrador/CadastroGarcons';
+import CadastroProdutos from './administrador/CadastroProdutos';
 import Dashboard from './telacozinha/Dashboard';
 import HistoricoPedidos from './pages/HistoricoPedidos';
 import UltimosPedidos from './pages/pagesgerencia/UltimosPedidos'
@@ -26,10 +26,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Main />} /> 
-        <Route path="/cadastroestabelecimento" element={<CriarLoja />} />
+        <Route path="/cadastroestabelecimento" element={<CriarEstabelecimento/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />
-        <Route path="/numerodamesa" element={<NumeroDaMesa />} />
+        <Route path="/mesaparapedido" element={<MesaParaPedido />} />
         <Route path="/novopedido" element={<NovoPedido />} />
         <Route path="/pedidoclique/:id" element={<PedidoClique />} />
         <Route path="/personalizacaoloja" element={<PersonalizacaoLoja />} />

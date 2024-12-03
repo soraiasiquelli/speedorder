@@ -23,6 +23,14 @@ const Estabelecimento = db.sequelize.define('loja', {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
+    },
+    admin_id: { // Nova coluna para referenciar o administrador
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'administradores', // Nome da tabela de administradores
+            key: 'id_admin' // Chave primária na tabela de administradores
+        },
+        allowNull: false // Defina se é obrigatório ou não
     }
 }, {
     tableName: 'loja', // Nome da tabela no banco de dados

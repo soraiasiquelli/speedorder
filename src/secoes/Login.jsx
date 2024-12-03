@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
   
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function Login() {
   
 
   return (
-    <main>
+    <main className={styles.mainform}>
       <div className={styles.secaoform}>
         <form className={styles.form} onSubmit={efetuarLogin}>
           <img src={logospeed} alt="Logo Speed" />

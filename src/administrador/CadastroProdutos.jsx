@@ -22,7 +22,7 @@ function CadastroItens() {
         }
 
         try {
-            const response = await fetch("http://localhost:3000/cadastroprodutos", {
+            const response = await fetch("http://localhost:5001/cadastroprodutos", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -53,7 +53,7 @@ function CadastroItens() {
     return (
         <main className={styles.secaoprincipal}>
             <h2>Cadastro de Itens</h2>
-            <form onSubmit={cadastroItem} method='POST'>
+            <form onSubmit={cadastroItem} method='POST' className={styles.formulario}>
                 <Input 
                     type="text"
                     text="Nome do Item"

@@ -1,6 +1,6 @@
 import styles from './FooterOpcoes.module.css'
 import { Link } from 'react-router-dom'
-import PersonalizacaoLoja from '../pages/PersonalizacaoLoja'
+import PersonalizacaoLoja from '../administrador/PersonalizacaoLoja'
 import home_icone from "../icones/home_icone.png"
 import notificacao_icone from "../icones/notificacao_icone.png"
 import cadastro_icone from "../icones/cadastro_icone.png"
@@ -16,10 +16,11 @@ function FooterOpcoes(){
         </Link></div>
 
 
-        <div className={styles.topicomenu}><img src={notificacao_icone} alt="" /></div>
+        <div className={styles.
+            topicomenu}><img src={notificacao_icone} alt="" /></div>
         <div className={styles.topicomenu}>
 
-        <Link to="/numerodamesa">
+        <Link to="/mesaparapedido">
         <button className={styles.btnnovopedido}>  + </button>
         </Link>
 

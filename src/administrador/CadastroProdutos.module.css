@@ -1,0 +1,94 @@
+/* Define a fonte padrão para o projeto */
+* {
+    font-family: "Helvetica", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo principal da seção */
+.secaoprincipal {
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilo do título principal */
+.secaoprincipal > h2 {
+    font-size: 24px;
+    color: #d33333;
+}
+
+/* Estilo dos parágrafos */
+p {
+    color: grey;
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Estilo dos links */
+.plink {
+    text-decoration: underline;
+    color: rgb(56, 56, 212);
+    font-size: 16px;
+}
+
+/* Estilo do botão de submissão */
+.btn {
+    width: 250px;
+    margin-top: 20px;
+    height: 50px;
+    background-color: #d33333; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #b32b2b;
+}
+
+.formulario{
+    margin-top: 50px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .secaoprincipal > h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 200px;
+        height: 45px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .secaoprincipal > h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .btn {
+        width: 180px;
+        height: 40px;
+        font-size: 12px;
+    }
+}

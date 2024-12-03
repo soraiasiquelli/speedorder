@@ -17,7 +17,7 @@ function CadastroMesas() {
         }
 
         try {
-            const response = await fetch("http://localhost:3000/cadastromesas", {
+            const response = await fetch("http://localhost:5001/cadastromesas", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

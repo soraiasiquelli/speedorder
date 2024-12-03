@@ -2,6 +2,7 @@
   "homepage": "https://soraiasiquelli.github.io/speedorder",
   "name": "speed-order",
   "version": "0.1.0",
+
   "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
@@ -10,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-handlebars": "^8.0.1",
     "mysql": "^2.18.1",
@@ -26,12 +28,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "dev": "nodemon server.js",
+    "dev": "nodemon src/backend/server.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": [

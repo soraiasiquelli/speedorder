@@ -1,8 +1,8 @@
-import styles from "./NumeroDaMesa.module.css";
+import styles from "./MesaParaPedido.module.css";
 import { Link } from 'react-router-dom';
 import FooterOpcoes from "../layout/FooterOpcoes";
 
-function NumeroDaMesa() {
+function MesaParaPedido() {
     return (
         <div className={styles.secaonumerodamesa}>
             <h2>Escolha a mesa de atendimento</h2>
@@ -39,4 +39,4 @@ function NumeroDaMesa() {
     );
 }
 
-export default NumeroDaMesa;
+export default MesaParaPedido;

@@ -12,11 +12,15 @@ function CadastroGarcons() {
 
     const navigate = useNavigate();
 
+    // Aqui você pega o admin_id e o estabelecimento_id (exemplo fictício)
+    const admin_id = 1; // Aqui você pegaria do contexto ou da sessão de login
+    const estabelecimento_id = 1; // Aqui você pegaria o estabelecimento vinculado ao admin
+
     const cadastroGarcom = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/cadastrogarcons", {
+            const response = await fetch("http://localhost:5000/cadastrogarcons", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -25,7 +29,9 @@ function CadastroGarcons() {
                     nome,
                     telefone,
                     email,
-                    dataContratacao
+                    dataContratacao,
+                    admin_id,  // Passando o admin_id
+                    estabelecimento_id // Passando o estabelecimento_id
                 })
             });
 

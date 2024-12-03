@@ -1,9 +1,9 @@
-import styles from "./CriarLoja.module.css";
+import styles from "./CriarEstabelecimento.module.css";
 import { Link, useNavigate } from 'react-router-dom';
 import Input from "../form/Input";
 import { useState } from 'react';
 
-function CriarLoja() {
+function CriarEstabelecimento() {
     const [email, setEmail] = useState('');
     const [nomeEstabelecimento, setNomeEstabelecimento] = useState('');
     const [endereco, setEndereco] = useState('');
@@ -29,7 +29,7 @@ function CriarLoja() {
                 telefone
             });
 
-            const response = await fetch("http://localhost:3000/cadastroestabelecimento", {
+            const response = await fetch("http://localhost:5000/cadastroestabelecimento", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -95,4 +95,4 @@ function CriarLoja() {
     );
 }
 
-export default CriarLoja;
+export default CriarEstabelecimento;

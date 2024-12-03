@@ -6,6 +6,7 @@ main {
     flex-wrap: wrap;
     margin: auto;
     font-family: 'Helvetica';
+
 }
 
 .secaoform, .secaoimagem {
@@ -15,16 +16,22 @@ main {
     margin-bottom: 20px; /* Espaço entre os elementos */
 }
 
+.secaoform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%
+}
+
 .form {
     width: 100%;
     height: auto; /* Ajustando altura para conteúdo */
-    margin-top: 5%;
+    margin-top: 20%;
     text-align: center;
 }
 
 .form > img {
-    margin-top: 30px;
-    margin-bottom: 50px;
+   
 }
 
 .form > h1 {

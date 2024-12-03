@@ -25,6 +25,20 @@ const Garcons = db.sequelize.define('garcons', {
   data_contratacao: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
+  },
+  admin_id: { // Referência para o administrador
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'administradores', // Nome da tabela de administradores
+      key: 'id_administrador'   // Nome da chave primária do administrador
+    }
+  },
+  estabelecimento_id: { // Referência para o estabelecimento
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'estabelecimentos', // Nome da tabela de estabelecimentos
+      key: 'id_estabelecimento'  // Nome da chave primária do estabelecimento
+    }
   }
 }, {
   timestamps: true  // Adiciona automaticamente `createdAt` e `updatedAt`

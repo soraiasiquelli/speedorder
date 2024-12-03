@@ -7,7 +7,6 @@ function Banner(){
     return(
         <header className={styles.banner}>
 
-            <img src="teste.jpg" alt="" />
 
         </header>
     )

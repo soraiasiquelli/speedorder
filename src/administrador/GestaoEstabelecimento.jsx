@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './GestaoEstabelecimento.module.css';
-import CadastroMesas from '../pagesforms/CadastroMesas';
-import CadastroGarcons from '../pagesforms/CadastroGarcons';
-import CadastroProdutos from '../pagesforms/CadastroProdutos';
+import CadastroMesas from './CadastroMesas';
+import CadastroGarcons from './CadastroGarcons';
+import CadastroProdutos from './CadastroProdutos';
 import FooterOpcoes from '../layout/FooterOpcoes';
 
 
