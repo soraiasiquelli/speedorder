@@ -5,6 +5,7 @@ import home_icone from "../icones/home_icone.png"
 import notificacao_icone from "../icones/notificacao_icone.png"
 import cadastro_icone from "../icones/cadastro_icone.png"
 import personalizacaoloja_icone from "../icones/personalizacaoloja_icone.png"
+import sinos_icone from "../icones/sinos_icone.png"
 function FooterOpcoes(){
     return(
         <footer className={styles.footermenu}>
@@ -17,12 +18,13 @@ function FooterOpcoes(){
 
 
         <div className={styles.
-            topicomenu}><img src={notificacao_icone} alt="" /></div>
+            topicomenu}><img src={sinos_icone} alt="" /></div>
         <div className={styles.topicomenu}>
 
         <Link to="/mesaparapedido">
         <button className={styles.btnnovopedido}>  + </button>
         </Link>
+
 
         </div>
         <div className={styles.topicomenu}> <Link to="/gestaoestabelecimento"> <img src={cadastro_icone} alt="" />

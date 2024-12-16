@@ -1,35 +1,64 @@
 .footermenu {
-    position: fixed; /* Muda para fixed para ficar sempre visível no final da tela */
+    position: fixed; /* Mantém o footer fixado na tela */
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 10vh;
-    background-color: #f8f9fa; /* Adiciona um fundo claro para destaque */
+    height: 12vh; /* Altura do footer */
+    background-color: #ffffff; /* Fundo claro */
     display: flex;
-    justify-content: space-around; /* Espalha os itens igualmente */
-    align-items: center; /* Centraliza verticalmente os itens */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para separar o footer do conteúdo */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 20px; /* Ajuste de espaçamento interno */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-top: 3px solid #e9ecef; /* Linha superior mais destacada */
+    z-index: 1000; /* Garante que o footer fique sobreposto a outros elementos */
+    border-radius: 150px;
+    
 }
-footer img{
-    width: 70%;
+
+footer img {
+    width:  55%; /* Tamanho menor para uma estética mais equilibrada */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Efeitos de transição suave */
+    margin: auto;
 }
+
+footer img:hover {
+    transform: scale(1.2); /* Amplia levemente o ícone no hover */
+    opacity: 0.7; /* Suaviza a opacidade no hover */
+}
+
 .topicomenu {
     flex: 1;
     padding: 10px;
     text-align: center; /* Centraliza o texto ou ícone */
-    font-size: 18px;
-    color: #333; /* Cor do texto */
+    font-size: 16px;
+    color: #666; /* Cor mais neutra */
+    font-weight: 600; /* Texto mais destacado */
+    transition: color 0.3s ease; /* Transição de cor para hover */
+}
+
+.topicomenu:hover {
+    color: #d33333; /* Realça o texto no hover */
+    cursor: pointer;
 }
 
 .btnnovopedido {
-    background-color: #d33333;
+    background-color: #d33333; /* Botão em destaque */
     color: #fff;
-    width: 60px; /* Torna o botão mais compacto */
-    height: 60px;
-    font-size: 24px;
+    width: 50px; /* Tamanho mais visível e harmonioso */
+    height: 50px;
+    font-size: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 50%; /* Botão circular */
     border: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeitos de transição */
+}
+
+.btnnovopedido:hover {
+    transform: scale(1.1); /* Aumenta levemente o botão no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    cursor: pointer;
 }

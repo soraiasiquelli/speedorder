@@ -7,43 +7,67 @@
   .mainpage {
     height: 100vh;
     width: 100%;
-    background-color: #f0f2f5; /* Cor de fundo suave */
+    /*background-color: #f0f2f5;*/ /* Cor de fundo suave */
+    background-color: white;
     padding: 20px;
   }
   
   .mainContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+   /* display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;
+    text-align: center;*/
+    padding: 10px
   }
   
   .headerWelcome {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 25%;
+    height:100px;
+    width: 120%;
+    padding: 5px;
   }
   
+  /* Título */
   .headerWelcome h2 {
-    font-size: 28px;
+    font-size: 25px;
+    font-weight: 600; /* Deixa o texto mais forte */
     color: #333;
     margin-bottom: 10px;
   }
   
+  /* Descrição */
+
+  .headerWelcome p {
+    font-size: 18px;
+    color: #666; /* Cor mais suave para o subtítulo */
+    margin-top: 55px !important; /* Adiciona um espaçamento suficiente acima do parágrafo */
+    font-weight: 300  !important;
+
+  }
+  
+  /* Imagem (caso tenha uma imagem) */
   .headerWelcome img {
-    width: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Garante que a imagem se ajuste dentro do círculo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil na imagem */
+    margin-top: 20px;
   }
   
   .sectionBlocos {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 40px;
     justify-content: center;
-  }
+    align-items: start; /* Garante que os itens fiquem alinhados ao topo */
+}
+
   
   .opcaoBloco {
     background-color: #ffffff;
@@ -51,14 +75,39 @@
     color:  #d33333ff;;
     border-radius: 10px;
     padding: 20px;
-    width: 250px;
+    width: 150px;
+    height: 75% !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  
+ 
   
   .opcaoBloco:hover {
     background-color: #f8f9fa;
     cursor: pointer;
   }
+
+  .btnnovopedido {
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px;    /* Distância do fundo da página (ajuste conforme necessário) */
+    right: 20px;     /* Distância da borda direita da página (ajuste conforme necessário) */
+    padding: 10px 20px; /* Tamanho do botão, pode ajustar conforme necessário */
+    background-color:#d33333ff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Faz o botão ter um cursor de clique */
+    width: 40%;
+  }
+  
+  .btnnovopedido:hover {
+    /* #0056b3;*/ /* Cor do botão quando o cursor passar sobre ele */
+    background-color: black;
+    transform: scale(1.1); /* Leve aumento do botão no hover */
+  }
+  
   
   .link {
     text-decoration: none;

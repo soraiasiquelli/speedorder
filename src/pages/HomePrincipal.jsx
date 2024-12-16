@@ -1,11 +1,20 @@
 // src/pages/HomePrincipal.jsx
 import Header from "../layout/Header";
+import MenuLateral from "../layout/MenuLateral";
 import styles from "./HomePrincipal.module.css";
 import { Link } from 'react-router-dom';
 import FooterOpcoes from "../layout/FooterOpcoes";
 import { useEffect, useState } from 'react';
 
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * HomePrincipal component that serves as the main page of the application.
+ * It retrieves the user's name from local storage and displays a personalized greeting.
+ * The page contains links to different sections of the application: Últimos Pedidos, Pedidos Prontos, Pedidos em Preparo, and Histórico de Pedidos.
+ * The FooterOpcoes component is also included at the bottom of the page.
+ */
+/******  9eaca89b-fe7f-4be8-9654-43949466877b  *******/
 
 function HomePrincipal() {
   const [nome, setNome] = useState('');
@@ -22,7 +31,8 @@ function HomePrincipal() {
 
       <main className={styles.mainContent}>
         <header className={styles.headerWelcome}>
-          <h2>Bom dia, {nome}</h2>
+          <h2>Bem-vindo!{nome}</h2>
+          <p>Vamos agilizar os seus pedidos</p>
         </header>
 
         <section className={styles.sectionBlocos}>
@@ -40,7 +50,12 @@ function HomePrincipal() {
           </div>
         </section>
 
-        <FooterOpcoes />
+        <MenuLateral/>
+
+
+        <Link to="/mesaparapedido">
+        <button className={styles.btnnovopedido}>Novo Pedido</button>
+        </Link>
       </main>
     </div>
   );

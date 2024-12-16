@@ -1,0 +1,53 @@
+.container {
+    position: relative; /* Mantém os elementos posicionados corretamente */
+  }
+  
+  .menuLateral {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#c0392b;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menuLateral a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: background-color 0.2s;
+  }
+  
+  .menuLateral a:hover {
+    /*background-color: #575757;*/
+    border: 1px solid white;
+  }
+  .linksdomenu{
+    display: flex;
+    flex-direction: column; /* Isso vai empilhar os itens verticalmente */
+    margin-top: 30%;
+
+  }
+  .btnFecharMenu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color:#c0392b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000; /* Garante que o botão fique sobre outros elementos */
+    transition: background-color 0.3s;
+    width: 50px;
+  }
+  
+  .btnFecharMenu:hover {
+    background-color: #c0392b;
+  }
+  
