@@ -28,32 +28,41 @@ function CadastroAdmin() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: email, // Altere conforme o campo enviado no corpo da requisição
-                    nome: nome, // Altere conforme o campo enviado no corpo da requisição
-                    telefone: telefone, // Altere conforme o campo enviado no corpo da requisição
-                    senha: senha // Altere conforme o campo enviado no corpo da requisição
+                    email: email,
+                    nome: nome,
+                    telefone: telefone,
+                    senha: senha
                 })
             });
     
-            console.log(response);
+            const data = await response.json();
+    
+            console.log(response);  
             if (response.ok) {
                 console.log("Administrador cadastrado com sucesso!");
-                navigate("/cadastroestabelecimento"); // Redireciona para a próxima página
+                // Armazena o ID no localStorage
+                localStorage.setItem("admin_id", data.admin_id);
+                navigate("/cadastroestabelecimento");
             } else {
-                const errorMessage = await response.text();
-                console.error("Erro ao cadastrar o administrador:", errorMessage);
-                setError(errorMessage); // Define a mensagem de erro para exibição
+                console.error("Erro ao cadastrar o administrador:", data.error);
+                setError(data.error); // Define a mensagem de erro para exibição
             }
         } catch (err) {
             console.error("Erro na requisição:", err);
             setError("Erro ao cadastrar o administrador. Tente novamente."); // Define uma mensagem de erro genérica
         }
     };
+    
+    
 
     return (
         <main className={styles.secaoprincipal}>
-            <h2>Cadastro do Administrador</h2>
-            <p>Preencha o formulário abaixo para criar um novo administrador</p>
+
+            <header className={styles.cabecalho_page}>
+            <h2>Cadastro de Administrador</h2>  
+            <p>Para começar, preencha os campos abaixo com as informações do novo administrador.</p>
+
+            </header>
 
             <form onSubmit={cadastroAdmin} method="POST">
                 <Input 

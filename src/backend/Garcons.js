@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('./db');
 
 const Garcons = db.sequelize.define('garcons', {
-  id: {
+  id_garcom: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true
@@ -29,28 +29,30 @@ const Garcons = db.sequelize.define('garcons', {
   admin_id: { // Referência para o administrador
     type: Sequelize.INTEGER,
     references: {
-      model: 'administradores', // Nome da tabela de administradores
-      key: 'id_administrador'   // Nome da chave primária do administrador
+      model: 'administradores',
+      key: 'id_administrador'
     }
   },
   estabelecimento_id: { // Referência para o estabelecimento
     type: Sequelize.INTEGER,
     references: {
-      model: 'estabelecimentos', // Nome da tabela de estabelecimentos
-      key: 'id_estabelecimento'  // Nome da chave primária do estabelecimento
+      model: 'estabelecimentos',
+      key: 'id_estabelecimento'
     }
   }
 }, {
   timestamps: true  // Adiciona automaticamente `createdAt` e `updatedAt`
 });
 
-// Sincroniza o modelo com o banco de dados
-Garcons.sync({ force: true }) // CUIDADO: Isso recria a tabela e apaga os dados existentes
+
+// Sincronizando o modelo com o banco de dados
+db.sequelize.sync({ force: true }) // force: true irá recriar a tabela
   .then(() => {
-    console.log("Tabela 'garcons' recriada e sincronizada.");
+    console.log("Tabela Garcons sincronizada com sucesso.");
   })
-  .catch((err) => {
-    console.error("Erro ao sincronizar a tabela 'garcons':", err);
+  .catch(err => {
+    console.error("Erro ao sincronizar a tabela Garcons:", err);
   });
+
 
 module.exports = Garcons;

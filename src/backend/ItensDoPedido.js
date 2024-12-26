@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../backend/db'); // Certifique-se de que o caminho está correto
+const db = require('./db');
 
 const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
   id_item: {
@@ -11,16 +11,16 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
-      model: 'pedidos', // Nome da tabela de pedidos
-      key: 'id_pedido'  // Chave primária na tabela de pedidos
+      model: 'pedidos',
+      key: 'id_pedido'
     }
   },
   id_produto: {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
-      model: 'produtos', // Nome da tabela de produtos
-      key: 'id_produto'  // Chave primária na tabela de produtos
+      model: 'produtos',
+      key: 'id_produto'
     }
   },
   quantidade: {
@@ -30,16 +30,21 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
   preco_unitario: {
     type: Sequelize.DECIMAL(10, 2),
     allowNull: false
+  },
+  admin_id: {  // Referência para o administrador
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'administradores',
+      key: 'id_administrador'
+    }
+  },
+  estabelecimento_id: { // Referência para o estabelecimento
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'estabelecimentos',
+      key: 'id_estabelecimento'
+    }
   }
 });
-
-// Sincroniza o modelo com o banco de dados
-ItensDoPedido.sync({ force: false }) // `force: false` impede que a tabela seja recriada se já existir
-  .then(() => {
-    console.log("Tabela 'itens_do_pedido' sincronizada com sucesso");
-  })
-  .catch((err) => {
-    console.error("Erro ao sincronizar a tabela 'itens_do_pedido':", err);
-  });
 
 module.exports = ItensDoPedido;

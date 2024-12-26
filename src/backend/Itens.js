@@ -24,7 +24,7 @@ const Itens = db.sequelize.define('itens', {
         allowNull: true
     },
     imagem: {  // Novo campo para a imagem
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: true
     }
 });

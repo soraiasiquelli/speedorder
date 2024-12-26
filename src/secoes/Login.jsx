@@ -3,6 +3,7 @@ import styles from "./Login.module.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logospeed from "../images/logospeed.png"; // Caminho relativo a partir do arquivo onde você está usando a imagem
+import logonova from '../images/logonova_speedorder.png'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -50,7 +51,7 @@ function Login() {
     <main className={styles.mainform}>
       <div className={styles.secaoform}>
         <form className={styles.form} onSubmit={efetuarLogin}>
-          <img src={logospeed} alt="Logo Speed" />
+          <img src={logonova} alt="Logo Speed" />
 
           <Input
             type="email"

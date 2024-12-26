@@ -3,33 +3,39 @@
     font-family: "Helvetica";
 }
 
+
+.secaoprincipal{
+    display: block;
+}
 /* Estilo principal da seção */
 .secaoprincipal {
     text-align: center;
     height: 100vh;
 }
 
-/* Estilo do título principal */
-.secaoprincipal > h2{
-    margin-top: 15%;
+.cabecalho_page {
+    /*border: 1px solid black;*/
+    margin-top: 50%;
+    margin-bottom: 20px;
+}
+
+.cabecalho_page > h2 {
     font-size: 25px;
     color: #d33333 !important;
 }
-.secaoprincipal > h2{
-    font-size: 20px;
-    margin-top: 20%;
-    padding: 20px;
-}
-p{
+
+.cabecalho_page > p {
     color: black !important;
-    margin-top: 0px !important;
+    margin-top: 30px !important;
     margin-bottom: 0px;
     text-transform: capitalize;
-
-
-    
+    font-weight: 500 !important;
+    font-size: 16px;
 }
 
+form{
+    margin-top: 10% !important;
+}
 /* Estilo dos links */
 .plink {
     text-decoration: underline;
@@ -41,8 +47,14 @@ p{
     width: 250px;
     margin-top: 25px !important;
     height: 50px;
-    background-color: #d33333; 
+    background-color: #d33333;
     color: white;
     border-radius: 10px;
     font-size: 16px;
 }
+
+/* Estilo da classe formulario */
+.formulario {
+    margin-bottom: 20%;
+}
+/* Ajuste para o formulário */

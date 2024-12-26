@@ -31,12 +31,11 @@ const Administrador = db.sequelize.define('administrador', {
 });
 
 // Sincronizar o modelo com o banco de dados
-db.sequelize.sync()
-  .then(() => {
-    console.log('Tabela Administradores criada com sucesso.');
-  })
-  .catch((error) => {
-    console.error('Erro ao criar a tabela:', error);
-  });
+db.sequelize.sync().then(() => {
+  console.log("Modelo atualizado.");
+}).catch(err => {
+  console.error("Erro ao atualizar o modelo:", err);
+});
+
 
 module.exports = Administrador;

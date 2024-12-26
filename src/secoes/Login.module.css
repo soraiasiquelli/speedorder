@@ -1,7 +1,10 @@
+body{
+    margin-top: -15%;
+}
 main {
     display: flex;
-    height: 80vh;
-    width: 80% !important;
+    height: 100vh;
+    width: 100% !important;
     margin-top: 0% !important;
     flex-wrap: wrap;
     margin: auto;
@@ -20,19 +23,15 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20%
+   
 }
 
 .form {
     width: 100%;
     height: auto; /* Ajustando altura para conteúdo */
-    margin-top: 20%;
     text-align: center;
 }
 
-.form > img {
-   
-}
 
 .form > h1 {
     margin-top: 15%;
@@ -48,7 +47,8 @@ p {
 .btn {
     width: 250px;
     height: 50px;
-    margin-top: 50px;
+    margin-top: 10%;
+    margin-bottom: 5%;
     background-color: #d33333; 
    color: white;
     border-radius: 10px;
@@ -72,11 +72,13 @@ p {
 }
 
 .esqueceuasenhap{
-    font-size: 12px;
+    font-size: 16px;
+    padding: 10px !important;
     color: black;
 }
 .criarconta{
     margin-top: 0%;
+    font-size: 14px;
     color: black;
 
 }

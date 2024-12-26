@@ -10,38 +10,41 @@ function CriarEstabelecimento() {
     const [telefone, setTelefone] = useState('');
 
     const navigate = useNavigate();
+    //const idAdmin = 5; // Definindo um ID fixo para teste
 
     const criacaoLoja = async (e) => {
         e.preventDefault();
-
-        // Verificação simples antes de enviar os dados
+        console.log("Funcao criacaoLoja chamada!")
+    
+        // Verificação simples antes de enviar os dados para verificar se é obrigatório
         if (!email || !nomeEstabelecimento || !endereco || !telefone) {
             console.error("Todos os campos são obrigatórios!");
             return;
         }
-
+        
         try {
-            // Verificando os dados antes de enviar
-            console.log({
-                email,
-                nome_estabelecimento: nomeEstabelecimento,
-                endereco,
-                telefone
-            });
+                // Recuperar o ID do administrador do localStorage 
+                const adminId = localStorage.getItem("admin_id");
 
-            const response = await fetch("http://localhost:5000/cadastroestabelecimento", {
+
+
+            console.log('Antes da requisição fetch');
+            const response = await fetch("http://localhost:5001/cadastroestabelecimento", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email,
-                    nome_estabelecimento: nomeEstabelecimento,
-                    endereco,
-                    telefone
+                    nomeEstabelecimento: nomeEstabelecimento,
+                    email: email,
+                    endereco: endereco,
+                    telefone: telefone,
+                    id_admin: adminId
                 })
             });
-
+            console.log('Depois da requisição fetch');
+            console.log(response);
+        
             if (response.ok) {
                 console.log("Estabelecimento cadastrado com sucesso!");
                 navigate("/homeprincipal");
@@ -52,11 +55,15 @@ function CriarEstabelecimento() {
         } catch (err) {
             console.error("Erro na requisição:", err);
         }
+        
     };
-
+    
     return (
         <div className={styles.secaoprincipal}>
-            <h2>Registre Seu Estabelecimento</h2>
+            <header className={styles.cabecalho_page}>
+                <h2>Registre Seu Restaurante Aqui!</h2>
+                <p>Preencha os detalhes abaixo e garanta seu espaço no nosso sistema.</p>
+            </header>
 
             <form onSubmit={criacaoLoja} method="POST" className={styles.formulario}>
                 <Input
@@ -87,7 +94,8 @@ function CriarEstabelecimento() {
                     placeholder="Telefone"
                     handleOnChange={(e) => setTelefone(e.target.value)}
                 />
-                <Link to="/homeprincipal"><button className={styles.btn} type="submit">Cadastrar</button></Link>
+             <button className={styles.btn} type="submit">Cadastrar</button>
+
             </form>
 
             <Link to="/home"><p className={styles.plink}>Já tenho uma loja/Sou funcionário de uma loja</p></Link>

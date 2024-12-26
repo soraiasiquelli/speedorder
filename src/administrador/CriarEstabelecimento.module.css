@@ -1,44 +1,65 @@
-*{
-    font-family:  "Helvetica";
-
+/* Define a fonte padrão para o projeto */
+* {
+    font-family: "Helvetica";
 }
-.secaoprincipal{
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Faz o container ocupar toda a altura da viewport */
+    flex-direction: column; /* Organiza os elementos verticalmente */
+}
+
+/* Estilo principal da seção */
+.secaoprincipal {
     text-align: center;
     height: 100vh;
 }
-form{
-    width: 100%;
+
+.cabecalho_page {
+    /*border: 1px solid black;*/
+    margin-top: 40%;
+    margin-bottom: 20px;
 }
-.secaoprincipal > h2{
-    margin-top: 15%;
+
+.cabecalho_page > h2 {
     font-size: 25px;
+    padding: 5px;
     color: #d33333 !important;
 }
-.secaoprincipal > h2{
-    font-size: 20px;
-    margin-top: 20%;
-    padding: 20px;
+
+.cabecalho_page > p {
+    color: black !important;
+    margin-top: 30px !important;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    font-weight: 500 !important;
+    font-size: 16px;
 }
-.secaoprincipal > p{
-    color: grey;
-    padding: 5px;
-    margin-top: 50px;
-}
-.plink{
+
+
+/* Estilo dos links */
+.plink {
     text-decoration: underline;
     color: rgb(56, 56, 212);
 }
-.btn{
+
+/* Estilo do botão de submissão */
+.btn {
     width: 250px;
-    margin-top: 35px !important;
+    margin-top: 25px !important;
     height: 50px;
-    background-color: #d33333; 
-   color: white;
+    background-color: #d33333;
+    color: white;
     border-radius: 10px;
     font-size: 16px;
 }
 
-.formulario{
-    margin-top: 30%;
+/* Estilo da classe formulario */
+.formulario {
     margin-bottom: 20%;
+}
+form{
+    margin-top: 10%;
 }
