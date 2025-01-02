@@ -20,12 +20,12 @@ import UltimosPedidos from './pages/pagesgerencia/UltimosPedidos'
 import PedidosProntos from './pages/pagesgerencia/PedidosProntos'
 import PedidosEmPreparo from './pages/pagesgerencia/PedidosEmPreparo'
 import TelaCozinha from './telacozinha/TelaCozinha';
-
+import CarrinhoDeItens from './secoes/Carrinho'
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Main />} /> 
+        <Route path="/speedorder" element={<Main />} /> 
         <Route path="/cadastroestabelecimento" element={<CriarEstabelecimento/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />
@@ -45,6 +45,7 @@ function App() {
         <Route path="/pedidos-prontos" element={<PedidosProntos/>} />
         <Route path="/pedidos-em-preparo" element={<PedidosEmPreparo />} />
         <Route path="/historico-pedidos" element={<HistoricoPedidos />} />
+        <Route path="/carrinhodeitens" element={<CarrinhoDeItens />} />
 
 
 

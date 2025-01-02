@@ -11,7 +11,7 @@ function NovoPedido(){
 
 
 
-            <Nav nome_hotel="Hilton São Paulo Morumbi"/>
+            <Nav nome_hotel="Soraia Restaurante"/>
             <Search/>
             <SecaoItens/>
 

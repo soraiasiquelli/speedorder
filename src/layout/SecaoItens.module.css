@@ -1,3 +1,16 @@
+/*.secaocompleta {
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adiciona 
+    espaçamento entre os itens */
+   /* background-color: white !;
+}*/
+
+
 .secaocompleta {
     width: 80%;
     height: 100vh;
@@ -5,7 +18,8 @@
     margin-top: 2%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Adiciona espaçamento entre os itens */
-}
-
-
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza verticalmente os itens */
+    background-color: white; /* Remova o "!" extra */
+  }
+  

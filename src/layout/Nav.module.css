@@ -1,19 +1,44 @@
-nav{
+nav {
     width: 80%;
     margin: auto;
-    font-family: 'Helvetica';
+    font-family: 'Helvetica', sans-serif;
     color: rgb(86, 85, 85);
     font-weight: 400 !important;
-
-}
-nav h1 {
-    padding: 35px;
-    font-size: 25px;
-    font-weight: 300;
-    color: #333; /* Cor do texto */
-    font-family: 'Arial', sans-serif; /* Fonte limpa e moderna */
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+  
+  nav h1 {
+    padding: 20px 0;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: 500; /* Um peso de fonte mais forte */
+    color: #2c3e50; /* Cor mais sofisticada */
+    font-family: 'Roboto', sans-serif; /* Fonte moderna e limpa */
     text-transform: uppercase; /* Transforma o texto em maiúsculas */
-    letter-spacing: 1px; /* Espaçamento entre letras */
-    border-bottom: 2px solid #ddd; /* Linha sutil abaixo do título */
+    letter-spacing: 2px; /* Aumenta o espaçamento entre as letras */
+    text-align: center; /* Centraliza o título */
+    position: relative; /* Para permitir o uso de pseudo-elementos */
     margin: 0; /* Remove a margem padrão */
-}
+  }
+  
+  nav h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Aumenta a espessura da linha */
+    background: linear-gradient(90deg, #ff6b6b, #f0a500); /* Gradiente de cor vibrante */
+    transition: width 0.3s ease; /* Transição suave ao passar o mouse */
+  }
+  
+  nav h1:hover::after {
+    width: 0; /* A linha se esconderá ao passar o mouse */
+  }
+  
+  nav h1:hover {
+    color: #ff6b6b; /* Cor vibrante ao passar o mouse */
+    transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+    transition: color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
+  }
+  

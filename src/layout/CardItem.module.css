@@ -1,57 +1,111 @@
 .card_item {
-    display: flex;
-    align-items: center;
-    box-shadow: 0px 1px 10px 1px grey;
-    margin: 10px 0;
-    padding: 10px;
-    box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 15px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: transform 0.3s ease-in-out; /* Efeito de transição suave */
+  /*border: 1px solid black;*/
+}
+
+.card_item:hover {
+  transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+}
+
+.card_image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 15px; /* Espaçamento entre imagem e conteúdo */
+  border-radius: 8px; /* Bordas arredondadas para a imagem */
+  object-fit: cover; /* Faz com que a imagem se ajuste bem ao espaço */
+}
+
+.card_content {
+  text-align: center; /* Centraliza o conteúdo dentro do card */
+  margin-bottom: 20px;
+}
+
+.card_content > a > label {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333; /* Cor mais suave */
+  margin-bottom: 8px;
+}
+
+.card_content > a > .p_descricao {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.card_content > a > .p_preco {
+  font-size: 18px;
+  font-weight: 600;
+  color: #28a745; /* Verde suave para o preço */
+}
+
+a {
+  text-decoration: none;
+}
+
+.divAdd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.addBtnCard {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff; /* Azul profissional */
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addBtnCard:hover {
+  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+.quantItem {
+  width: 70px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.quantItem:focus {
+  border-color: #007bff; /* Azul ao focar no input */
+  outline: none; /* Remove o contorno padrão */
+}
+
+@media (min-width: 768px) {
+  .card_item {
+    flex-direction: row; /* Alinha a imagem e o conteúdo horizontalmente em telas médias */
+    width: 48%;
   }
-  
-  .card_image {
-    flex: 0 0 auto;
-    width: 40%; /* Ajuste conforme necessário */
-    margin-right: 20px;
-    margin: auto;
-    margin-right: 10px;
+}
+
+@media (min-width: 1024px) {
+  .card_item {
+    width: 30%;
   }
-  
-  .card_content {
-    flex: 1;
-  }
-  
-  .card_content > a > label {
-    font-size: 20px;
-    color: black;
-    font-weight: 100;
-  }
-  
-  .card_content > a > .p_descricao {
-    padding: 10px 0;
-    font-size: 14px !important;
-    color: grey;
-  }
-  
-  .card_content > a > .p_preco {
-    color: green;
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: -10px;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  /* Media Queries para tamanhos de tela específicos */
-  @media (min-width: 768px) {
-    .card_item {
-      width: 48%;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .card_item {
-      width: 30%;
-    }
-  }
-  
+}

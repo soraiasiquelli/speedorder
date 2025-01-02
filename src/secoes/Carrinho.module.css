@@ -1,0 +1,37 @@
+body{
+    padding: 0%;
+    margin: 0%;
+}
+.headercarrinho{
+    /*border: 1px solid black !important;*/
+    height: auto;
+    display: flex; /* Habilita o flexbox */
+    justify-content: space-between; /* Espaço entre os elementos */
+    padding: 0 20px; /* Espaçamento interno nas laterais */
+}
+.headercarrinho > input{
+    width: 80px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+h2{
+    margin-top: 18%;
+    font-size: 40px;
+    padding: 20px;
+
+}
+
+div.itemdocarrinho{
+    display: flex;
+    border: 1px solid black;
+    height: 150px;
+    padding: 20px;
+}
+.itemdocarrinho > img{
+    width: 40%;
+}

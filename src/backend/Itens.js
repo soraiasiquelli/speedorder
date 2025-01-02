@@ -23,14 +23,14 @@ const Itens = db.sequelize.define('itens', {
         type: Sequelize.STRING,
         allowNull: true
     },
-    imagem: {  // Novo campo para a imagem
+    imagem: {
         type: Sequelize.TEXT,
         allowNull: true
     }
 });
 
-// Sincronizando o modelo com o banco de dados
-Itens.sync({ alter: true })
+// Sincronizando sem recriar a tabela
+Itens.sync()
     .then(() => console.log("Tabela 'itens' sincronizada com sucesso."))
     .catch(err => console.error("Erro ao sincronizar a tabela 'itens':", err));
 
