@@ -6,12 +6,23 @@ import SecaoItens from '../layout/SecaoItens';
 
 function NovoPedido(){
 
+    const nomeEstabelecimento = localStorage.getItem("nomeEstabelecimento")
+
+
+
+
+
+
+
+
+
+
     return(
         <div>
 
 
 
-            <Nav nome_hotel="Soraia Restaurante"/>
+            <Nav nome_hotel={nomeEstabelecimento}/>
             <Search/>
             <SecaoItens/>
 

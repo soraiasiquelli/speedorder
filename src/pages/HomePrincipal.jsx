@@ -5,6 +5,8 @@ import styles from "./HomePrincipal.module.css";
 import { Link } from 'react-router-dom';
 import FooterOpcoes from "../layout/FooterOpcoes";
 import { useEffect, useState } from 'react';
+import logooficial from '../images/logo_speed_order_oficial__img.png'
+
 
 
 /*************  ✨ Codeium Command ⭐  *************/
@@ -17,6 +19,14 @@ import { useEffect, useState } from 'react';
 /******  9eaca89b-fe7f-4be8-9654-43949466877b  *******/
 
 function HomePrincipal() {
+
+  const nomeEstabelecimento = localStorage.getItem("nomeEstabelecimento")
+
+
+
+
+
+
   const [nome, setNome] = useState('');
 
   useEffect(() => {
@@ -28,10 +38,15 @@ function HomePrincipal() {
 
   return (
     <div className={styles.mainpage}>
+      <header className={styles.headerPrincipal}>
+      <MenuLateral/>
 
+        <p className={styles.nomeusuario}>Olá nomeDoGarcom</p>
+        <p className={styles.nomeEstabelecimento}>Você está no <br/>{nomeEstabelecimento}</p>
+        
+      </header>
       <main className={styles.mainContent}>
         <header className={styles.headerWelcome}>
-          <h2>Bem-vindo!{nome}</h2>
           <p>Vamos agilizar os seus pedidos</p>
         </header>
 
@@ -50,7 +65,6 @@ function HomePrincipal() {
           </div>
         </section>
 
-        <MenuLateral/>
 
 
         <Link to="/mesaparapedido">

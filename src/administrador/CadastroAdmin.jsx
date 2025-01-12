@@ -59,7 +59,7 @@ function CadastroAdmin() {
         <main className={styles.secaoprincipal}>
 
             <header className={styles.cabecalho_page}>
-            <h2>Cadastro de Administrador</h2>  
+            <h2>Cadastro Administrador</h2>  
             <p>Para começar, preencha os campos abaixo com as informações do novo administrador.</p>
 
             </header>

@@ -2,7 +2,9 @@
 * {
     font-family: "Helvetica";
 }
-
+body{
+    height: 100% !important;
+}
 main {
     display: flex;
     justify-content: center;
@@ -14,19 +16,19 @@ main {
 /* Estilo principal da seção */
 .secaoprincipal {
     text-align: center;
-    height: 100vh;
 }
 
 .cabecalho_page {
     /*border: 1px solid black;*/
-    margin-top: 40%;
-    margin-bottom: 20px;
+    margin-top: 20%;
+    margin-bottom: 10%
 }
 
 .cabecalho_page > h2 {
     font-size: 25px;
     padding: 5px;
     color: #d33333 !important;
+    margin: 0%;
 }
 
 .cabecalho_page > p {
@@ -41,8 +43,8 @@ main {
 
 /* Estilo dos links */
 .plink {
-    text-decoration: underline;
-    color: rgb(56, 56, 212);
+    color: #d33333;
+    font-size: 16;;
 }
 
 /* Estilo do botão de submissão */
@@ -55,11 +57,20 @@ main {
     border-radius: 10px;
     font-size: 16px;
 }
+.btn:hover{
+    background-color: #9e1b1b; /* Cor vermelha escura no hover */
+    transform: scale(1.1); /* Leve aumento do botão no hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */}
 
 /* Estilo da classe formulario */
 .formulario {
-    margin-bottom: 20%;
+    margin-bottom: 10%;
+
 }
 form{
     margin-top: 10%;
+}
+
+a{
+    color: #d33333 !important;
 }

@@ -19,8 +19,9 @@ const Mesas = db.sequelize.define('mesas', {
 });
 
 // Sincronizando o modelo com o banco de dados
-Mesas.sync({ alter: true })
+Mesas.sync({alter: true })
   .then(() => console.log("Tabela 'mesas' sincronizada com sucesso."))
   .catch(err => console.error("Erro ao sincronizar a tabela 'mesas':", err));
+
 
 module.exports = Mesas;

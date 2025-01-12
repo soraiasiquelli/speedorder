@@ -10,32 +10,31 @@
 /* Estilo principal da seção */
 .secaoprincipal {
     text-align: center;
-    height: 100vh;
+    height: 80vh;
 }
 
 .cabecalho_page {
     /*border: 1px solid black;*/
-    margin-top: 50%;
-    margin-bottom: 20px;
+    margin-top: 20%;
+    margin-bottom: 10%;
 }
 
 .cabecalho_page > h2 {
     font-size: 25px;
     color: #d33333 !important;
+    margin: 0%;
+    padding: 15px;
+    margin-bottom: 5% !important;
 }
 
 .cabecalho_page > p {
     color: black !important;
-    margin-top: 30px !important;
     margin-bottom: 0px;
     text-transform: capitalize;
     font-weight: 500 !important;
     font-size: 16px;
 }
 
-form{
-    margin-top: 10% !important;
-}
 /* Estilo dos links */
 .plink {
     text-decoration: underline;
@@ -51,7 +50,13 @@ form{
     color: white;
     border-radius: 10px;
     font-size: 16px;
+    font-size: 1em;
 }
+
+.btn:hover{
+    background-color: #9e1b1b; /* Cor vermelha escura no hover */
+    transform: scale(1.1); /* Leve aumento do botão no hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */}
 
 /* Estilo da classe formulario */
 .formulario {

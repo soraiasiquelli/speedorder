@@ -31,7 +31,7 @@ const Administrador = db.sequelize.define('administrador', {
 });
 
 // Sincronizar o modelo com o banco de dados
-db.sequelize.sync().then(() => {
+db.sequelize.sync({alter: true}).then(() => {
   console.log("Modelo atualizado.");
 }).catch(err => {
   console.error("Erro ao atualizar o modelo:", err);

@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('./db');
+const db = require('../backend/db');
 
 const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
   id_item: {
@@ -13,38 +13,51 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
     references: {
       model: 'pedidos',
       key: 'id_pedido'
-    }
+    },
+    onUpdate: 'CASCADE', // Cascata de atualização
+    onDelete: 'CASCADE' // Cascata de exclusão
   },
   id_produto: {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
-      model: 'produtos',
-      key: 'id_produto'
-    }
+      model: 'itens', // Tabela de itens
+      key: 'id_item'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'RESTRICT'
   },
-  quantidade: {
+  id_estabelecimento: {
     type: Sequelize.INTEGER,
-    allowNull: false
-  },
-  preco_unitario: {
-    type: Sequelize.DECIMAL(10, 2),
-    allowNull: false
-  },
-  admin_id: {  // Referência para o administrador
-    type: Sequelize.INTEGER,
-    references: {
-      model: 'administradores',
-      key: 'id_administrador'
-    }
-  },
-  estabelecimento_id: { // Referência para o estabelecimento
-    type: Sequelize.INTEGER,
+    allowNull: false,
     references: {
       model: 'estabelecimentos',
       key: 'id_estabelecimento'
-    }
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE'
+  },
+  quantidade: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 1
+  },
+  total_item: {
+    type: Sequelize.DECIMAL(10, 2),
+    allowNull: false
   }
+}, {
+  tableName: 'itens_do_pedido', // Nome da tabela no banco de dados
 });
+
+// Sincroniza o modelo com o banco de dados
+ItensDoPedido.sync({alter: true})
+  .then(() => {
+    console.log("Tabela 'itens_do_pedido' criada ou sincronizada com sucesso");
+  })
+  .catch((err) => {
+    console.error("Erro ao sincronizar a tabela 'itens_do_pedido':", err);
+  });
+
 
 module.exports = ItensDoPedido;

@@ -13,9 +13,7 @@
 
 .secaocompleta {
     width: 80%;
-    height: 100vh;
     margin: auto;
-    margin-top: 2%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centraliza os itens horizontalmente */

@@ -22,6 +22,11 @@ function CadastroItens() {
         }
 
         try {
+
+            //busca o id do estabelecimento que esta no localstorage e armazena na variavel
+
+            const estabelecimento_id = localStorage.getItem("estabelecimento_id")
+
             const response = await fetch("http://localhost:5001/cadastroprodutos", {
                 method: "POST",
                 headers: {
@@ -32,7 +37,10 @@ function CadastroItens() {
                     descricao,
                     preco,
                     categoria,
-                    imagem // Enviando a imagem
+                    imagem, // Enviando a imagem
+                    //Adiciona o id do estabelecimento que esta no localstorage
+                    id_estabelecimento: estabelecimento_id
+                    
                 })
             });
 

@@ -1,147 +1,177 @@
 /* src/pages/HomePrincipal.module.css */
 * {
-    box-sizing: border-box;
-    font-family: 'Helvetica', sans-serif;
-  }
-  
-  .mainpage {
-    height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Helvetica', sans-serif;
+}
+.headerPrincipal {
     width: 100%;
-    /*background-color: #f0f2f5;*/ /* Cor de fundo suave */
-    background-color: white;
-    padding: 20px;
-  }
-  
-  .mainContent {
-   /* display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;
-    text-align: center;*/
-    padding: 10px
-  }
-  
-  .headerWelcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 25%;
-    height:100px;
-    width: 120%;
-    padding: 5px;
-  }
-  
-  /* Título */
-  .headerWelcome h2 {
-    font-size: 25px;
-    font-weight: 600; /* Deixa o texto mais forte */
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Descrição */
-
-  .headerWelcome p {
-    font-size: 18px;
-    color: #666; /* Cor mais suave para o subtítulo */
-    margin-top: 55px !important; /* Adiciona um espaçamento suficiente acima do parágrafo */
-    font-weight: 300  !important;
-
-  }
-  
-  /* Imagem (caso tenha uma imagem) */
-  .headerWelcome img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; /* Garante que a imagem se ajuste dentro do círculo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil na imagem */
-    margin-top: 20px;
-  }
-  
-  .sectionBlocos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    justify-content: center;
-    align-items: start; /* Garante que os itens fiquem alinhados ao topo */
+    height: 30vh;
+    background-color: #d33333ff;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-transform: none !important;
+}
+.headerPrincipal > p{
+  text-align: right;
+  /*border: 1px solid black;*/
+  color: white;
+  margin-top: 20px;
+  font-weight: 500;
+}
+.nomeusuario, .nomeEstabelecimento{
+  text-transform: none;
+}
+.nomeusuario{
+  font-size: 18px;
+  margin-top: 30px !important;
+}
+.nomeEstabelecimento{
+  font-size: 26px !important;
+  text-align: right;
+  color: white;
+  margin-top: none;
+  font-weight: bold;
+  margin: 0% !important;
 }
 
-  
-  .opcaoBloco {
-    background-color: #ffffff;
-    border: 2px solid  #d33333ff;
-    color:  #d33333ff;;
-    border-radius: 10px;
-    padding: 20px;
-    width: 150px;
-    height: 75% !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.mainpage {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  /*padding: 20px;*/
+  /*border: 1px solid black;*/
 
-  
- 
-  
-  .opcaoBloco:hover {
-    background-color: #f8f9fa;
-    cursor: pointer;
-  }
 
-  .btnnovopedido {
-    position: fixed; /* Fixa o botão na tela */
-    bottom: 20px;    /* Distância do fundo da página (ajuste conforme necessário) */
-    right: 20px;     /* Distância da borda direita da página (ajuste conforme necessário) */
-    padding: 10px 20px; /* Tamanho do botão, pode ajustar conforme necessário */
-    background-color:#d33333ff; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    border: none; /* Remove a borda padrão do botão */
-    border-radius: 5px; /* Borda arredondada */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Faz o botão ter um cursor de clique */
-    width: 40%;
-  }
-  
-  .btnnovopedido:hover {
-    /* #0056b3;*/ /* Cor do botão quando o cursor passar sobre ele */
-    background-color: black;
-    transform: scale(1.1); /* Leve aumento do botão no hover */
-  }
-  
-  
-  .link {
-    text-decoration: none;
-    color:  #d33333ff;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .link:hover {
-    text-decoration: underline;
-  }
-  
-  footer {
-    margin-top: 20px;
-  }
-  
-  /* Media Queries */
-  @media (min-width: 768px) {
-    .sectionBlocos {
+
+}
+
+.mainContent {
+  padding: 10px;
+  height: 65vh;
+  display: block;
+}
+
+.headerWelcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0; /* Remover a margem superior, pois o alinhamento no centro cuida disso */
+  height: 100px;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+
+/* Título */
+.headerWelcome h2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 10px;
+  margin: 0% !important;
+}
+
+/* Descrição */
+.headerWelcome p {
+  font-size: 18px;
+  color: black;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Imagem */
+.headerWelcome img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.sectionBlocos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center; /* Centraliza os blocos horizontalmente */
+  align-items: start;
+  width: 100%;
+}
+
+.opcaoBloco {
+  background-color: #ffffff;
+  border: 2px solid #d33333ff;
+  color: #d33333ff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  height: 95% !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.opcaoBloco:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.btnnovopedido {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #d33333ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 40%;
+}
+
+.btnnovopedido:hover {
+  background-color: black;
+  transform: scale(1.1);
+}
+
+.link {
+  text-decoration: none;
+  color: #d33333ff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .sectionBlocos {
       gap: 30px;
-    }
-  
-    .opcaoBloco {
+  }
+
+  .opcaoBloco {
       width: 300px;
-    }
   }
-  
-  @media (min-width: 1024px) {
-    .sectionBlocos {
+}
+
+@media (min-width: 1024px) {
+  .sectionBlocos {
       gap: 40px;
-    }
-  
-    .opcaoBloco {
-      width: 350px;
-    }
   }
-  
+
+  .opcaoBloco {
+      width: 350px;
+  }
+}

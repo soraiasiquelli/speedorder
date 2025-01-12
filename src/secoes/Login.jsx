@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logospeed from "../images/logospeed.png"; // Caminho relativo a partir do arquivo onde você está usando a imagem
 import logonova from '../images/logonova_speedorder.png'
+import logooficial from '../images/logo_speed_order_oficial__img.png'
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -46,13 +48,15 @@ function Login() {
   
   
   
+//          <img src={logooficial} alt="Logo Speed" className={styles.logo}/>
 
   return (
     <main className={styles.mainform}>
       <div className={styles.secaoform}>
         <form className={styles.form} onSubmit={efetuarLogin}>
-          <img src={logonova} alt="Logo Speed" />
 
+          <h2>SpeedOrder</h2>
+          <h3>Do clique à mesa</h3>
           <Input
             type="email"
             text="Digite seu email: "
@@ -74,7 +78,7 @@ function Login() {
             Esqueceu sua senha? <Link>Clique aqui</Link>
           </p>
           <p className={styles.criarconta}>
-            <Link to={"/pagesforms/cadastroadmin"}>Criar Conta</Link>
+            <Link to={"/pagesforms/cadastroadmin"}>É novo por aqui? Crie sua conta!</Link>
           </p>
         </form>
       </div>

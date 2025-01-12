@@ -21,6 +21,7 @@
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Mostra o cursor de clique */
     transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    border-radius: 20px;
 }
 
 .botaoiniciar:hover {
@@ -39,12 +40,15 @@ main {
 
 main > img {
     margin-bottom: 20px; /* Espaço abaixo da imagem */
+    width: 40%;
     height: auto;
     max-width: 50%; /* Ajusta a largura da imagem */
     animation: mexerImagem 5s infinite alternate; /* Aplica a animação */
 
 }
-
+.imagemLogo{
+    width: 80%;
+}
 footer {
     text-align: center;
     width: 100%;
@@ -69,4 +73,10 @@ footer {
     100% {
         transform: translateX(0); /* Volta para a posição original */
     }
+}
+body{
+        background-color:/* #a60000!important;*/ white;
+       /* background: rgb(166,0,0);
+background: linear-gradient(90deg, rgba(166,0,0,1) 0%, rgba(198,95,0,1) 30%, rgba(247,244,0,1) 90%);*/
+
 }

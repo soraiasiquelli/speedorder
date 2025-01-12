@@ -24,10 +24,9 @@ function CriarEstabelecimento() {
         
         try {
                 // Recuperar o ID do administrador do localStorage 
-                const adminId = localStorage.getItem("admin_id");
+             const adminId = localStorage.getItem("admin_id");
 
-
-
+    
             console.log('Antes da requisição fetch');
             const response = await fetch("http://localhost:5001/cadastroestabelecimento", {
                 method: "POST",
@@ -42,11 +41,27 @@ function CriarEstabelecimento() {
                     id_admin: adminId
                 })
             });
+
+
             console.log('Depois da requisição fetch');
             console.log(response);
+
+
+
+            const contentType = response.headers.get("Content-Type");
+        console.log("Content-Type da resposta:", contentType);
+
+        const data = await response.json()
+        console.log("ID do estabelecimento:", data.id_estabelecimento);
+
+
         
             if (response.ok) {
+                console.log("ID do estabelecimento:", data.id_estabelecimento);
+
                 console.log("Estabelecimento cadastrado com sucesso!");
+                localStorage.setItem("estabelecimento_id", data.id_estabelecimento)
+                localStorage.setItem("nomeEstabelecimento", nomeEstabelecimento)
                 navigate("/homeprincipal");
             } else {
                 const errorMessage = await response.text();
@@ -61,7 +76,7 @@ function CriarEstabelecimento() {
     return (
         <div className={styles.secaoprincipal}>
             <header className={styles.cabecalho_page}>
-                <h2>Registre Seu Restaurante Aqui!</h2>
+                <h2>Registre Seu Restaurante!</h2>
                 <p>Preencha os detalhes abaixo e garanta seu espaço no nosso sistema.</p>
             </header>
 
@@ -70,7 +85,7 @@ function CriarEstabelecimento() {
                     type="email"
                     text="Digite seu email: "
                     name="email"
-                    placeholder="Email:"
+                    placeholder="Email do estabelecimento"
                     handleOnChange={(e) => setEmail(e.target.value)}
                 />
                 <Input
@@ -98,7 +113,7 @@ function CriarEstabelecimento() {
 
             </form>
 
-            <Link to="/home"><p className={styles.plink}>Já tenho uma loja/Sou funcionário de uma loja</p></Link>
+            <Link to="/home"><p className={styles.plink}>Já tenho uma loja/Sou funcionário de um estabelecimento</p></Link>
         </div>
     );
 }

@@ -6,10 +6,14 @@
   padding: 20px;
   box-sizing: border-box;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   border-radius: 8px; /* Bordas arredondadas */
   transition: transform 0.3s ease-in-out; /* Efeito de transição suave */
-  /*border: 1px solid black;*/
+ /* border: 1px solid black;*/
+  
+  
 }
 
 .card_item:hover {
@@ -17,12 +21,15 @@
 }
 
 .card_image {
+  display: block; /*trata o elemento como bloco*/
   width: 100%;
   max-width: 200px;
   height: auto;
   margin-bottom: 15px; /* Espaçamento entre imagem e conteúdo */
   border-radius: 8px; /* Bordas arredondadas para a imagem */
   object-fit: cover; /* Faz com que a imagem se ajuste bem ao espaço */
+  margin: auto;
+ /* border: 1px solid black;*/
 }
 
 .card_content {
@@ -42,6 +49,7 @@
   color: #888;
   margin-bottom: 15px;
   line-height: 1.6;
+  margin-top: 5%;
 }
 
 .card_content > a > .p_preco {

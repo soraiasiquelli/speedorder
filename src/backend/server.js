@@ -9,11 +9,13 @@
         const Mesa = require(path.join(__dirname, 'Mesas')); // Importando o modelo de Mesa
         const Itens = require('./Itens'); // Importa o modelo de itens
         const Garcons = require("./Garcons");
+        const ItensDoPedido = require("./ItensDoPedido")
+        const Pedido = require("./Pedidos")
         const { where } = require('sequelize');
         const port = 5001
 
         const app = express();
-        app.use(cors({ origin: "http://localhost:3000" })); // Adapte a porta usada no cliente
+        app.use(cors({ origin: "http://localhost:3000" })); // Permite o frontend no localhost:3000
         app.use(express.json());
 
 
@@ -62,37 +64,48 @@
 
   
 
-app.post("/cadastroestabelecimento", async (req, res) => {
-    console.log("Rota /cadastroestabelecimento chamada");
-    console.log("Dados recebidos:", req.body);
-    
-
-    const { nomeEstabelecimento, endereco, telefone, email, id_admin } = req.body;
-
-    if (!nomeEstabelecimento || !endereco || !telefone || !email || !id_admin) {
-        console.error("Erro: Todos os campos são obrigatórios.");
-        return res.status(400).send("Todos os campos são obrigatórios.");
-    }
-
-    try {
-        const novoEstabelecimento = await Estabelecimento.create({
-            nomeEstabelecimento,
-            endereco,
-            telefone,
-            email,
-            id_admin //VAI VIR DO LOCALSTORAGE
+        app.post("/cadastroestabelecimento", async (req, res) => {
+            console.log("Rota /cadastroestabelecimento chamada");
+            console.log("Dados recebidos:", req.body);
+        
+            const { nomeEstabelecimento, endereco, telefone, email, id_admin } = req.body;
+        
+            if (!nomeEstabelecimento || !endereco || !telefone || !email || !id_admin) {
+                console.error("Erro: Todos os campos são obrigatórios.");
+                return res.status(400).json({ error: "Todos os campos são obrigatórios." });
+            }
+        
+            try {
+                const novoEstabelecimento = await Estabelecimento.create({
+                    nomeEstabelecimento,
+                    endereco,
+                    telefone,
+                    email,
+                    id_admin // VAI VIR DO LOCALSTORAGE
+                });
+        
+                console.log("Estabelecimento cadastrado com sucesso!", novoEstabelecimento);
+        
+                // Resposta como JSON
+                res.status(201).json({
+                    id_estabelecimento: novoEstabelecimento.id_estabelecimento, // Retorne o ID do estabelecimento, se necessário
+                    message: "Estabelecimento cadastrado com sucesso!"
+                });
+            } catch (error) {
+                console.error("Erro ao cadastrar o estabelecimento:", error);
+                if (error.errors) {
+                    error.errors.forEach(err => console.error(err.message)); // Log de erros de validação
+                }
+        
+                // Resposta de erro como JSON
+                res.status(500).json({
+                    error: `Erro ao cadastrar o estabelecimento: ${error.message}`
+                });
+            }
         });
+        
 
-        console.log("Estabelecimento cadastrado com sucesso!", novoEstabelecimento);
-        res.status(201).send("Estabelecimento cadastrado com sucesso!");
-    } catch (error) {
-        console.error("Erro ao cadastrar o estabelecimento:", error);
-        if (error.errors) {
-            error.errors.forEach(err => console.error(err.message)); // Log de erros de validação
-        }
-        res.status(500).send(`Erro ao cadastrar o estabelecimento: ${error.message}`);
-    }
-});
+
 // Rota para cadastrar administrador
 app.post("/pagesforms/cadastroadmin", async (req, res) => {
     console.log("Rota /pagesforms/cadastroadmin chamada");
@@ -140,11 +153,28 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
             }
         });
 
+
+        app.get("/cadastromesas", async (req, res) => {
+            try {
+                const mesas = await Mesa.findAll(); // Certifique-se de que o nome do modelo está correto
+                console.log("Mesas encontradas: ", mesas);
+                res.status(200).json(mesas);
+            } catch (error) {
+                console.log("Erro ao buscar as mesas", error);
+                res.status(500).json({ error: "Erro ao buscar as mesas" }); // Envie um JSON de erro com status 500
+            }
+        });
+        
+
         // Rota para cadastrar itens
         // Rota POST para cadastrar produtos
         app.post("/cadastroprodutos", async (req, res) => {
             console.log("Rota /cadastroprodutos chamada");
             console.log("Dados recebidos:", req.body);
+
+              
+            const { id_estabelecimento} = req.body;
+
 
             try {
                 const novoItem = await Itens.create({
@@ -152,7 +182,8 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
                     descricao: req.body.descricao,
                     preco: req.body.preco,
                     categoria: req.body.categoria,
-                    imagem: req.body.imagem
+                    imagem: req.body.imagem,
+                    id_estabelecimento //VAI VIR DO LOCALSTORAGE
                 });
                 console.log("Item cadastrado com sucesso!", novoItem);
                 res.status(201).send("Item cadastrado com sucesso!");
@@ -210,23 +241,55 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
         });
 
 
-
-
-
         /*Verificacao de Login*/
 
+        app.post("/fecharpedido", async (req, res) => {
+            const { itens, id_estabelecimento, forma_de_pagamento, total } = req.body;
+        
+            if (!itens || itens.length === 0) {
+                return res.status(400).json({ message: "Não há itens para cadastrar." });
+            }
+        
+            try {
+                // Criação do pedido
+                const pedido = await Pedido.create({
+                    id_estabelecimento,
+                    forma_de_pagamento,
+                    total
+                });
+        
+                // Criando os itens do pedido
+                const itensCadastrados = await Promise.all(
+                    itens.map(async (item) => {
+                        if (!item.id_produto) {
+                            throw new Error("id_produto não encontrado para o item.");
+                        }
+        
+                        return await ItensDoPedido.create({
+                            id_pedido: pedido.id_pedido,  // Associando o pedido
+                            id_produto: item.id_produto,  // Associando o item ao pedido pelo id_produto
+                            id_estabelecimento: item.id_estabelecimento,
+                            quantidade: item.quantidade,
+                            total_item: item.total_item
+                        });
+                    })
+                );
+        
+                res.status(201).json({ message: "Pedido e itens cadastrados com sucesso", pedido });
+            } catch (error) {
+                console.error("Erro ao criar o pedido:", error);
+                res.status(500).json({ message: "Erro ao processar o pedido." });
+            }
+        });
+        
 
-
-
-
-
-
+        
 
 
 
 
         // Sincroniza o modelo com o banco de dados
-        db.sequelize.sync()
+        db.sequelize.sync({alter: true})
         .then(() => {
             console.log("Modelo sincronizado com sucesso.");
         })
@@ -237,5 +300,5 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
 
         // Iniciando o servidor
         app.listen(port, () => {
-            console.log("Servidor rodando na porta 5001");
+            console.log("Servidor rodando na porta", port);
         });

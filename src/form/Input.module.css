@@ -1,12 +1,14 @@
 /* Estilo para inputs */
 .itensform > input {
-    width: 300px;
-    height: 40px; /* Altura ajustada para ser mais consistente */
+    width: 280px;
+    height: 43px; /* Altura ajustada para ser mais consistente */
     margin-top: 5%;
     font-size: 16px; /* Fonte um pouco menor para um visual mais compacto */
     border-radius: 5px; /* Menor arredondamento para um visual mais simples */
     background-color: #fff; /* Fundo branco */
     border: 1px solid #ddd; /* Borda cinza clara para um visual mais suave */
+    border: 1px solid gray;
+    margin-top: 8%;
 }
 
 .itensform{

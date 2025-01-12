@@ -13,23 +13,9 @@ const Pedidos = db.sequelize.define('pedidos', {
     references: {
       model: 'estabelecimentos',
       key: 'id_estabelecimento'
-    }
-  },
-  id_garcom: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'garcons',
-      key: 'id_garcom'
-    }
-  },
-  id_mesa: {
-    type: Sequelize.INTEGER,
-    allowNull: true, // Campo pode ser nulo para pedidos de delivery
-    references: {
-      model: 'mesas',
-      key: 'id_mesa'
-    }
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   },
   data_pedido: {
     type: Sequelize.DATE,
@@ -39,16 +25,31 @@ const Pedidos = db.sequelize.define('pedidos', {
     type: Sequelize.ENUM('em andamento', 'pronto', 'entregue'),
     allowNull: false,
     defaultValue: 'em andamento'
+  },
+  total: {
+    type: Sequelize.DECIMAL(10, 2),
+    allowNull: false
+  },
+  forma_de_pagamento: {
+    type: Sequelize.STRING(25),
+    allowNull: false
   }
+}, {
+  timestamps: false // Desativa os campos createdAt e updatedAt
 });
 
 // Sincroniza o modelo com o banco de dados
-Pedidos.sync({ force: false })
+Pedidos.sync({alter: true})
   .then(() => {
-    console.log("Tabela 'pedidos' sincronizada com sucesso");
+    console.log("Tabela 'pedidos' alterada com sucesso");
   })
   .catch((err) => {
-    console.error("Erro ao sincronizar a tabela 'pedidos':", err);
+    console.error("Erro ao alterar a tabela 'pedidos':", err);
   });
 
+
+
 module.exports = Pedidos;
+
+
+

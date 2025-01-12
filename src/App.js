@@ -25,7 +25,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/speedorder" element={<Main />} /> 
+        <Route path="/" element={<Main />} /> 
         <Route path="/cadastroestabelecimento" element={<CriarEstabelecimento/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />

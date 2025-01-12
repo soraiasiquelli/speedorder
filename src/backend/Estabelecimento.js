@@ -41,7 +41,7 @@ const Estabelecimento = db.sequelize.define('estabelecimento', {
 Estabelecimento.belongsTo(Administrador, { foreignKey: 'id_admin' });
 Administrador.hasMany(Estabelecimento, { foreignKey: 'id_admin' });
 
-db.sequelize.sync({})
+db.sequelize.sync({alter: true}) //Não apaga a tabela e nem os dados
 .then(() => {
     console.log("Modelo sincronizado com sucesso.");
 })

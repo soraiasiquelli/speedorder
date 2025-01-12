@@ -1,15 +1,27 @@
 body{
     margin-top: -15%;
 }
+form{
+    margin-top: 0%  !important;
+}
 main {
-    display: flex;
     height: 100vh;
     width: 100% !important;
     margin-top: 0% !important;
     flex-wrap: wrap;
     margin: auto;
     font-family: 'Helvetica';
+    /*border: 1px solid black;*/
 
+
+}
+
+.mainform > h2{
+    text-align: left;
+   
+}
+.secaoform{
+    margin-top: -10%;
 }
 
 .secaoform, .secaoimagem {
@@ -23,6 +35,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0%;
    
 }
 
@@ -38,15 +51,26 @@ main {
     font-size: 25px;
     color: #d33333;
 }
+.form > h2{
+    text-align: center;
+    color: #d33333;
+    font-weight: bolder;
+}
+form > h3{
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 5%;
+}
 p {
     text-transform: uppercase;
     color: #d33333;
     font-weight: 700;
+
   }
 
 .btn {
-    width: 250px;
-    height: 50px;
+    width: 200px;
+    height: 40px;
     margin-top: 10%;
     margin-bottom: 5%;
     background-color: #d33333; 
@@ -65,19 +89,19 @@ p {
     text-align: center;
 }
 
-.secaoimagem > img {
-    width: 60%;
-    margin-top: 15%;
+.logo {
+    width: 40%;
+    margin-top: 10%;
     border-radius: 20px;
 }
 
 .esqueceuasenhap{
-    font-size: 16px;
+    font-size: 12px;
     padding: 10px !important;
     color: black;
 }
 .criarconta{
-    margin-top: 0%;
+    margin-top: 2%;
     font-size: 14px;
     color: black;
 

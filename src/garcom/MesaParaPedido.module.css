@@ -18,19 +18,16 @@
 margin-top: 30px}
 
 .mesasituacao {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de largura igual */
+    gap: 10px; /* Espaçamento entre os botões */
     padding: 20px !important;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    max-width: 400px; /* Ajuste o tamanho máximo conforme necessário */
-    padding: 10px;
+    max-width: 1200px;
     box-sizing: border-box;
-    border: 1px solid #ddd; /* Opcional: Adiciona uma borda para visualização */
-    border-radius: 5px; /* Opcional: Arredondar os cantos */
 }
 
-.mesasituacao button {
+.btnEscolherMesa {
     background-color: #d33333;
     border: none;
     color: white;
@@ -40,8 +37,9 @@ margin-top: 30px}
     cursor: pointer;
     border-radius: 5px; /* Opcional: Arredondar os cantos do botão */
     margin: 0% ;
+    margin-top: 10% !important;
+    margin-left: 20px;
 }   
-
 .mesasituacao p {
     margin: 0; /* Remove margens padrão do parágrafo */
     font-size: 18px; /* Ajuste o tamanho da fonte do parágrafo */

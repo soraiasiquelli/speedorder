@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Carrinho.module.css';
+import FecharPedido from './FecharPedido';
 
 function Carrinho() {
   // Estado para armazenar os itens do carrinho
   const [itensCarrinho, setItensCarrinho] = useState([]);
 
-  // Função para carregar os itens do carrinho do localStorage
+  // Função para carregar os itens do carrinho do localStoragenpm run dev:all
+
   useEffect(() => {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    console.log(JSON.parse(localStorage.getItem('carrinho')));
     //Passa pro useState o que esta no localstorage
     setItensCarrinho(carrinho);
 
@@ -38,13 +41,17 @@ function Carrinho() {
           itensCarrinho.map((item, index) => (
             <div key={index} className={styles.itemdocarrinho}>
               <img src={item.src} alt={item.label_title} className={styles.imagemItem} />
-              <p>{item.label_title}</p>
+              <p className={styles.nomeDoItem}>{item.label_title}</p>
               <p>{item.p_preco}</p>
             </div>
           ))
         ) : (
           <p>Seu carrinho está vazio.</p>
         )}
+
+        <FecharPedido/>
+
+
       </div>
     </div>
   );
