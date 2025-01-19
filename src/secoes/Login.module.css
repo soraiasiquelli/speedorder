@@ -47,7 +47,6 @@ main {
 
 
 .form > h1 {
-    margin-top: 15%;
     font-size: 25px;
     color: #d33333;
 }
@@ -55,6 +54,7 @@ main {
     text-align: center;
     color: #d33333;
     font-weight: bolder;
+    margin-top: 0%;
 }
 form > h3{
     font-size: 18px;

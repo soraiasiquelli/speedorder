@@ -36,7 +36,7 @@ const Estabelecimento = db.sequelize.define('loja', {
     tableName: 'estabelecimentos', // Nome da tabela no banco de dados
     timestamps: false // Se você não está usando timestamps
 */} );
-Estabelecimento.sync({ force: true }).then(() => {
+Estabelecimento.sync({alter: true }).then(() => {
     console.log("Tabela criada com sucesso!");
 });
 

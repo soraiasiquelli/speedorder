@@ -5,18 +5,20 @@
 }
 .headerPrincipal {
     width: 100%;
-    height: 30vh;
-    background-color: #d33333ff;
+    height: 20vh;
+   /* background-color: #d33333ff;*/
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     text-transform: none !important;
+    color: black !important;
 }
 .headerPrincipal > p{
   text-align: right;
   /*border: 1px solid black;*/
-  color: white;
   margin-top: 20px;
   font-weight: 500;
+  color: black !important;
+
 }
 .nomeusuario, .nomeEstabelecimento{
   text-transform: none;
@@ -28,7 +30,6 @@
 .nomeEstabelecimento{
   font-size: 26px !important;
   text-align: right;
-  color: white;
   margin-top: none;
   font-weight: bold;
   margin: 0% !important;
@@ -62,11 +63,11 @@
   justify-content: center;
   text-align: center;
   margin-top: 0; /* Remover a margem superior, pois o alinhamento no centro cuida disso */
-  height: 100px;
+  height: 80px;
   width: 100%;
   padding: 5px;
   margin-bottom: 0%;
-  margin-top: 10%;
+  color: black !important;
 }
 
 /* Título */
@@ -104,18 +105,30 @@
   align-items: start;
   width: 100%;
 }
-
 .opcaoBloco {
-  background-color: #ffffff;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
   border: 2px solid #d33333ff;
   color: #d33333ff;
   border-radius: 10px;
   padding: 20px;
   width: 150px;
-  height: 95% !important;
+  height: 25vh !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-transform: none !important;
+  font-size: 8px !important;
 }
 
+.opcaoBloco > a{
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 16px !important;
+  color: black !important;
+  font-weight: 400;
+
+}
 .opcaoBloco:hover {
   background-color: #f8f9fa;
   cursor: pointer;

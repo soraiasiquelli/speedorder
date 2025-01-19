@@ -3,10 +3,14 @@
     font-family: "Helvetica";
 }
 
+body {
+    height: 100vh !important;
+}
 
-.secaoprincipal{
+.secaoprincipal {
     display: block;
 }
+
 /* Estilo principal da seção */
 .secaoprincipal {
     text-align: center;
@@ -14,9 +18,8 @@
 }
 
 .cabecalho_page {
-    /*border: 1px solid black;*/
-    margin-top: 20%;
-    margin-bottom: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
 }
 
 .cabecalho_page > h2 {
@@ -49,17 +52,70 @@
     background-color: #d33333;
     color: white;
     border-radius: 10px;
-    font-size: 16px;
     font-size: 1em;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #9e1b1b; /* Cor vermelha escura no hover */
     transform: scale(1.1); /* Leve aumento do botão no hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */
+}
 
 /* Estilo da classe formulario */
 .formulario {
     margin-bottom: 20%;
 }
-/* Ajuste para o formulário */
+
+/* Ajustes responsivos para dispositivos com largura até 768px (tablets) */
+@media (max-width: 768px) {
+    /* Reduz margens na seção principal */
+    .cabecalho_page {
+        margin-top: 15%;
+        margin-bottom: 7%;
+    }
+
+    /* Reduz tamanho da fonte e espaçamento dos títulos */
+    .cabecalho_page > h2 {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    /* Reduz tamanho da fonte dos parágrafos */
+    .cabecalho_page > p {
+        font-size: 14px;
+    }
+
+    /* Ajusta largura e altura dos botões */
+    .btn {
+        width: 200px;
+        height: 45px;
+        font-size: 0.9em;
+    }
+}
+
+/* Ajustes responsivos para dispositivos com largura até 480px (smartphones) */
+@media (max-width: 480px) {
+    /* Ajusta margens para telas menores */
+    .cabecalho_page {
+        margin-top: 2%;
+        margin-bottom: 10%;
+    }
+
+    /* Reduz ainda mais o tamanho da fonte e do espaçamento dos títulos */
+    .cabecalho_page > h2 {
+        font-size: 22px;
+        padding: 8px;
+    }
+
+    /* Reduz tamanho da fonte dos parágrafos para telas pequenas */
+    .cabecalho_page > p {
+        font-size: 16px;
+    }
+
+    /* Ajusta largura e altura dos botões para ocupar menos espaço */
+    .btn {
+        width: 180px;
+        height: 40px;
+        font-size: 0.8em;
+    }
+}

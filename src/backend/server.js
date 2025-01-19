@@ -1,6 +1,8 @@
         const express = require('express');
         const { engine } = require('express-handlebars');
         const bodyParser = require('body-parser');
+        const { Server } = require('socket.io'); // Importa o Server do Socket.IO
+        const http = require('http'); // Importa o HTTP para criar o servidor
         const cors = require("cors"); // Importando o CORS
         const path = require('path');
         const db = require('./db'); // Importando a configuração do banco de dados
@@ -12,11 +14,27 @@
         const ItensDoPedido = require("./ItensDoPedido")
         const Pedido = require("./Pedidos")
         const { where } = require('sequelize');
-        const port = 5001
+
+
+
 
         const app = express();
+        const server = http.createServer(app);
+        const io = new Server(server, {
+            cors: {
+                origin: "http://localhost:3000",
+                methods: ["GET", "POST"]
+            }
+        });
+
+        const port = 5001
+
+
         app.use(cors({ origin: "http://localhost:3000" })); // Permite o frontend no localhost:3000
         app.use(express.json());
+
+        //CONEXAO COM WEBSOCKETS
+
 
 
         // Configuração do motor de templates Handlebars
@@ -144,6 +162,7 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
                 const novaMesa = await Mesa.create({
                     capacidade: req.body.capacidade, // Recebendo a capacidade da mesa
                     status: req.body.status || 'livre' // Recebendo o status da mesa (opcional, padrão é 'livre')
+                    
                 });
                 console.log("Mesa cadastrada com sucesso!", novaMesa);
                 res.status(201).send("Mesa cadastrada com sucesso!");
@@ -244,23 +263,29 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
         /*Verificacao de Login*/
 
         app.post("/fecharpedido", async (req, res) => {
+            //Recebe esses parametros do body 
             const { itens, id_estabelecimento, forma_de_pagamento, total } = req.body;
         
+            //Se o array de itens(carrinho) for 0 significa que não há nenhum item para cadastrar 
             if (!itens || itens.length === 0) {
                 return res.status(400).json({ message: "Não há itens para cadastrar." });
             }
         
-            try {
-                // Criação do pedido
+            try { //Tente fazer:
+
+                // Criação do Pedido - Tente criar um pedido com os dados do id_estabelecimento, forma de pagamento e o total
                 const pedido = await Pedido.create({
                     id_estabelecimento,
                     forma_de_pagamento,
                     total
                 });
         
-                // Criando os itens do pedido
+                //Agora crie os itens e cada iteração vai retornar uma promise(resposta se falhou ou não)
                 const itensCadastrados = await Promise.all(
+                    //itera sobre o carrinho(itens) em que cada item é um registro do carrinho
                     itens.map(async (item) => {
+
+                        //Se o id_produto estiver vazio significa que o produto não existe e não vai cadasttrar  
                         if (!item.id_produto) {
                             throw new Error("id_produto não encontrado para o item.");
                         }
@@ -270,7 +295,8 @@ app.post("/pagesforms/cadastroadmin", async (req, res) => {
                             id_produto: item.id_produto,  // Associando o item ao pedido pelo id_produto
                             id_estabelecimento: item.id_estabelecimento,
                             quantidade: item.quantidade,
-                            total_item: item.total_item
+                            total_item: item.total_item,
+                            id_mesa: item.id_mesa
                         });
                     })
                 );

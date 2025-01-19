@@ -26,8 +26,11 @@ function Main(){
         <div className={styles.welcomesession}>
           
           <img src={logooficial} alt=""  className={styles.imagemLogo}/>
+
+          <h1> Do Clique à Mesa, Simplificando Seu Atendimento!</h1>
           <Link to="/home">
-        <button className={styles.botaoiniciar}> Começar Agora</button>
+
+        <button className={styles.botaoiniciar}> Começar</button>
       </Link>
 
         </div>

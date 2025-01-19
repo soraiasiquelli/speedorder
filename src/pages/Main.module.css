@@ -1,82 +1,76 @@
 * {
-    font-family: 'Helvetica';
+    font-family: 'Helvetica', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante o controle do tamanho dos elementos */
+    color: black;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita rolagem lateral */
+}
+
+body {
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Define cor branca para textos */
+}
+.main{
+    background: linear-gradient(90deg, rgba(166, 0, 0, 1) 0%, rgba(198, 95, 0, 1) 50%, rgba(247, 244, 0, 1) 100%) !important;
+
 }
 
 .welcomesession {
     display: flex;
-    flex-direction: column; /* Alinha os elementos verticalmente */
-    justify-content: center; /* Centraliza os elementos verticalmente */
-    align-items: center; /* Centraliza os elementos horizontalmente */
-    height: 100%; /* Faz a div ocupar toda a altura disponível do container pai */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centraliza os textos */
+    gap: 20px; /* Adiciona espaçamento entre os elementos */
+    padding: 20px;
+    /*background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    /*background-color: rgba(255, 255, 255, 0.573);*/
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    width: 90%;
+    max-width: 500px; /* Limita a largura */
+    background-color: wh;
+}
+
+.welcomesession img {
+    width: 60%;
+    max-width: 200px; /* Ajusta a imagem para telas menores */
+    animation: mexerImagem 5s infinite alternate;
+}
+.welcomesession > h1{
+    font-size: 25px;
+}
+h1 {
+    font-size: 1.8rem; /* Tamanho responsivo do texto */
+    line-height: 1.4;
 }
 
 .botaoiniciar {
-    background-color: #d33333ff;
-    margin-top: 20px;
-    width: 200px;
-    font-weight: bold; /* Texto em negrito */
-    color: white; /* Garante contraste para o texto */
-    padding: 10px; /* Adiciona espaçamento interno */
-    border: none; /* Remove a borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Mostra o cursor de clique */
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-    border-radius: 20px;
+    background-color: #d33333;
+    margin-top: 10px;
+    width: 220px;
+    font-weight: bold;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .botaoiniciar:hover {
-    background-color: #a60000; /* Cor mais escura no hover */
-    transform: scale(1.1); /* Leve aumento do botão no hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */
+    background-color: #a60000;
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Faz o container ocupar toda a altura da viewport */
-    flex-direction: column; /* Organiza os elementos verticalmente */
-}
-
-main > img {
-    margin-bottom: 20px; /* Espaço abaixo da imagem */
-    width: 40%;
-    height: auto;
-    max-width: 50%; /* Ajusta a largura da imagem */
-    animation: mexerImagem 5s infinite alternate; /* Aplica a animação */
-
-}
-.imagemLogo{
-    width: 80%;
-}
-footer {
-    text-align: center;
-    width: 100%;
-    position: absolute; /* Fixa o footer na parte inferior da página */
-    bottom: 0;
-    height: 60px; /* Altura fixa */
-    background-color: #f5f5f5; /* Cor de fundo clara */
-    color: #666; /* Cor do texto */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-@keyframes mexerImagem{
-    0% {
-        transform: translateX(0); /* Começa na posição original */
-    }
-    50% {
-        transform: translateX(200px); /* Move a imagem 200px para a direita */
-    }
-    100% {
-        transform: translateX(0); /* Volta para a posição original */
-    }
-}
-body{
-        background-color:/* #a60000!important;*/ white;
-       /* background: rgb(166,0,0);
-background: linear-gradient(90deg, rgba(166,0,0,1) 0%, rgba(198,95,0,1) 30%, rgba(247,244,0,1) 90%);*/
-
-}

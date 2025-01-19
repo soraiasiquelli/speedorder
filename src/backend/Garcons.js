@@ -46,7 +46,7 @@ const Garcons = db.sequelize.define('garcons', {
 
 
 // Sincronizando o modelo com o banco de dados
-db.sequelize.sync({ force: true }) // force: true irá recriar a tabela
+db.sequelize.sync({ alter: true }) // force: true irá recriar a tabela
   .then(() => {
     console.log("Tabela Garcons sincronizada com sucesso.");
   })

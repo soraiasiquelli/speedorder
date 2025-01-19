@@ -5,6 +5,7 @@ function FecharPedido() {
     // Vai buscar o carrinho
     const concluirPedido = async () => {
       
+    
 
 
         
@@ -26,7 +27,8 @@ function FecharPedido() {
                 id_estabelecimento: localStorage.getItem("estabelecimento_id"),
                 id_produto: item.id_item,
                 quantidade: item.quantidade || 1,
-                total_item: item.total_item || 50.20
+                total_item: item.total_item || 50.20,
+                id_mesa: localStorage.getItem("id_mesa")
             }))
         };
     

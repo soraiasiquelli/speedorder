@@ -2,7 +2,6 @@
   "homepage": "https://soraiasiquelli.github.io/speedorder",
   "name": "speed-order",
   "version": "0.1.0",
-
   "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
@@ -19,9 +18,12 @@
     "mysql3": "^0.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.4.0",
     "react-router-dom": "^6.26.1",
     "react-scripts": "5.0.1",
     "sequelize": "^6.37.3",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

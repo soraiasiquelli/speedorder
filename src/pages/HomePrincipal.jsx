@@ -47,7 +47,6 @@ function HomePrincipal() {
       </header>
       <main className={styles.mainContent}>
         <header className={styles.headerWelcome}>
-          <p>Vamos agilizar os seus pedidos</p>
         </header>
 
         <section className={styles.sectionBlocos}>

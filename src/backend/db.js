@@ -18,7 +18,8 @@ sequelize.authenticate()
         console.error('Erro ao conectar ao banco de dados:', err);
     });
 
-db.sequelize.sync({ force: false })
+    //force: false
+db.sequelize.sync({ alter: true })
   .then(() => {
     console.log("Tabelas sincronizadas com sucesso.");
   })

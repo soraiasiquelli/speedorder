@@ -1,6 +1,14 @@
 import styles from './MenuLateral.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { GoHome } from "react-icons/go";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { GoHistory } from "react-icons/go";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+
+
+
+
 
 function MenuLateral() {
   const [menuAberto, setMenuAberto] = useState(false); // Começa fechado
@@ -20,10 +28,18 @@ function MenuLateral() {
       {menuAberto && (
         <div className={styles.menuLateral}>
           <div className={styles.linksdomenu}>
-              <Link to="/">Início</Link>
-              <Link to="/notificacoes">Notificações</Link>
-              <Link to="/historico">Histórico</Link>
-              <Link to="/ajuda">Ajuda</Link>
+              <Link to="/">
+              <GoHome className={styles.iconeLateral}/>
+              Início
+              </Link>
+              <Link to="/notificacoes">
+              <IoMdNotificationsOutline className={styles.iconeLateral}/>
+              Notificações
+              </Link>
+              <Link to="/historico">
+              <GoHistory className={styles.iconeLateral}/>
+              Histórico
+              </Link>
           </div>
         </div>
       )}
