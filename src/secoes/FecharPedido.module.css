@@ -1,25 +1,24 @@
 .fechar-pedido-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 150px;
   }
   
  .fechar_pedido_btn {
-    background-color: #ff6347; /* Cor de fundo (tom de vermelho) */
+    background-color: #d33333; /* Cor de fundo (tom de vermelho) */
     color: white; /* Cor do texto */
     padding: 10px 20px; /* Tamanho do botão */
-    font-size: 16px; /* Tamanho da fonte */
     border: none;
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer;
     transition: background-color 0.3s ease; /* Efeito suave ao passar o mouse */
     margin-top: 80px;
-    margin-left: 25%;
+    font-size: 1.1rem;
+   align-self: center;
+   width: 100%;
   }
   
-  .fechar-pedido-btn:hover {
-    background-color: #e55347; /* Cor do botão quando estiver sobre o mouse */
-  }
-  
+ 
   

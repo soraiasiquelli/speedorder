@@ -1,7 +1,6 @@
 /* src/pages/HomePrincipal.module.css */
 * {
   box-sizing: border-box;
-  font-family: 'Helvetica', sans-serif;
 }
 .headerPrincipal {
     width: 100%;
@@ -11,9 +10,11 @@
     border-bottom-left-radius: 20px;
     text-transform: none !important;
     color: black !important;
+    padding: 20px;
 }
 .headerPrincipal > p{
-  text-align: right;
+ 
+
   /*border: 1px solid black;*/
   margin-top: 20px;
   font-weight: 500;
@@ -24,14 +25,15 @@
   text-transform: none;
 }
 .nomeusuario{
-  font-size: 18px;
+  font-size: 1.8rem;
   margin-top: 30px !important;
+  font-weight: 600 !important;
+
 }
 .nomeEstabelecimento{
-  font-size: 26px !important;
-  text-align: right;
+  font-size: 1.2rem !important;
   margin-top: none;
-  font-weight: bold;
+  font-weight: 300 !important;
   margin: 0% !important;
 }
 
@@ -39,6 +41,8 @@
   height: 100vh;
   width: 100%;
   background-color: white;
+  margin: 0% !important;
+  padding: 0% !important;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centraliza horizontalmente */
@@ -52,8 +56,9 @@
 
 .mainContent {
   padding: 10px;
-  height: 65vh;
+  height: 100vh;
   display: block;
+  margin: 0%;
 }
 
 .headerWelcome {
@@ -98,16 +103,13 @@
 }
 
 .sectionBlocos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  justify-content: center; /* Centraliza os blocos horizontalmente */
-  align-items: start;
+ 
   width: 100%;
+  /*border: 1px solid black;*/
 }
 .opcaoBloco {
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  border: 2px solid #d33333ff;
+ /* border: 2px solid #d33333ff;*/
   color: #d33333ff;
   border-radius: 10px;
   padding: 20px;
@@ -119,6 +121,13 @@
   justify-content: flex-end;
   text-transform: none !important;
   font-size: 8px !important;
+  container-name: opcaoBloco;
+}
+
+@container style(--isDestacado: true){
+  .opcaoBloco{
+    background-color: black;
+  }
 }
 
 .opcaoBloco > a{
@@ -132,6 +141,56 @@
 .opcaoBloco:hover {
   background-color: #f8f9fa;
   cursor: pointer;
+}
+
+.listaOpcoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  list-style: none;
+}
+
+.listaOpcoes li {
+  /*background: linear-gradient(145deg, #ffffff, #f0f0f0);*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 25vh;
+  border-radius: 10%;
+  border: 1px solid beige;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  
+}
+
+.listaOpcoes li > a {
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1.2rem !important;
+  color: black !important;
+  font-weight: 600;
+  
+}
+
+.listaOpcoes li:hover{
+  transform: scale(1.1);
+  border: 1px solid #d33333ff;
+
+}
+
+
+.listaOpcoes li.blocoDecorado {
+  background-color: #d33333ff;
+  color: white !important;
+}
+li.blocoDecorado:hover{
+  border: 1px solid #d33333ff;
+
+}
+li.blocoDecorado > a{
+  color: white !important;
+}
+.iconeOpcaoBranco{
+  color: white !important;
 }
 
 .btnnovopedido {
@@ -150,7 +209,7 @@
 
 .btnnovopedido:hover {
   background-color: black;
-  transform: scale(1.1);
+
 }
 
 .link {
@@ -163,6 +222,55 @@
 .link:hover {
   text-decoration: underline;
 }
+
+.moreOptions{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-top: 10%;
+  height: 60%;
+  color: black;  
+  background-color: white !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+
+
+}
+.moreOptions h2{
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin: 0%;
+  margin-bottom: 15%;
+  padding: 0%;
+  padding: 15px;
+
+}
+
+.cardUltimosPedidos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5rem;
+  padding: 5px;
+
+}
+
+.cardUltimosPedidos p{
+  color: black;
+  text-transform: none;
+  font-size: 0.8rem;
+
+}
+
+.cardUltimosPedidos p::after{
+  content: " - ";
+}
+.cardUltimosPedidos p:last-child::after{
+  content: " ";  /* Remove o traço após a última palavra */
+}
+
 
 footer {
   margin-top: 20px;

@@ -1,11 +1,10 @@
 import styles from './FecharPedido.module.css'
 
-function FecharPedido() {
+function FecharPedido({forma_de_pagamento, total}) {
 
     // Vai buscar o carrinho
     const concluirPedido = async () => {
       
-    
 
 
         
@@ -21,16 +20,17 @@ function FecharPedido() {
     
         const pedido = {
             id_estabelecimento: localStorage.getItem("estabelecimento_id"),
-            forma_de_pagamento: 'Cartão',
-            total: totalPedido,
+            forma_de_pagamento: forma_de_pagamento,
+            total: total,
+            id_mesa: localStorage.getItem("id_mesa"), // Adicionando id_mesa aqui
             itens: carrinhoAtual.map(item => ({
                 id_estabelecimento: localStorage.getItem("estabelecimento_id"),
                 id_produto: item.id_item,
                 quantidade: item.quantidade || 1,
-                total_item: item.total_item || 50.20,
-                id_mesa: localStorage.getItem("id_mesa")
+                total_item: item.total_item || 50.20
             }))
         };
+        
     
         try {
             const response = await fetch('http://localhost:5001/fecharpedido', { 

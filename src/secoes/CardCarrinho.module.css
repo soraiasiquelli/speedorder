@@ -1,0 +1,67 @@
+div.itemdocarrinho {
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    border: 1px solid rgba(118, 118, 118, 0.219);
+    height: 150px;
+    padding: 20px;
+    gap: 10px; /* Espaçamento entre os itens */
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */
+    margin-bottom: 20px;
+
+    
+}
+
+.itemdocarrinho > img {
+    width: 20%; /* Reduz o tamanho da imagem */
+    max-height: 100%; /* Garante que a altura da imagem não ultrapasse o container */
+    background-color: #f5f5f9;
+    border-radius: 10px;
+}
+
+.itemdocarrinho .itemDetails {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    width: 40%; /* Define um tamanho proporcional */
+}
+
+.itemDetails p {
+    margin: 5px 0; /* Adiciona espaçamento entre as linhas */
+    font-size: 1rem;
+}
+
+.nomeDoItem {
+    font-size: 1rem;
+    color: black;
+    text-transform: none;
+    margin: 0% !important;
+}
+
+.precoDoItem {
+    font-size: 1.2rem;
+    color: black;
+    margin: 0% !important;
+}
+
+.quantItemCarrinho {
+    width: 40px; /* Define uma largura padrão */
+    height: 40px; /* Mesma altura do botão */
+    border: 1px solid black;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left: auto; /* Empurra para a direita, se necessário */
+    border: 1px solid black;
+}
+
+.buttonExcluirItem {
+    font-size: 30px; /* Ajuste para o tamanho desejado */
+    width: 25px; /* Mesma largura do input */
+    height: 30px; /* Mesma altura do input */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red; /* Destaque para o botão */
+    cursor: pointer;
+}

@@ -44,7 +44,7 @@ function SecaoItens() {
             src={produto.imagem} // Imagem do produto
             label_title={produto.nome_item} // Nome do produto
             p_descricao={produto.descricao} // Descrição do produto
-            p_preco={`R$ ${produto.preco}`} // Preço do produto
+            p_preco={`${produto.preco}`} // Preço do produto
             time_info="12 mins" // Exemplo de tempo de preparo
             calorias_info="121.9" // Exemplo de calorias
             id_estabelecimento={produto.id_estabelecimento}  // Passando id_estabelecimento como prop

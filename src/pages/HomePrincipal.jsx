@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import FooterOpcoes from "../layout/FooterOpcoes";
 import { useEffect, useState } from 'react';
 import logooficial from '../images/logo_speed_order_oficial__img.png'
+import { BsArrowRightSquare } from "react-icons/bs";
+
 
 
 
@@ -21,13 +23,8 @@ import logooficial from '../images/logo_speed_order_oficial__img.png'
 function HomePrincipal() {
 
   const nomeEstabelecimento = localStorage.getItem("nomeEstabelecimento")
-
-
-
-
-
-
   const [nome, setNome] = useState('');
+  localStorage.setItem("nome_usuario", "Soraia" )
 
   useEffect(() => {
     const nomeUsuario = localStorage.getItem("nome_usuario");
@@ -39,36 +36,49 @@ function HomePrincipal() {
   return (
     <div className={styles.mainpage}>
       <header className={styles.headerPrincipal}>
-      <MenuLateral/>
+   
 
-        <p className={styles.nomeusuario}>Olá nomeDoGarcom</p>
+        <p className={styles.nomeusuario}>Olá {nome}!</p>
         <p className={styles.nomeEstabelecimento}>Você está no <br/>{nomeEstabelecimento}</p>
         
       </header>
+      
       <main className={styles.mainContent}>
         <header className={styles.headerWelcome}>
         </header>
 
         <section className={styles.sectionBlocos}>
-          <div className={styles.opcaoBloco}>
-            <Link to="/ultimos-pedidos" className={styles.link}>Últimos Pedidos</Link>
-          </div>
-          <div className={styles.opcaoBloco}>
-            <Link to="/pedidos-prontos" className={styles.link}>Pedidos Prontos</Link>
-          </div>
-          <div className={styles.opcaoBloco}>
-            <Link to="/pedidos-em-preparo" className={styles.link}>Pedidos em Preparo</Link>
-          </div>
-          <div className={styles.opcaoBloco}>
-            <Link to="/historico-pedidos" className={styles.link}>Histórico de Pedidos</Link>
-          </div>
+       
+          <ul className={styles.listaOpcoes}>
+            <li className={styles.blocoDecorado}>
+                <Link to="/ultimos-pedidos" className={styles.link}>Últimos Pedidos
+
+                </Link>
+            </li>
+            <li>
+                <Link to="/ultimos-pedidos" className={styles.link}>Últimos Pedidos</Link>
+            </li>
+      
+          </ul>
+
         </section>
 
 
+        <section className={styles.moreOptions}>
 
-        <Link to="/mesaparapedido">
-        <button className={styles.btnnovopedido}>Novo Pedido</button>
-        </Link>
+          <h2>Pedidos Em Andamento</h2>
+          <div className={styles.cardUltimosPedidos}>
+
+          <p>Pedido #003 </p>
+          <p>Mesa 01 </p>
+          <p>X-Bacon </p>
+
+          </div>
+
+        </section>
+
+      <FooterOpcoes/>
+       
       </main>
     </div>
   );

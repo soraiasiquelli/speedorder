@@ -1,3 +1,4 @@
+// modelo/Pedidos.js
 const Sequelize = require('sequelize');
 const db = require('../backend/db');
 
@@ -38,6 +39,15 @@ const Pedidos = db.sequelize.define('pedidos', {
   timestamps: false // Desativa os campos createdAt e updatedAt
 });
 
+// Definindo a associação com ItensDoPedido
+Pedidos.associate = (models) => {
+  // Um pedido tem muitos itens do pedido
+  Pedidos.hasMany(models.ItensDoPedido, {
+    foreignKey: 'id_pedido',  // Chave estrangeira no modelo 'ItensDoPedido'
+    as: 'itens'               // Nome do relacionamento
+  });
+};
+
 // Sincroniza o modelo com o banco de dados
 Pedidos.sync({alter: true})
   .then(() => {
@@ -47,9 +57,4 @@ Pedidos.sync({alter: true})
     console.error("Erro ao alterar a tabela 'pedidos':", err);
   });
 
-
-
 module.exports = Pedidos;
-
-
-

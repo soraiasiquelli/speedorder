@@ -1,3 +1,4 @@
+// modelo/ItensDoPedido.js
 const Sequelize = require('sequelize');
 const db = require('../backend/db');
 
@@ -37,15 +38,15 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE'
   },
-  id_mesa: { // Novo campo para associar à tabela 'mesas'
+  id_mesa: {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
-      model: 'mesas', // Nome da tabela que contém as mesas
-      key: 'id_mesa'  // Chave primária da tabela mesas
+      model: 'mesas',
+      key: 'id_mesa'
     },
-    onUpdate: 'CASCADE', // Cascata de atualização
-    onDelete: 'CASCADE' // Cascata de exclusão
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE'
   },
   quantidade: {
     type: Sequelize.INTEGER,
@@ -57,8 +58,17 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
     allowNull: false
   }
 }, {
-  tableName: 'itens_do_pedido', // Nome da tabela no banco de dados
+  tableName: 'itens_do_pedido',
 });
+
+// Definindo a associação com Pedidos
+ItensDoPedido.associate = (models) => {
+  // Um item pertence a um pedido
+  ItensDoPedido.belongsTo(models.Pedidos, {
+    foreignKey: 'id_pedido',  // Chave estrangeira no modelo 'ItensDoPedido'
+    as: 'pedido'              // Nome do relacionamento
+  });
+};
 
 // Sincroniza o modelo com o banco de dados
 ItensDoPedido.sync({ alter: true })
