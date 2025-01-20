@@ -18,6 +18,7 @@ main {
 
 .mainform > h2{
     text-align: left;
+    font-size: 2rem !important;
    
 }
 .secaoform{
@@ -43,6 +44,7 @@ main {
     width: 100%;
     height: auto; /* Ajustando altura para conteúdo */
     text-align: center;
+    margin-top: 10%;
 }
 
 
@@ -55,6 +57,7 @@ main {
     color: #d33333;
     font-weight: bolder;
     margin-top: 0%;
+    font-size: 2rem;
 }
 form > h3{
     font-size: 18px;

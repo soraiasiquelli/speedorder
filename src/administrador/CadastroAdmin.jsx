@@ -69,7 +69,7 @@ function CadastroAdmin() {
                     type="email"
                     text="Digite seu email: "
                     name="emailadmin"
-                    placeholder="Email do Administrador:"
+                    placeholder="Email do Administrador"
                     handleOnChange={(e) => setEmail(e.target.value)}
                 />
 
@@ -77,7 +77,7 @@ function CadastroAdmin() {
                     type="text"
                     text="Nome do Admin"
                     name="nomeadmin"
-                    placeholder="Nome completo do administrador: "
+                    placeholder="Nome completo "
                     handleOnChange={(e) => setNome(e.target.value)}            
                 />
 
