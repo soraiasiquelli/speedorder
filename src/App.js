@@ -21,6 +21,11 @@ import PedidosProntos from './pages/pagesgerencia/PedidosProntos'
 import PedidosEmPreparo from './pages/pagesgerencia/PedidosEmPreparo'
 import TelaCozinha from './telacozinha/TelaCozinha';
 import CarrinhoDeItens from './secoes/Carrinho'
+import ConfirmacaoPedido from '../src/pages/ConfirmacaoPedido'
+//import Pagamento from './pages/Pagamento';
+import PainelPedidos from './cozinha/PainelPedidos'
+import PainelDeControle from './cozinha/PainelControle';
+
 function App() {
   return (
     <Router>
@@ -46,6 +51,15 @@ function App() {
         <Route path="/pedidos-em-preparo" element={<PedidosEmPreparo />} />
         <Route path="/historico-pedidos" element={<HistoricoPedidos />} />
         <Route path="/carrinhodeitens" element={<CarrinhoDeItens />} />
+        <Route path="/pedidoconfirmado" element={<ConfirmacaoPedido />} />
+        <Route path="/pagamento" element={<ConfirmacaoPedido />} />
+        <Route path="/painelpedidos" element={<PainelPedidos />} />
+        <Route path="/paineldecontrole" element={<PainelDeControle />} />
+
+
+
+
+
 
 
 

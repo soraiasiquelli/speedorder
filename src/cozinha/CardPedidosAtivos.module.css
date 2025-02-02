@@ -1,0 +1,180 @@
+.cardAtivo, .cardPreparacao, .cardPronto {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 5% !important; /* Padding responsivo */
+}
+
+.cardAtivo:hover, .cardPreparacao:hover, .cardPronto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px !important;
+}
+
+ul > li {
+    padding: 5% !important; /* Padding responsivo */
+}
+
+.tempoDePreparo {
+    margin-bottom: 5px !important;
+    font-weight: bold;
+}
+
+.garcomResponsavel {
+    margin-bottom: 15px !important;
+}
+
+.infosPrincipais {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1%;
+    margin-bottom: 20px !important;
+}
+
+.infosPrincipais > li {
+    padding: 3% !important; /* Padding responsivo */
+    margin: 2% !important; /* Ajuste no margin */
+    background-color: rgba(210, 203, 203, 0.293);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: black;
+    list-style: none;
+    font-size: 14px;
+}
+
+.itemDoPedido {
+    font-size: 14px !important;
+    font-weight: 500;
+}
+
+.itemDoPedido > p {
+    font-size: 14px !important;
+    font-weight: normal;
+    text-transform: none;
+    color: black;
+}
+
+.cadaItem {
+    padding: 15px !important;
+}
+
+.idItem {
+    font-size: 12px !important;
+}
+
+.itemDoPedido > p {
+    padding: 5px !important;
+}
+
+.nomeItem {
+    font-size: 30px !important;
+    font-weight: 600 !important;
+}
+
+.descricao {
+}
+
+.item {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.item strong {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.itemNome {
+    display: block;
+    margin-top: 5px;
+    color: #555;
+}
+
+.semItens {
+    color: #888;
+    font-style: italic;
+}
+
+.cardAtivo {
+    border-left: 5px solid #d3333f; /* Cor vermelha para pedidos ativos */
+}
+
+.cardPreparacao {
+    border-left: 5px solid #ffc107; /* Cor amarela para preparação */
+}
+
+.cardPronto {
+    border-left: 5px solid #28a745; /* Cor verde para pedidos prontos */
+}
+
+/* Media Queries para diferentes tamanhos de tela */
+@media (max-width: 1200px) {
+    .cardAtivo, .cardPreparacao, .cardPronto {
+        padding: 4% !important;
+    }
+
+    .tempoDePreparo, .garcomResponsavel {
+        font-size: 14px;
+    }
+
+    .infosPrincipais > li {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardAtivo, .cardPreparacao, .cardPronto {
+        padding: 6% !important;
+    }
+
+    .itemDoPedido, .nomeItem {
+        font-size: 14px;
+    }
+
+    .infosPrincipais {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infosPrincipais > li {
+        margin: 3% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardAtivo, .cardPreparacao, .cardPronto {
+        padding: 8% !important;
+    }
+
+    .item {
+        font-size: 14px;
+    }
+
+    .itemNome {
+        font-size: 24px !important;
+    }
+
+    .descricao {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .cardAtivo, .cardPreparacao, .cardPronto {
+        padding: 2% !important;
+    }
+
+    .itemDoPedido, .nomeItem {
+        font-size: 18px;
+    }
+}

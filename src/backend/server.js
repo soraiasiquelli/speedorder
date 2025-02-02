@@ -13,10 +13,14 @@ const ItensDoPedido = require("./ItensDoPedido")
 const Pedido = require("./Pedidos")
 const { where } = require('sequelize');
 const port = 5001
+const http = require('http')
+
 
 const app = express();
 app.use(cors({ origin: "http://localhost:3000" })); // Permite o frontend no localhost:3000
 app.use(express.json());
+
+
 
 
 // Configuração do motor de templates Handlebars
@@ -61,6 +65,9 @@ app.use(bodyParser.json());
         }
     }
 });*/
+
+
+
 
 
 
@@ -253,9 +260,11 @@ app.post("/fecharpedido", async (req, res) => {
     try {
         // Criação do pedido
         const pedido = await Pedido.create({
+            id_mesa: req.body.id_mesa,
             id_estabelecimento,
             forma_de_pagamento: req.body.forma_de_pagamento,
             total: req.body.total
+        
         });
 
         // Criando os itens do pedido
@@ -285,9 +294,70 @@ app.post("/fecharpedido", async (req, res) => {
 });
 
 
+app.get("/buscapedidos", async (req, res) => {
+    try {
+        // Busca todos os itens na tabela 'itens'
+        const pedidos = await Pedido.findAll();
+        console.log("Pedidos:", pedidos);
+
+        // Envia os produtos como JSON na resposta
+        res.status(200).json(pedidos);
+    } catch (err) {
+        console.error("Erro ao buscar pedidos:", err);
+        res.status(500).send("Erro ao buscar pedidos.");
+    }
+});
 
 
+app.get("/buscaitenspedido", async(req, res) =>{
+    try {
+        const itensDoPedido = await ItensDoPedido.findAll();
+        console.log("Itens:", itensDoPedido)
+        res.status(200).json(itensDoPedido)
+    } catch (error) {
+        console.error("Erro ao buscar itens dos pedidos", error)
+        res.status(500).send("Erro ao buscar itens dos pedidos")
+    }
+})
 
+app.get("/busca_cada_item", async(req, res) =>{{
+    try {
+        const itensCadaPedido = await Itens.findAll();
+        console.log("Cada item", itensCadaPedido)
+        res.status(200).json(itensCadaPedido)
+    } catch (error) {
+        console.log("Erro ao buscar itens", error)
+        res.status(500).send("Erro ao buscar itens")
+    }
+}})
+
+// Alterar o endpoint para /atualizar-item
+app.post('/atualizar-item', async (req, res) => {
+    const { numPedido, novoStatus } = req.body;
+
+    console.log('Dados recebidos:', req.body); // Para debug
+
+    try {
+        // Verifica se o pedido existe antes de tentar atualizar
+        const pedido = await Pedido.findOne({ where: { id_pedido: numPedido } });
+
+        if (!pedido) {
+            return res.status(404).json({ message: "Pedido não encontrado" });
+        }
+
+        // Atualiza o status do pedido
+        await Pedido.update(
+            { status: novoStatus },
+            { where: { id_pedido: numPedido } }
+        );
+
+        res.json({ success: true, message: "Pedido atualizado com sucesso!" });
+
+    } catch (error) {
+        console.error("Erro ao atualizar pedido:", error);
+        res.status(500).json({ message: "Erro interno no servidor" });
+    }
+});
 
 
 // Sincroniza o modelo com o banco de dados

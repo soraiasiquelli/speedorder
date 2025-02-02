@@ -20,7 +20,7 @@ function Carrinho() {
   // Função para carregar os itens do carrinho do localStorage
   useEffect(() => {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    console.log(carrinho);
+    console.log("Carrinho atual", carrinho);
     // Passa pro useState o que está no localStorage
     setItensCarrinho(carrinho);
   }, []); // Carrega os itens assim que o componente é montado

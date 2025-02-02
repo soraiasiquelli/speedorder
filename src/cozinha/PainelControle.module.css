@@ -1,0 +1,81 @@
+/* Estilo para o painel de controle */
+.painel_controle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    margin: auto;
+    background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradiente sutil */
+    border-radius: 10px;
+  }
+  
+  /* Botões container */
+  .botao-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff; /* Fundo branco para os botões */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Estilo do input */
+  input[type="number"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px; /* Adicionando espaçamento entre os inputs */
+  }
+  
+  input[type="number"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4); /* Sombra suave no foco */
+  }
+  
+  /* Estilo do botão */
+  button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Efeito hover nos botões */
+  button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px); /* Leve elevação do botão */
+  }
+  
+  /* Estilo responsivo para telas menores */
+  @media (max-width: 768px) {
+    .botao-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    input[type="number"] {
+      max-width: 100%;
+    }
+  }
+  

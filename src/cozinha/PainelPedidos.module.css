@@ -1,0 +1,184 @@
+/* Estilos gerais para painelPedidos */
+.painelPedidos * {
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.painelPedidos body {
+  font-family: Arial, sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.painelPedidos header {
+  background-color: #d33333;
+  color: white !important;
+  height: 20%;
+  padding: 20px !important;
+}
+
+.painelPedidos header h1 {
+  text-align: left;
+  margin-top: 20px;
+  color: white;
+  font-size: 18px;
+}
+
+.painelPedidos main {
+  width: 100%;
+}
+
+/* Container das colunas dentro de painelPedidos */
+.painelPedidos .colunas {
+  display: flex;
+  justify-content: space-between;
+  gap: 1%;
+  padding: 20px;
+  height: 100vh;
+  width: 100% !important;
+  margin: auto;
+  color: white !important;
+}
+
+/* Estilos para as colunas específicas dentro de painelPedidos */
+.painelPedidos .pedidosAtivos,
+.painelPedidos .pedidosPreparacao,
+.painelPedidos .pedidosProntos {
+  width: 70%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px !important;
+}
+
+/* Estilos para o card de pedido ativo */
+.painelPedidos .cardAtivo,
+.painelPedidos .cardPreparacao,
+.painelPedidos .cardPronto {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.painelPedidos .cardAtivo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.painelPedidos .cardAtivo li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para as colunas dentro de painelPedidos */
+.painelPedidos .pedidosAtivos {
+  /*background-color: #e65100;*/
+}
+
+.painelPedidos .pedidosPreparacao {
+  /*background-color: #ADD8E6;*/
+}
+
+.painelPedidos .pedidosProntos {
+  /*background-color: #228B22;*/
+}
+
+/* Estilos adicionais para o painelPedidos */
+.painelPedidos .cardAtivo:hover,
+.painelPedidos .cardPreparacao:hover,
+.painelPedidos .cardPronto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.painelPedidos .tempoDePreparo {
+  margin-bottom: 5px !important;
+  font-weight: bold;
+}
+
+.painelPedidos .garcomResponsavel {
+  margin-bottom: 15px !important;
+}
+
+.painelPedidos .infosPrincipais {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1%;
+  margin-bottom: 20px !important;
+}
+
+.painelPedidos .infosPrincipais > li {
+  padding: 8px !important;
+  margin: 10px;
+  background-color: rgba(210, 203, 203, 0.293);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: black;
+  list-style: none;
+  font-size: 14px;
+}
+
+.painelPedidos .itemDoPedido {
+  font-size: 14px !important;
+  font-weight: 500;
+}
+
+.painelPedidos .itemDoPedido > p {
+  font-size: 14px !important;
+  font-weight: normal;
+  text-transform: none;
+  color: black;
+}
+
+.painelPedidos .cadaItem {
+  padding: 15px !important;
+}
+
+.painelPedidos .idItem {
+  font-size: 12px !important;
+}
+
+.painelPedidos .nomeItem {
+  font-size: 30px !important;
+  font-weight: 600 !important;
+}
+
+.painelPedidos .item {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.painelPedidos .item strong {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.painelPedidos .itemNome {
+  display: block;
+  margin-top: 5px;
+  color: #555;
+}
+
+.painelPedidos .semItens {
+  color: #888;
+  font-style: italic;
+}
+
+.painelPedidos .cardAtivo {
+  border-left: 5px solid #d3333f;
+}
+
+.painelPedidos .cardPreparacao {
+  border-left: 5px solid #ffc107;
+}
+
+.painelPedidos .cardPronto {
+  border-left: 5px solid #28a745;
+}

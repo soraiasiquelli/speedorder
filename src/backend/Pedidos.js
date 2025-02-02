@@ -18,14 +18,17 @@ const Pedidos = db.sequelize.define('pedidos', {
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   },
+  id_mesa:{
+    type: Sequelize.INTEGER
+  },
   data_pedido: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
   },
   status: {
-    type: Sequelize.ENUM('em andamento', 'pronto', 'entregue'),
+    type: Sequelize.ENUM('pendente', "em andamento", 'pronto', 'entregue'),
     allowNull: false,
-    defaultValue: 'em andamento'
+    defaultValue: 'pendente'
   },
   total: {
     type: Sequelize.DECIMAL(10, 2),
