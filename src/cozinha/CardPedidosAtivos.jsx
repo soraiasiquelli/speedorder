@@ -25,7 +25,7 @@ function CardPedidosAtivos({ classe, horario, mesa, codigo, itens }) {
                         <div key={index}  className={styles.itemDoPedido}>
                             <p className={styles.nomeItem}>{detalhe.nome_item || 'Não disponível'}</p>
             
-                            <p className={styles.descricao}>Descricao: {detalhe.descricao || 'Não disponível'}</p>
+                           
                         </div>
                         
                     ))

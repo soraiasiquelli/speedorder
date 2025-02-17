@@ -1,119 +1,75 @@
 .card_item {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  margin: 15px 0;
-  padding: 20px;
-  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border-radius: 8px; /* Bordas arredondadas */
-  transition: transform 0.3s ease-in-out; /* Efeito de transição suave */
- /* border: 1px solid black;*/
-  
-  
+  gap: 15px;
+  border-radius: 12px;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
 .card_item:hover {
-  transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+  transform: scale(1.02);
 }
 
 .card_image {
-  display: block; /*trata o elemento como bloco*/
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 15px; /* Espaçamento entre imagem e conteúdo */
-  border-radius: 8px; /* Bordas arredondadas para a imagem */
-  object-fit: cover; /* Faz com que a imagem se ajuste bem ao espaço */
-  margin: auto;
- /* border: 1px solid black;*/
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .card_content {
-  text-align: center; /* Centraliza o conteúdo dentro do card */
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.card_content > a > label {
-  font-size: 22px;
-  font-weight: bold;
-  color: #333; /* Cor mais suave */
-  margin-bottom: 8px;
-}
-
-.card_content > a > .p_descricao {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 15px;
-  line-height: 1.6;
-  margin-top: 5%;
-}
-
-.card_content > a > .p_preco {
+.item_title {
   font-size: 18px;
-  font-weight: 600;
-  color: #28a745; /* Verde suave para o preço */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  text-decoration: none; /* Remove o risco */
 }
 
-a {
-  text-decoration: none;
+.card_content a {
+  text-decoration: none; /* Remove qualquer sublinhado do Link */
+}
+
+
+.p_preco {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff6600;
+  margin-bottom: 10px;
 }
 
 .divAdd {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 10px 0;
-}
-
-.addBtnCard {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #007bff; /* Azul profissional */
-  color: white;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Transição suave */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.addBtnCard:hover {
-  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+  gap: 10px;
 }
 
 .quantItem {
-  width: 70px;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
+  width: 50px;
+  padding: 5px;
   text-align: center;
-  font-size: 16px;
-  color: #333;
-  transition: border-color 0.3s ease;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.quantItem:focus {
-  border-color: #007bff; /* Azul ao focar no input */
-  outline: none; /* Remove o contorno padrão */
+.addBtnCard {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
-@media (min-width: 768px) {
-  .card_item {
-    flex-direction: row; /* Alinha a imagem e o conteúdo horizontalmente em telas médias */
-    width: 48%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .card_item {
-    width: 30%;
-  }
+.addBtnCard:hover {
+  background: #e65c00;
 }

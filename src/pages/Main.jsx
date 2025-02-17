@@ -5,6 +5,7 @@ import logo from '../images/logo.png';  // Caminho relativo a partir do arquivo 
 import logospeed from '../images/logospeed.png';  // Caminho relativo a partir do arquivo onde você está usando a imagem
 import logonova from '../images/logonova_speedorder.png'
 import logooficial from '../images/logo_speed_order_oficial__img.png'
+import imagemHamburguerHome from '../images/hamburguer_e_celular_home.png'
 
 
 function Main(){
@@ -20,9 +21,6 @@ function Main(){
 
         </footer>*/
       <main>
-
-
-
         <div className={styles.welcomesession}>
           
           <img src={logooficial} alt=""  className={styles.imagemLogo}/>
@@ -32,10 +30,7 @@ function Main(){
 
         <button className={styles.botaoiniciar}> Começar</button>
       </Link>
-
         </div>
-
-
       </main>
 
       

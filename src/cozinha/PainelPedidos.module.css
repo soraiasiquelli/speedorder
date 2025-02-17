@@ -4,6 +4,9 @@
   padding: 0 !important;
 
 }
+.painelPedidos{
+  border:1px solid black;
+}
 
 .painelPedidos body {
   font-family: Arial, sans-serif;
@@ -46,7 +49,7 @@
 .painelPedidos .pedidosAtivos,
 .painelPedidos .pedidosPreparacao,
 .painelPedidos .pedidosProntos {
-  width: 70%;
+  width: 70% !important;
   background-color: #f4f4f4;
   padding: 20px;
   border-radius: 8px;

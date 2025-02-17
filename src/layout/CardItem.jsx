@@ -24,34 +24,18 @@ function CardItem({ id_item, src, label_title, p_descricao, p_preco, adicionarAo
 
   return (
     <div className={styles.card_item}>
-
-
-
-      <div className={styles.cardItem}>
-        <img src={src} alt={label_title} className={styles.card_image} />
-        <div className={styles.card_content}>
-          <Link to={`/pedidoclique/${id_item}`} state={{ id_item, src, label_title, p_descricao, p_preco }}>
-        
-            <label>{label_title}</label>
-            <p className={styles.p_descricao}>{p_descricao}</p>
-            <p className={styles.p_preco}>{p_preco}</p>
-          </Link>
+      <img src={src} alt={label_title} className={styles.card_image} />
+      <div className={styles.card_content}>
+        <Link to={`/pedidoclique/${id_item}`} state={{ id_item, src, label_title, p_preco }}>
+          <h3 className={styles.item_title}>{label_title}</h3>
+        </Link>
+        <p className={styles.p_preco}>{p_preco}</p>
+        <div className={styles.divAdd}>
+          <input type="number" min="1" defaultValue="1" className={styles.quantItem} />
+          <button className={styles.addBtnCard} onClick={addCart}>Adicionar</button>
         </div>
       </div>
-
-
-
-      <br />
-    
-      <div className={styles.divAdd}>
-        <input type="number" name="quant" id="quantItem" placeholder='Quant.' className={styles.quantItem}/>
-        <button className={styles.addBtnCard} onClick={addCart}> + </button>
-      </div>
-
-
     </div>
-
-    
   );
 }
 
