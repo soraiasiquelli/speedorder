@@ -1,31 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './CadastroProdutos.module.css';
-import Input from "../form/Input"; // Importando o componente de input
+import HeaderGestaoAdmin from '../layout/HeaderGestaoAdmin';
+import SideBarGestaoAdmin from '../layout/SideBarGestaoAdmin';
+import Input from "../form/Input"; 
+import CardProdutoAdmin from '../layout/CardProdutoAdmin';
+import CadastrarProdutoPopUp from '../layout/CadastrarProdutoPopUp';
+import CardItem from '../layout/CardItem';
 import { useNavigate } from 'react-router-dom';
+import { use } from 'react';
 
 function CadastroItens() {
     const [nomeItem, setNomeItem] = useState('');
     const [descricao, setDescricao] = useState('');
     const [preco, setPreco] = useState('');
     const [categoria, setCategoria] = useState('');
-    const [imagem, setImagem] = useState(''); // Novo estado para a imagem
+    const [imagem, setImagem] = useState('');
+    //Deixandoa visibilidade do pop up como false no inicio
+    const[openPopUp, setOpenPopUp] = useState(false)
 
-    const navigate = useNavigate(); // Inicializa o hook useNavigate
+    const navigate = useNavigate();
 
     const cadastroItem = async (e) => {
-        e.preventDefault(); // Previne o comportamento padrão do formulário
+        e.preventDefault();
 
-        // Verificação simples antes de enviar os dados
         if (!nomeItem || !preco) {
             alert("Todos os campos obrigatórios!");
             return;
         }
 
         try {
-
-            //busca o id do estabelecimento que esta no localstorage e armazena na variavel
-
-            const estabelecimento_id = localStorage.getItem("estabelecimento_id")
+            const estabelecimento_id = localStorage.getItem("estabelecimento_id");
 
             const response = await fetch("http://localhost:5001/cadastroprodutos", {
                 method: "POST",
@@ -37,74 +41,92 @@ function CadastroItens() {
                     descricao,
                     preco,
                     categoria,
-                    imagem, // Enviando a imagem
-                    //Adiciona o id do estabelecimento que esta no localstorage
+                    imagem,
                     id_estabelecimento: estabelecimento_id
-                    
                 })
             });
 
             if (response.ok) {
                 console.log("Item cadastrado com sucesso!");
-                navigate("/gestaoestabelecimento"); // Redireciona para a próxima página
+                navigate("/gestaoestabelecimento");
             } else {
                 const errorText = await response.text();
                 console.error("Erro ao cadastrar o item:", errorText);
-                alert(`Erro ao cadastrar o item: ${errorText}`); // Mostra um alerta com a mensagem de erro
+                alert(`Erro ao cadastrar o item: ${errorText}`);
             }
         } catch (err) {
             console.error("Erro na requisição:", err);
-            alert(`Erro na requisição: ${err.message}`); // Mostra um alerta com a mensagem de erro
+            alert(`Erro na requisição: ${err.message}`);
         }
     };
 
+
+    const [produtos, setProdutos] = useState([])
+
+    const buscarProdutos = async () =>{
+        try {
+            const responseProdutos = await fetch("http://localhost:5001/cadastroprodutos")
+        if(!responseProdutos.ok) throw new Error("Erro do Servidor")
+        const dataProdutos = await responseProdutos.json()
+        console.log("Produtos: ", dataProdutos)
+
+
+        setProdutos(dataProdutos)
+        } catch (error) {
+            console.log("Erro ao buscar produtos:". error)
+        }
+    }
+
+
+
+
+
+ useEffect(() => {
+           buscarProdutos();
+       }, []);
+   
+
+
     return (
-        <main className={styles.secaoprincipal}>
-            <h2>Cadastro de Itens</h2>
-            <form onSubmit={cadastroItem} method='POST' className={styles.formulario}>
-                <Input 
-                    type="text"
-                    text="Nome do Item"
-                    name="nome_item"
-                    placeholder="Nome do Item"
-                    value={nomeItem}
-                    handleOnChange={(e) => setNomeItem(e.target.value)}
-                />
-                <Input 
-                    type="text"
-                    text="Descrição"
-                    name="descricao"
-                    placeholder="Descrição do Item"
-                    value={descricao}
-                    handleOnChange={(e) => setDescricao(e.target.value)}
-                />
-                <Input 
-                    type="number"
-                    text="Preço"
-                    name="preco"
-                    placeholder="Preço do Item"
-                    value={preco}
-                    handleOnChange={(e) => setPreco(e.target.value)}
-                />
-                <Input 
-                    type="text"
-                    text="Categoria"
-                    name="categoria"
-                    placeholder="Categoria do Item"
-                    value={categoria}
-                    handleOnChange={(e) => setCategoria(e.target.value)}
-                />
-                <Input 
-                    type="text"
-                    text="URL da Imagem"
-                    name="imagem"
-                    placeholder="URL da Imagem do Item"
-                    value={imagem}
-                    handleOnChange={(e) => setImagem(e.target.value)}
-                />
-                <button className={styles.btn} type="submit">Cadastrar Item</button>
-            </form>
-        </main>
+        <div className={styles.secaoPrincipal}>
+            <HeaderGestaoAdmin />
+
+            <div className={styles.containerDashboard}>
+                <SideBarGestaoAdmin />
+                <div className={styles.contentDashboard}>
+
+        
+                    <input type="button" value="Cadastrar novo produto" className={styles.addProduto}
+                     onClick={
+                        () =>//Vai passar a funcao setOpenPopUp como true
+                              setOpenPopUp(true)
+
+                    }/>
+    
+<CadastrarProdutoPopUp isOpen={openPopUp} setPopUpOpen={setOpenPopUp} />
+                    
+
+
+
+                    { produtos.length > 0 ? (
+                    produtos.map((produto) => (
+                       <CardProdutoAdmin
+                        key={produto.id_admin}
+                        src={produto.imagem}
+                        label_title={produto.nome_item}
+                        p_preco={produto.preco}
+                       
+                       
+                       />
+                    ))
+                 ) : (
+          <p>Nenhum produto disponível</p>
+                )
+                }
+
+                </div>
+            </div>
+        </div>
     );
 }
 

@@ -1,0 +1,101 @@
+.cardPedidoAdmin {
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.cardPedidoAdmin > .cabecalhoPedido {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cabecalhoPedido img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.cabecalhoPedido > .infoGarcom {
+    font-size: 14px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Ajustado para menor espaçamento */
+    margin-left: 5px;
+}
+
+.cabecalhoPedido > .infoGarcom > p {
+    color: black;
+    text-transform: none;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.cabecalhoPedido > .infoGarcom .nomeGarcom {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cabecalhoPedido > .infoGarcom .numeroPedido {
+    font-size: 10px;
+    color: grey;
+    margin-top: -8px; /* Ajuste no espaçamento */
+}
+
+.cardPedidoAdmin > .cabecalhoPedido > span {
+    font-size: 10px;
+    border: 1px solid green;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.cardPedidoAdmin > .detailsPedido {
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Reduzido para menor espaçamento */
+    margin-top: 5%; /* Ajustado */
+}
+
+.cardPedidoAdmin > .detailsPedido > div {
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 8px; /* Ajuste no padding para menor espaço */
+}
+
+.cardPedidoAdmin > .viewItens .cadaItem {
+    margin-top: 5%; /* Ajustado */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px; /* Reduzido */
+}
+
+.cardPedidoAdmin > .viewItens .cadaItem > img {
+    width: 45px; /* Ajuste no tamanho da imagem */
+    height: 45px; /* Ajuste no tamanho da imagem */
+    border-radius: 8px;
+    border: 1px solid black;
+    object-fit: cover;
+}
+
+.cardPedidoAdmin > .viewItens .cadaItem .infoProduto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardPedidoAdmin > .viewItens .cadaItem .infoProduto > .nomeProduto {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cardPedidoAdmin > .viewItens .cadaItem .infoProduto > .precoProduto {
+    color: grey;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: -3px; /* Ajuste no espaçamento */
+}

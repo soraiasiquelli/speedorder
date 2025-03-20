@@ -1,0 +1,43 @@
+.sidebar {
+    width: 250px; /* Largura da sidebar */
+    height: 100vh; /* Altura total da tela */
+    /*background: linear-gradient(135deg, #1e3c72, #2a5298); */
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+}
+
+/* Estilo da lista da sidebar */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    border-radius: 10px;
+    transition: 0.3s ease;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+}
+
+/* Efeito de hover */
+.sidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); /* Efeito de leve zoom */
+}
+
+/* Ícones opcionais */
+.sidebar ul li::before {
+    content: '⚡'; /* Você pode substituir por um ícone real */
+    font-size: 18px;
+}

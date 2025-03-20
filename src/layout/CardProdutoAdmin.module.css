@@ -1,0 +1,124 @@
+.card_item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 12px;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    min-height: 165px;
+    width: 23%;
+    margin: 10px;
+  }
+  
+  .card_item:hover {
+    transform: scale(1.02);
+  }
+  
+  .card_image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .item_title {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+    text-decoration: none; /* Remove o risco */
+  }
+  
+  .card_content a {
+    text-decoration: none; /* Remove qualquer sublinhado do Link */
+  }
+  
+  
+  .p_preco {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d33333;
+    margin-bottom: 10px;
+  }
+  
+  .divAdd {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantItem {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .addBtnCard {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .addBtnCard:hover {
+    background: #e65c00;
+  }
+  
+  .acoesAdminProduto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 10px;
+    margin-top: auto;
+}
+
+/* Estilo padrão dos botões */
+.acoesAdminProduto button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Botão de Editar */
+.btn_editar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn_editar:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Botão de Excluir */
+.btn_excluir {
+    background-color: #dc3545;
+    color: white;
+    
+}
+
+.btn_excluir:hover {
+    background-color: #a71d2a;
+    transform: scale(1.1);
+}

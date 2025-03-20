@@ -1,28 +1,62 @@
-/* Estilo para inputs */
-.itensform > input {
-    width: 280px;
-    height: 43px; /* Altura ajustada para ser mais consistente */
-    margin-top: 5%;
-    font-size: 16px; /* Fonte um pouco menor para um visual mais compacto */
-    border-radius: 5px; /* Menor arredondamento para um visual mais simples */
-    background-color: #fff; /* Fundo branco */
-    border: 1px solid #ddd; /* Borda cinza clara para um visual mais suave */
-    border: 1px solid gray;
-    margin-top: 8%;
+*{
+    padding: 0%;
+    margin: 0%;
 }
 
-.itensform{
-    text-align: center;
+/* Estilização do container do formulário */
+.itensform {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
-.itensform > label{
-    font-weight: bold;
-    font-size: 18px;
-}
-::placeholder{
-    color: black;
+/* Estilo base para todos os inputs */
+.itensform > input {
+    width: 80%;
+    max-width: 350px;
+    height: 35px;
     font-size: 16px;
-    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    padding: 8px; /* Reduzi um pouco para equilibrar */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: #fff;
+    text-align: left;
+    box-sizing: border-box; /* Garante que padding não altere o tamanho total */
+}
+
+/* Estilização específica para inputs de texto e número */
+.itensform > input[type="text"],
+.itensform > input[type="number"] {
+    max-width: 350px;
+}
+
+/* Diferenciação visual sutil para inputs numéricos */
+.itensform > input[type="number"] {
+    background-color: #f5f5f5;
+    width: 80%;
+    margin: 0%;
+}
+
+/* Efeito ao focar */
+.itensform > input:focus {
+    border-color: #d33333;
+    outline: none;
+    box-shadow: 0 0 4px rgba(211, 51, 51, 0.5);
+}
+
+/* Estilização dos labels */
+.itensform > label {
+    font-weight: 600;
+    font-size: 15px; /* Reduzi um pouco para melhor proporção */
+    color: #333;
+}
+
+/* Estilização do placeholder */
+.itensform > input::placeholder {
+    color: #777;
+    font-size: 13px; /* Ajuste sutil para melhor harmonia */
+    opacity: 0.8;
 }

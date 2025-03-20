@@ -5,17 +5,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    border: 1px solid black;
+    width: 100%;
+    display: block;
 
+}
 /* Estilo principal da seção */
 .secaoprincipal {
     text-align: center;
     height: 100vh;
     width: 100%;
+   
+}
+
+.containerDashboard{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: auto;
+    margin-top: 2%;
+    /*border: 1px solid red;*/
+
+
+}
+.contentDashboard {
     padding: 20px;
+    background-color: #f5f5f5; /* Cor de fundo do conteúdo */
+    width: 100%;
+    text-align: left; /* Garante que o texto comece alinhado à esquerda */
+    display: flex;
+    flex-direction: row; /* Mantém os elementos empilhados verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    flex-wrap: wrap;
 }
 
 /* Estilo do título principal */
@@ -40,14 +60,15 @@ p {
 
 /* Estilo do botão de submissão */
 .btn {
-    width: 250px;
-    margin-top: 20px;
-    height: 50px;
+    width: 200px;
+    height: 30px;
+    margin-top: 10%;
+    margin-bottom: 10%;
     background-color: #d33333; 
     color: white;
+    padding: 5px;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -58,8 +79,14 @@ p {
 
 .formulario{
     margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.formulario > h2{
+    padding: 0%;
+    margin-top: 10%;
+}
 /* Responsividade */
 @media (max-width: 768px) {
     .secaoprincipal > h2 {
@@ -91,4 +118,24 @@ p {
         height: 40px;
         font-size: 12px;
     }
+}
+
+/*Botão para aparecer o pop-up para cadastrar novo produto*/
+
+.addProduto{
+    background-color: #d33333;
+    margin: auto;
+    width: 220px;
+    font-weight: bold;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.addProduto:hover{
+    background-color: #a60000;
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }

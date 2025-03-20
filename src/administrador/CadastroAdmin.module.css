@@ -5,16 +5,34 @@
 
 body {
     height: 100vh !important;
+    width: 100% !important;
+    padding: 1%
 }
+.containerDashboard{
+    display: flex;
+    margin-top: 2%;
+    height: 100vh;
 
+
+}
+.containerDashboard{
+    display: flex;
+    height: 80%;
+    margin-top: 2%;
+    border:1px solid black;;
+
+}
 .secaoprincipal {
     display: block;
+    width: 98% !important;
+    height: 100vh;
 }
 
 /* Estilo principal da seção */
 .secaoprincipal {
     text-align: center;
-    height: 80vh;
+    height: 100vh;
+
 }
 
 .cabecalho_page {
