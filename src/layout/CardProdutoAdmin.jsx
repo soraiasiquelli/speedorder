@@ -1,11 +1,13 @@
 import styles from './CardProdutoAdmin.module.css'
 import { Link } from 'react-router-dom'
 import { CiEdit } from "react-icons/ci";
-import { MdDelete } from "react-icons/md"; // Ícone de lixeira
+import { MdDelete } from "react-icons/md"; 
+import EditarProdutoPopUp from './EditarProdutoPopUp';
+import { useState } from 'react';
 
+function CardProdutoAdmin({ src, label_title, p_preco, id_item }) {
+  const [openPopUpEdit, setPopUpEdit] = useState(false);
 
-
-function CardProdutoAdmin({ src, label_title, card_image, item_title, p_preco, id_item }) {
   return (
     <div className={styles.card_item}>
       <img src={src} alt={label_title} className={styles.card_image} />
@@ -15,20 +17,21 @@ function CardProdutoAdmin({ src, label_title, card_image, item_title, p_preco, i
         </Link>
         <p className={styles.p_preco}>{p_preco}</p>
 
-        {/* Seção de botões movida para dentro do card_content */}
         <div className={styles.acoesAdminProduto}>
-        <button className={styles.btn_editar}>
-            <CiEdit />
+          {/* Ao clicar no botão de editar, abre o pop-up */}
+          <button className={styles.btn_editar} onClick={() => setPopUpEdit(true)}>
+            <CiEdit className={styles.icone} />
           </button>
           <button className={styles.btn_excluir}>
-            <MdDelete />
+            <MdDelete className={styles.icone} />
           </button>
         </div>
       </div>
+
+      {/* Renderiza o pop-up quando openPopUpEdit for true */}
+     
     </div>
   );
 }
 
-
-
-export default CardProdutoAdmin
+export default CardProdutoAdmin;

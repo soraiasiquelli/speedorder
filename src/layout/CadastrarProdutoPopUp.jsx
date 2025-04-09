@@ -84,11 +84,11 @@ function CadastrarProdutoPopUp({isOpen, setPopUpOpen}){
             <div style={background_style}>
                 <div className={styles.secaoCadastroProduto}>
                 <input
-    type="button"
-    value="FECHAR X"
-    className={styles.btnFecharPopUp}
-    onClick={() => setPopUpOpen(false)} // Fechar o pop-up
-/>
+                    type="button"
+                    value="FECHAR X"
+                    className={styles.btnFecharPopUp}
+                    onClick={() => setPopUpOpen(false)} // Fechar o pop-up
+                />
 
                     <form action="">
                     <h2>Cadastre um novo produto aqui</h2>

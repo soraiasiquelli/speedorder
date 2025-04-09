@@ -88,37 +88,40 @@
 
 /* Estilo padrão dos botões */
 .acoesAdminProduto button {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 20px;
-    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 40%;
+  font-size: 20px;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+  background-color: transparent; /* Remover o fundo se não necessário */
+  padding: 10px; /* Adiciona um preenchimento para o botão em torno do ícone */
 }
 
-/* Botão de Editar */
 .btn_editar {
-    background-color: #007bff;
-    color: white;
+  color: #007bff;
+  background-color: #007bff;
 }
 
 .btn_editar:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
+  transform: scale(1.1);
+  background-color: white;
 }
 
-/* Botão de Excluir */
 .btn_excluir {
-    background-color: #dc3545;
-    color: white;
-    
+  color: #dc3545;
 }
 
 .btn_excluir:hover {
-    background-color: #a71d2a;
-    transform: scale(1.1);
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.icone {
+  font-size: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+  color: white; /* Garantir que o ícone seja branco */
+  z-index: 1; /* Garantir que o ícone esteja acima de outros elementos */
 }

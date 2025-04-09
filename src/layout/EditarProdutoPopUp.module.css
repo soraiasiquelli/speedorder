@@ -1,0 +1,34 @@
+.background_style {
+    position: fixed; /* Mantém o pop-up fixo na tela */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+  }
+  
+  .secaoEdicaoProduto {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%; /* Define largura responsiva */
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .btnFecharPopUp {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+  }
+  

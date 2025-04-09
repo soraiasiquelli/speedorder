@@ -6,6 +6,7 @@ import Input from "../form/Input";
 import CardProdutoAdmin from '../layout/CardProdutoAdmin';
 import CadastrarProdutoPopUp from '../layout/CadastrarProdutoPopUp';
 import CardItem from '../layout/CardItem';
+import EditarProdutoPopUp from '../layout/EditarProdutoPopUp';
 import { useNavigate } from 'react-router-dom';
 import { use } from 'react';
 
@@ -17,6 +18,8 @@ function CadastroItens() {
     const [imagem, setImagem] = useState('');
     //Deixandoa visibilidade do pop up como false no inicio
     const[openPopUp, setOpenPopUp] = useState(false)
+    const [openPopUpEdit, setPopUpEdit] = useState(false)
+
 
     const navigate = useNavigate();
 
@@ -103,8 +106,11 @@ function CadastroItens() {
 
                     }/>
     
-<CadastrarProdutoPopUp isOpen={openPopUp} setPopUpOpen={setOpenPopUp} />
-                    
+                <CadastrarProdutoPopUp isOpen={openPopUp} setPopUpOpen={setOpenPopUp} />
+                <EditarProdutoPopUp 
+            isOpen={openPopUpEdit} 
+            setPopUpOpen={setPopUpEdit} 
+          />
 
 
 

@@ -90,8 +90,6 @@ function GestaoEstabelecimento() {
 
             <div className={styles.contentDashboard}>
 
-               <h1>Conteúdo Principal</h1>
-                <p>Aqui vai o conteúdo principal da página.</p>
 
             {pedidos.length > 0 ? (
     pedidos.map((pedido) => {
