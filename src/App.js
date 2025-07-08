@@ -7,10 +7,10 @@ import NovoPedido from './garcom/NovoPedido';
 import CriarEstabelecimento from './administrador/CriarEstabelecimento';
 import PedidoClique from './pages/PedidoClique';
 import PersonalizacaoLoja from './administrador/PersonalizacaoLoja';
-import Main from './pages/Main';
+import Start from './pages/Start';
 import ChamadoCozinha from './garcom/ChamadoCozinha';
 import CadastroAdmin from './administrador/CadastroAdmin';
-import GestaoEstabelecimento from './administrador/GestaoEstabelecimento';
+import GerenciamentoPedidos from './administrador/GerenciamentoPedidos';
 import CadastroMesas from './administrador/CadastroMesas';
 import CadastroGarcons from './administrador/CadastroGarcons';
 import CadastroProdutos from './administrador/CadastroProdutos';
@@ -19,6 +19,7 @@ import HistoricoPedidos from './pages/HistoricoPedidos';
 import UltimosPedidos from './pages/pagesgerencia/UltimosPedidos'
 import PedidosProntos from './pages/pagesgerencia/PedidosProntos'
 import PedidosEmPreparo from './pages/pagesgerencia/PedidosEmPreparo'
+import GestaoEstabelecimento from './administrador/GestaoEstabelecimento'
 import TelaCozinha from './telacozinha/TelaCozinha';
 import CarrinhoDeItens from './secoes/Carrinho'
 import ConfirmacaoPedido from '../src/pages/ConfirmacaoPedido'
@@ -30,7 +31,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Main />} /> 
+        <Route path="/start" element={<Start />} /> 
         <Route path="/cadastroestabelecimento" element={<CriarEstabelecimento/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />
@@ -40,6 +41,7 @@ function App() {
         <Route path="/personalizacaoloja" element={<PersonalizacaoLoja />} />
         <Route path="/chamadocozinha" element={<ChamadoCozinha />} />
         <Route path="/pagesforms/cadastroadmin" element={<CadastroAdmin />} />
+        <Route path="/gerenciamentopedidos" element={<GerenciamentoPedidos />} />
         <Route path="/gestaoestabelecimento" element={<GestaoEstabelecimento />} />
         <Route path="/cadastromesas" element={<CadastroMesas/>} />
         <Route path="/cadastrogarcons" element={<CadastroGarcons/>} />

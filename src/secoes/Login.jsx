@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logospeed from "../images/logospeed.png"; // Caminho relativo a partir do arquivo onde você está usando a imagem
 import logonova from '../images/logonova_speedorder.png'
 import logooficial from '../images/logo_speed_order_oficial__img.png'
+import logospeedorder from '../images/novalogo_speedorder.svg'
+
 
 
 function Login() {
@@ -12,7 +14,53 @@ function Login() {
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
-  const efetuarLogin = async (e) => {
+    const efetuarLogin = async(e) => {
+      e.preventDefault();
+
+
+      try {
+        console.log("Email:", email);
+
+        const response = await fetch("http://localhost:5001/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              email: email,
+              senha: senha
+            })
+        });
+
+        const data = await response.json()
+        console.log("Dados recebidos", data)
+        
+        if(!response.ok){
+          alert("Usuário não encontrado")
+          navigate("/pagesforms/cadastroadmin")
+          
+        }else{
+          localStorage.setItem("nome_usuario", data.nome )
+          localStorage.setItem("nomeEstabelecimento", data.nomeEstabelecimento)
+         alert("Usuário encontrado")
+
+          navigate("/homeprincipal");
+        }
+         
+
+
+
+
+      } catch (error) {
+        alert("O erro é" + error)
+      }
+
+
+
+    }
+
+
+  /*const efetuarLogin = async (e) => {
     e.preventDefault();
   
     try {
@@ -44,7 +92,7 @@ function Login() {
       console.error("Erro ao fazer login:", error);
       alert("Erro ao tentar fazer login.");
     }
-  };
+  };*/
   
   
   
@@ -55,8 +103,7 @@ function Login() {
       <div className={styles.secaoform}>
         <form className={styles.form} onSubmit={efetuarLogin}>
 
-          <h2>SpeedOrder</h2>
-          <h3>Do clique à mesa</h3>
+           <img src={logospeedorder} alt="" />
           <Input
             type="email"
             text="Digite seu email: "

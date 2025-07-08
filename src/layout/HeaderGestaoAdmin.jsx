@@ -15,7 +15,9 @@ function HeaderGestaoAdmin(){
                 <li>
                     <Link to="/gestaoestabelecimento">Visão Geral</Link>
                 </li>
-                <li>Gerenciamento de Pedidos</li>
+                <li>
+                <Link to="/gerenciamentopedidos"> Gerenciamento de Pedidos </Link>
+                </li>
                 <li><Link to="/cadastroprodutos">Cardápio</Link></li>
                 <li>Controle de Funcionários</li>
             </ul>

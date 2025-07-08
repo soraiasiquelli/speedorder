@@ -22,7 +22,6 @@ app.use(express.json());
 
 
 
-
 // Configuração do motor de templates Handlebars
 app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -65,6 +64,112 @@ app.use(bodyParser.json());
         }
     }
 });*/
+
+//Rota Login Inicial - verificar se o usuário existe no banco de dados
+
+app.post("/login", async(req, res) =>{
+    console.log("Recebido no corpo:", req.body);
+
+    const{email, senha} = req.body
+    console.log("Email Recebido:", email)
+
+    console.log("Rota First Log in Encontrada!");
+
+   try {
+        let usuario = await Administrador.findOne({
+            where: {
+                email: email,
+                senha: senha
+            }
+        })
+
+        //Se  encontrou usuario na tabela de administradores
+
+        if(usuario){
+
+             let estabelecimento = await Estabelecimento.findOne({
+                where: {
+                    email: usuario.email
+                }
+            })
+
+
+            return res.json({
+                mensagem: "Usuário encontrado na tabela Administradores",
+                tipo: "administrador",
+                nome: usuario.nome , // <-- Adicione isto
+                nomeEstabelecimento: estabelecimento?.nomeEstabelecimento || null
+
+            })
+        }
+
+
+
+        if(!usuario){ //Se não encontrou na tabela de administrador procure na tabela garcons
+            usuario = await Garcons.findOne({
+                where:{
+                    email: email,
+                    //senha: senha
+                }
+            })
+
+        }
+
+        //Se  encontrou usuario na tabela de garcons
+
+
+         if(usuario){
+
+            let estabelecimento = await Estabelecimento.findOne({
+                    where: {
+                        email: usuario.email
+                    }
+                })
+
+                if (estabelecimento) {
+            return res.json({
+                mensagem: "Estabelecimento encontrado com sucesso na tabela de estabelecimentos",
+                nomeEstabelecimento: estabelecimento.nomeEstabelecimento
+            });
+        } else {
+            return res.status(404).json({
+                mensagemErro: "Estabelecimento não encontrado"
+            });
+        }
+            
+            
+            return res.json({
+                mensagem: "Usuário encontrado na tabela de garcons",
+                tipo: "garcom",
+                nome: usuario.nome,
+                nomeEstabelecimento: estabelecimento?.nomeEstabelecimento || null
+
+            })
+        }
+
+      
+
+   
+
+
+    // Se não encontrou em nenhuma das tabelas
+    return res.status(404).json({ mensagemErro: "Usuário não encontrado" });
+
+   } catch (error) {
+    
+   }
+
+  res.json({ emailRecebido: req.body.email, senhaRecebida: req.body.senha });
+})
+
+
+
+
+
+
+
+
+
 
 
 

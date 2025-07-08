@@ -1,14 +1,15 @@
 
-import styles from "./Main.module.css"
+import styles from "./Start.module.css"
 import { Link } from "react-router-dom"
 import logo from '../images/logo.png';  // Caminho relativo a partir do arquivo onde você está usando a imagem
-import logospeed from '../images/logospeed.png';  // Caminho relativo a partir do arquivo onde você está usando a imagem
+import logospeed from '../images/logospeed.png';  
+import logospeedorder from '../images/novalogo_speedorder.svg'
 import logonova from '../images/logonova_speedorder.png'
 import logooficial from '../images/logo_speed_order_oficial__img.png'
 import imagemHamburguerHome from '../images/hamburguer_e_celular_home.png'
 
 
-function Main(){
+function Start(){
 
     return(
 //          <img src={logonova} alt=""  className={styles.imagemLogo}/>
@@ -23,9 +24,8 @@ function Main(){
       <main>
         <div className={styles.welcomesession}>
           
-          <img src={logooficial} alt=""  className={styles.imagemLogo}/>
+          <img src={logospeedorder} alt=""  className={styles.imagemLogo}/>
 
-          <h1> Do Clique à Mesa, Simplificando Seu Atendimento!</h1>
           <Link to="/home">
 
         <button className={styles.botaoiniciar}> Começar</button>
@@ -41,4 +41,4 @@ function Main(){
 
 }
 
-export default Main
+export default Start

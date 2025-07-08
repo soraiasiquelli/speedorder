@@ -24,7 +24,7 @@ function HomePrincipal() {
 
   const nomeEstabelecimento = localStorage.getItem("nomeEstabelecimento")
   const [nome, setNome] = useState('');
-  localStorage.setItem("nome_usuario", "Soraia" )
+ // localStorage.setItem("nome_usuario", "Soraia" )
 
   useEffect(() => {
     const nomeUsuario = localStorage.getItem("nome_usuario");

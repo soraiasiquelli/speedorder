@@ -59,7 +59,10 @@ main {
     margin-top: 0%;
     font-size: 2rem;
 }
-form > h3{
+.form > img{
+    width: 60%;
+}
+.form > h3{
     font-size: 18px;
     letter-spacing: 1px;
     margin-bottom: 5%;
@@ -80,6 +83,9 @@ p {
    color: white;
     border-radius: 10px;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn:hover {
@@ -103,10 +109,13 @@ p {
     padding: 10px !important;
     color: black;
 }
-.criarconta{
+.esqueceuasenhap a {
+    color: black !important;
+}
+.criarconta a{
     margin-top: 2%;
     font-size: 14px;
-    color: black;
+    color: rgb(167, 35, 8) !important;
 
 }
 /* Media Queries para tamanhos de tela específicos */

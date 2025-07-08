@@ -36,22 +36,20 @@ body {
     /*background-color: rgba(255, 255, 255, 0.573);*/
     background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra suave */
     width: 90%;
     max-width: 500px; /* Limita a largura */
     background-color: wh;
 }
 
 .welcomesession img {
-    width: 60%;
-    max-width: 200px; /* Ajusta a imagem para telas menores */
+    width: 100%;
     animation: mexerImagem 5s infinite alternate;
 }
 .welcomesession > h1{
-    font-size: 25px;
+    font-size: 18px;
 }
 h1 {
-    font-size: 1.8rem; /* Tamanho responsivo do texto */
+    font-size: 1rem; /* Tamanho responsivo do texto */
     line-height: 1.4;
 }
 

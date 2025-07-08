@@ -16,10 +16,10 @@
 .itensform > input {
     width: 80%;
     max-width: 350px;
-    height: 35px;
+    height: 45px;
     font-size: 16px;
     border-radius: 8px;
-    border: 1px solid #bbb;
+    border: 1px solid #838282df;
     padding: 8px; /* Reduzi um pouco para equilibrar */
     transition: border-color 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
     background-color: #fff;
