@@ -7,6 +7,18 @@ const Mesas = db.sequelize.define('mesas', {
       autoIncrement: true,
       primaryKey: true
   },
+  id_estabelecimento: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+          references:{
+            model: 'estabelecimentos',
+            key: "id_estabelecimento"
+          }
+  },
+   numero_da_mesa:{
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
   capacidade: {
       type: Sequelize.INTEGER,
       allowNull: false
@@ -16,6 +28,7 @@ const Mesas = db.sequelize.define('mesas', {
       allowNull: false,
       defaultValue: "livre"
   }
+ 
 });
 
 // Sincronizando o modelo com o banco de dados

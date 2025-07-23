@@ -38,8 +38,8 @@
   }
   
   input[type="number"]:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4); /* Sombra suave no foco */
+    border-color: #000000;
+    box-shadow: black;
   }
   
   /* Estilo do botão */

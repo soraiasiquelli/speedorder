@@ -1,67 +1,61 @@
-/* Define a fonte padrão para o projeto */
 * {
-    font-family: "Helvetica";
+    font-family: "Helvetica", sans-serif;
 }
 
-/* Estilo principal da seção */
 .secaoprincipal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
+    background-color: #fefefe;
+    padding: 20px;
+}
+
+.form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
-}
-
-/* Estilo do título principal */
-.secaoprincipal > h2 {
-    margin-top: 30%;
-    font-size: 20px;
-    color: #d33333;
-}
-
-/* Estilo dos parágrafos */
-p {
-    color: grey;
-    padding: 5px;
-}
-
-/* Estilo dos links */
-.plink {
-    text-decoration: underline;
-    color: rgb(56, 56, 212);
-}
-
-/* Estilo do botão de submissão */
-.btn {
-    width: 250px;
-    margin-top: 25px !important;
-    height: 50px;
-    background-color: #d33333; 
-    color: white;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
-/* Estilo para o formulário */
-form {
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 0px;
 }
 
-/* Estilo para os labels e inputs */
-label {
-    margin-bottom: 15px;
+ h2 {
+    font-size: 20px;
+    color: #d33333;
+    padding: 20px;
 }
 
+.label {
+    text-align: left;
+    font-weight: bold;
+    margin: 12px 0 4px 0;
+}
 
+.select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    width: 80%;
+}
 
-button {
-    width: 250px;
-    height: 50px;
+.btn {
+    width: 70%;
+    padding: 12px;
     background-color: #d33333;
     color: white;
     border: none;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #b72d2d;
 }

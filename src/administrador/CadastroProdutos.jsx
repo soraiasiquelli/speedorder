@@ -8,6 +8,7 @@ import CadastrarProdutoPopUp from '../layout/CadastrarProdutoPopUp';
 import CardItem from '../layout/CardItem';
 import EditarProdutoPopUp from '../layout/EditarProdutoPopUp';
 import { useNavigate } from 'react-router-dom';
+import HeaderAdmin from '../layout_admin/HeaderAdmin';
 import { use } from 'react';
 
 function CadastroItens() {
@@ -92,7 +93,7 @@ function CadastroItens() {
 
     return (
         <div className={styles.secaoPrincipal}>
-            <HeaderGestaoAdmin />
+        <HeaderAdmin/>
 
             <div className={styles.containerDashboard}>
                 <SideBarGestaoAdmin />

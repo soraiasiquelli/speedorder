@@ -2,12 +2,18 @@
     width: 250px; /* Largura da sidebar */
     height: 100vh; /* Altura total da tela */
     /*background: linear-gradient(135deg, #1e3c72, #2a5298); */
-    border-radius: 20px;
-    color: white;
+    color: black;
+    fill: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*background-color:#2c2c2c;*/
+    /*background-color: black;*/
+    background-color: white;
 }
 
 /* Estilo da lista da sidebar */
@@ -21,23 +27,48 @@
     padding: 12px 15px;
     margin: 8px 0;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    /*background: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    /*background-color:#2c2c2c;*/
+    border: 1px solid  #d33333;
     border-radius: 10px;
     transition: 0.3s ease;
-    font-weight: bold;
+    font-weight: normal;
     display: flex;
     align-items: center;
     gap: 10px; /* Espaço entre ícone e texto */
+
 }
 
 /* Efeito de hover */
 .sidebar ul li:hover {
-    background: rgba(255, 255, 255, 0.2);
+    /*background: rgba(255, 255, 255, 0.2);*/
     transform: scale(1.05); /* Efeito de leve zoom */
+}
+.sidebar > .headerSideBar > img.imagemLogo {
+    width: 80%;
 }
 
 /* Ícones opcionais */
-.sidebar ul li::before {
+/*.sidebar ul li::before {
     content: '⚡'; /* Você pode substituir por um ícone real */
-    font-size: 18px;
+    /*font-size: 18px;
+}*/
+.headerSideBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerSideBar > h1{
+    color: black;
+    font-size: 32px;
+}
+
+ul li .icone {
+    /*color: white;
+    fill: white;*/
+    font-size: 30px;
+   /* margin-top: 15%;**/
+   /* background-color: white;*/
+   fill:  #d33333;
+   
 }

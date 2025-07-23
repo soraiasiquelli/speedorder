@@ -252,10 +252,13 @@ app.post("/cadastromesas", async (req, res) => {
     console.log("Rota /cadastromesa chamada");
     console.log("Dados recebidos:", req.body);  // Verificando dados recebidos
 
+    const { id_estabelecimento} = req.body;
     try {
         const novaMesa = await Mesa.create({
             capacidade: req.body.capacidade, // Recebendo a capacidade da mesa
-            status: req.body.status || 'livre' // Recebendo o status da mesa (opcional, padrão é 'livre')
+            status: req.body.status || 'livre',
+            numero_da_mesa: req.body.numero_da_mesa,
+            id_estabelecimento: id_estabelecimento
         });
         console.log("Mesa cadastrada com sucesso!", novaMesa);
         res.status(201).send("Mesa cadastrada com sucesso!");
@@ -357,6 +360,7 @@ app.post("/cadastrogarcons", async (req, res) => {
 
 app.post("/fecharpedido", async (req, res) => {
     const { itens, id_estabelecimento, forma_de_pagamento, total } = req.body;
+
 
     if (!itens || itens.length === 0) {
         return res.status(400).json({ message: "Não há itens para cadastrar." });
