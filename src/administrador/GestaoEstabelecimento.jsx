@@ -4,6 +4,7 @@ import SideBarGestaoAdmin from '../layout/SideBarGestaoAdmin';
 import styles from './GestaoEstabelecimento.module.css'
 import { MdOutlineAttachMoney, MdTableRestaurant, MdPendingActions } from "react-icons/md";
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function GestaoEstabelecimento(){
 
@@ -38,7 +39,17 @@ function GestaoEstabelecimento(){
         }
     }
 
+    const buscarPedidos = async () => {
+      try {
+          const responsePedidos = await fetch("http://localhost:5001/buscapedidos");
+               if (!responsePedidos.ok) throw new Error(`Erro do servidor: ${responsePedidos.statusText}`);
+               const dataPedidos = await responsePedidos.json();
+               console.log("Pedidos:", dataPedidos);
+      } catch (error) {
+                     console.log("Erro ao buscar pedidos", error.message);
 
+      }
+    }
     useEffect(() => {
         buscarMesas();
         buscarProdutos();
@@ -89,7 +100,7 @@ function GestaoEstabelecimento(){
                 <MdPendingActions className={styles.iconeCard}/>
                 <div className={styles.textoBloco}>
                   <h3>Pedidos em andamento</h3>
-                  <p>{pedidos.length} pedidos</p>
+                  {/*<p>{pedidos.length} pedidos</p>*/}
                 </div>
               </li>
 
@@ -105,7 +116,7 @@ function GestaoEstabelecimento(){
             <ul>
               {mesasEstabelecimento.map((mesa) => (
                 <li key={mesa.id} className={`${styles.mesaItem} ${styles['status-'+mesa.status.replace(/\s+/g, '').toLowerCase()]}`}>
-                  Mesa {mesa.numero} - <strong>{mesa.status}</strong>
+                  Mesa {mesa.numero} - <strong>{mesa.status.toUpperCase()}</strong>
                 </li>
               ))}
             </ul>
@@ -113,17 +124,9 @@ function GestaoEstabelecimento(){
 
           {/* Pedidos em tempo real */}
          <section className={styles.pedidosEmAndamento}>
-            <h2>ÚltimosPedidos Cadastrados</h2>
+            <h2>Últimos Itens Pedidos</h2>
             <br />
-            <ul>
-                {pedidosEstabelecimento.map((produto) => (
-                <li key={produto.id_item} className={styles.pedidoItem}>
-                    <strong>{produto.nome_item}</strong> - {produto.descricao} <br />
-                    Preço: R$ {Number(produto.preco).toFixed(2)} <br />
-                    Categoria: {produto.categoria}
-                </li>
-                ))}
-            </ul>
+           
             </section>
 
 

@@ -5,12 +5,12 @@ function CardPedidosAdmin({nomeGarcom, numeroPedido, status, mesa, total, itens}
        <div className={styles.cardPedidoAdmin}>
         
         <div className={styles.cabecalhoPedido}>
-            <img src="" alt="fotoDoGarcom" className={styles.garcomIMG}/>
+          
             <div className={styles.infoGarcom}>
                 <p className={styles.nomeGarcom}>{nomeGarcom}</p>
                 <p className={styles.numeroPedido}>Pedido - #{numeroPedido}</p>
             </div>
-            <span>{status}</span>
+            <span>{status.toUpperCase()}</span>
 
         </div>
 

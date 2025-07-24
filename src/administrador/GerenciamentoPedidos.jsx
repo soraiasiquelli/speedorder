@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import styles from './GerenciamentoPedidos.module.css';
 import HeaderGestaoAdmin from '../layout/HeaderGestaoAdmin';
 import SideBarGestaoAdmin from '../layout/SideBarGestaoAdmin';
+import HeaderAdmin from '../layout_admin/HeaderAdmin';
 import CadastroMesas from './CadastroMesas';
 import CadastroGarcons from './CadastroGarcons';
 import CadastroProdutos from './CadastroProdutos';
 import FooterOpcoes from '../layout/FooterOpcoes';
 import CardPedidosAdmin from './CardPedidosAdmin';
+import PedidoTabelaAdmin from '../layout_admin/PedidoTabelaAdmin';
 import { FaKitchenSet } from "react-icons/fa6";
 import { BiCheckCircle } from "react-icons/bi";
 import { BiCaretDown } from "react-icons/bi";
+
 
 
 
@@ -77,46 +80,67 @@ function GerenciamentoPedidos() {
 
 
     return (
-        <div className={styles.pageGestao}>
-        
-         
-        <HeaderGestaoAdmin/>
+       <div className={styles.pageGestao}>
 
-            <div className={styles.containerDashboard}>
-
+    <div className={styles.wrapperDashboard}>
+    <SideBarGestaoAdmin />
     
+    <div className={styles.containerDashboard}>
+      <HeaderAdmin />
 
-            <SideBarGestaoAdmin/>
-
-            <div className={styles.contentDashboard}>
-
-
-            {pedidos.length > 0 ? (
-    pedidos.map((pedido) => {
-        return (
-            <CardPedidosAdmin
-                key={pedido.id_pedido}
-                status = {pedido.status}
-                itens={pedido.itens || []}
-                nomeGarcom = "Soraia Siquelli"
-                numeroPedido =  {pedido.id_pedido}
-                mesa = {pedido.id_mesa}
-                total= {pedido.total}
-            />
-        );
-    })
-) : (
-    <p>Carregando pedidos...</p>
-)}
+       
 
 
-            
-            </div>
+      
+      <div className={styles.contentDashboard}>
 
-            </div>
-        
-
+         <div className={styles.tabelaPedidos}>
+            {pedidos.length > 0 && (
+        <table className={styles.tabelaPedidos}>
+            <thead>
+                <tr>
+                    <th>Pedido / Mesa</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <PedidoTabelaAdmin pedidos={pedidos} />
+            </tbody>
+        </table>
+        )}
         </div>
+
+
+        <div className={styles.cardsPedidos}>
+            {pedidos.length > 0 ? (
+              pedidos.map((pedido) => (
+                <CardPedidosAdmin
+                  key={pedido.id_pedido}
+                  status={pedido.status}
+                  itens={pedido.itens || []}
+                  nomeGarcom="Soraia Siquelli"
+                  numeroPedido={pedido.id_pedido}
+                  mesa={pedido.id_mesa}
+                  total={pedido.total}
+                />
+              ))
+            ) : (
+              <p>Carregando pedidos...</p>
+            )}
+        </div>
+      </div>
+
+   
+
+
+    </div>
+  </div>
+
+     
+
+</div>
+
     );
 }
 

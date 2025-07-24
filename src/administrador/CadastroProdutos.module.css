@@ -1,131 +1,147 @@
-/* Define a fonte padrão para o projeto */
-* {
-    font-family: "Helvetica", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    border: 1px solid black;
-    width: 100%;
-    display: block;
+    /* Define a fonte padrão para o projeto */
+    * {
+        font-family: "Helvetica", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        border: 1px solid black;
+        width: 100%;
+        display: block;
 
-}
-/* Estilo principal da seção */
-.secaoprincipal {
-    text-align: center;
-    height: 100vh;
-    width: 100%;
-   
-}
-
-.containerDashboard{
+    }
+    /* Estilo principal da seção */
+    .secaoprincipal {
+        text-align: center;
+        height: 100vh;
+        width: 100%;
+    
+    }
+    /* Dashboard vai para a direita da sidebar */
+    .containerDashboard {
+    margin-left: 250px; /* mesma largura da sidebar */
+    width: calc(100% - 250px);
     display: flex;
-    height: auto;
-    margin-top: 2%;
-    /*border: 1px solid red;*/
+    flex-direction: column;
+    }
+
+    /* HeaderAdmin fixo no topo do dashboard */
+    /* HeaderAdmin fixo no topo do dashboard */
+    .containerDashboard > :first-child {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: white; /* Deve ser a mesma do conteúdo */
+    /* Remova ou comente isso: */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    border-bottom: none; /* Se houver */
+    }
 
 
-}
-.contentDashboard {
-    padding: 20px;
-    background-color: #f5f5f5; /* Cor de fundo do conteúdo */
-    width: 100%;
-    text-align: left; /* Garante que o texto comece alinhado à esquerda */
-    display: flex;
-    flex-direction: row; /* Mantém os elementos empilhados verticalmente */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    flex-wrap: wrap;
+    /* Conteúdo abaixo do header */
+   .contentDashboard {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* espaço entre os cards */
+        padding: 20px;
+        background-color: white;
+        overflow-y: auto;
+        justify-content: flex-start;
+        text-align: left;
+
 }
 
-/* Estilo do título principal */
-.secaoprincipal > h2 {
-    font-size: 24px;
-    color: #d33333;
-}
 
-/* Estilo dos parágrafos */
-p {
-    color: grey;
-    padding: 5px;
-    font-size: 16px;
-}
-
-/* Estilo dos links */
-.plink {
-    text-decoration: underline;
-    color: rgb(56, 56, 212);
-    font-size: 16px;
-}
-
-/* Estilo do botão de submissão */
-.btn {
-    width: 200px;
-    height: 30px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    background-color: #d33333; 
-    color: white;
-    padding: 5px;
-    border: none;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #b32b2b;
-}
-
-.formulario{
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.formulario > h2{
-    padding: 0%;
-    margin-top: 10%;
-}
-/* Responsividade */
-@media (max-width: 768px) {
+    /* Estilo do título principal */
     .secaoprincipal > h2 {
-        font-size: 20px;
+        font-size: 24px;
+        color: #d33333;
     }
 
+    /* Estilo dos parágrafos */
     p {
-        font-size: 14px;
+        color: grey;
+        padding: 5px;
+        font-size: 16px;
     }
 
+    /* Estilo dos links */
+    .plink {
+        text-decoration: underline;
+        color: rgb(56, 56, 212);
+        font-size: 16px;
+    }
+
+    /* Estilo do botão de submissão */
     .btn {
         width: 200px;
-        height: 45px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .secaoprincipal > h2 {
-        font-size: 18px;
-    }
-
-    p {
+        height: 30px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        background-color: #d33333; 
+        color: white;
+        padding: 5px;
+        border: none;
         font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
     }
 
-    .btn {
-        width: 180px;
-        height: 40px;
-        font-size: 12px;
+    .btn:hover {
+        background-color: #b32b2b;
     }
-}
 
-/*Botão para aparecer o pop-up para cadastrar novo produto*/
+    .formulario{
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .formulario > h2{
+        padding: 0%;
+        margin-top: 10%;
+    }
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .secaoprincipal > h2 {
+            font-size: 20px;
+        }
 
-.addProduto{
-    background-color: #d33333;
-    margin: auto;
+        p {
+            font-size: 14px;
+        }
+
+        .btn {
+            width: 200px;
+            height: 45px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .secaoprincipal > h2 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        .btn {
+            width: 180px;
+            height: 40px;
+            font-size: 12px;
+        }
+    }
+
+    /*Botão para aparecer o pop-up para cadastrar novo produto*/
+
+  .addProduto {
+   background-color: #d33333;
+    margin: 0; /* ou margin: 0 auto 0 0; para margem só na direita */
     width: 220px;
+    height: 10vh;
     font-weight: bold;
     color: white;
     padding: 12px 20px;
@@ -133,9 +149,11 @@ p {
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    margin-top: 5%;
 }
-.addProduto:hover{
-    background-color: #a60000;
-    transform: scale(1.1);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
+
+    .addProduto:hover{
+        background-color: #a60000;
+        transform: scale(1.1);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }

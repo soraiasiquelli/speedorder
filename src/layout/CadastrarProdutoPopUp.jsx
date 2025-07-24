@@ -83,12 +83,11 @@ function CadastrarProdutoPopUp({isOpen, setPopUpOpen}){
             
             <div style={background_style}>
                 <div className={styles.secaoCadastroProduto}>
-                <input
-                    type="button"
-                    value="FECHAR X"
-                    className={styles.btnFecharPopUp}
-                    onClick={() => setPopUpOpen(false)} // Fechar o pop-up
-                />
+             
+                <button  className={styles.btnFecharPopUp}
+                    onClick={() => setPopUpOpen(false)}>
+                   X
+                </button>
 
                     <form action="">
                     <h2>Cadastre um novo produto aqui</h2>
@@ -132,7 +131,7 @@ function CadastrarProdutoPopUp({isOpen, setPopUpOpen}){
                         value={imagem}
                         handleOnChange={(e) => setImagem(e.target.value)}
                     />
-                    <button className={styles.btn} type="submit">Cadastrar Item</button>
+                    <button className={styles.btn} onClick={cadastroItem} type="submit">Cadastrar Item</button>
                     </form>
                 </div>
             </div>

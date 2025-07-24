@@ -31,12 +31,13 @@ h2{
 }
 .btnFecharPopUp{
     float: right;
-    margin-bottom: 15%;
-    width: 100px;
-    height: 30px;
-    background-color: black;
+    margin-top: -10px;
+    width: auto;
+    background-color: #a60000;
     color: white;
     border-radius: 20px;
     position: absolute;
     margin-left: 25%;
+
+    
 }

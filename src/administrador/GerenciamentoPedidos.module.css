@@ -4,143 +4,77 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: white !important;
+}
 /* Estilo principal da seção */
-.pageGestao{
-    width: 100%;
-    height: 100vh;
-}
-.pageGestao > header{
-    padding: 20px;
-    width: 100%;
-    height: 35vh  ;
-    border: 1px solid black;
-    border-radius: 20px;
-    color: white;
-}
-.pageGestao > header > .headerTopo{
-    width: 100%;
-    height: 5vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: white;
-
-}
-.headerTopo {
-    display: flex;
-    justify-content: center; /* Centraliza os elementos no eixo horizontal */
-    align-items: center; /* Centraliza no eixo vertical */
-    border: none;
+/* Envolve sidebar + dashboard */
+.wrapperDashboard {
+  display: flex;
+  height: 100vh;
 }
 
-.headerTopo > ul {
-    display: flex; /* Mantém os itens na mesma linha */
-    gap: 20px; /* Espaçamento entre os itens */
-    list-style: none; /* Remove os marcadores da lista */
-    padding: 0;
-    margin: 0;
-    width: 100%; /* Ocupa toda a largura para garantir centralização */
-    justify-content: center; /* Centraliza os itens dentro da ul */
-}
-
-.headerTopo > ul > li {
-    color: white;
-    cursor: pointer;
-    padding: 10px 10px;
-    white-space: nowrap; /* Evita quebra de linha */
-    display: inline-block; /* Garante que os itens fiquem lado a lado */
-}
-.headerBase{
-    width: 100%;
-    height: 80%;
-    margin-top: 20px;
-  /*  border: 1px solid white;*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-.headerBase .blocoResumo {
-    display: flex;
-    flex: 1; /* Distribui igualmente entre as colunas */
-    padding: 20px;
-    border: 1px solid black;
-    background-color: #2e394c;
-    height: 20vh;
-    border-radius: 20px;
-    color: white !important;
-    align-items: flex-start; /* Garante que os itens fiquem no topo */
-    justify-content: space-between; /* Mantém a imagem à direita */
-}
-
-.blocoResumo .texto {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinha h2 e p totalmente à esquerda */
-    justify-content: flex-start; /* Evita centralização vertical */
-    text-align: left;
-}
-
-.texto h2, .texto p {
-    margin: 0; /* Remove margens padrão que podem causar desalinhamento */
-    padding: 0;
-    color: white !important;
-}
-
-.texto p{
-    font-size: 35px;
-    margin-top: 10%;
-}
-
-.blocoResumo img {
-    width: 50px;
-    height: auto;
-    align-self: center; /* Mantém a imagem centralizada verticalmente */
-}
-
-.icone {
-    color: white;
-    fill: white;
-    font-size: 40px;
-    margin-top: 15%;
-   
-}
-
-.containerDashboard{
-    display: flex;
-    height: 80%;
-    margin-top: 2%;
-
-}
-
+/* Sidebar fixa à esquerda */
 .sidebar {
-    width: 250px; /* Largura da sidebar */
-    border: 1px solid black;
-    border-radius: 20px;
-    color: white;
-    padding: 20px;
-    height: 100%; /* Preenche toda a altura da tela */
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  background-color: #1c1c1c;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
-/* Estilo da lista da sidebar */
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+/* Dashboard vai para a direita da sidebar */
+.containerDashboard {
+  margin-left: 250px; /* mesma largura da sidebar */
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
+/* HeaderAdmin fixo no topo do dashboard */
+/* HeaderAdmin fixo no topo do dashboard */
+.containerDashboard > :first-child {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: white; /* Deve ser a mesma do conteúdo */
+  /* Remova ou comente isso: */
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  border-bottom: none; /* Se houver */
 }
 
-/* Conteúdo principal */
+
+/* Conteúdo abaixo do header */
 .contentDashboard {
-    flex: 1; /* O conteúdo principal ocupa o restante do espaço */
-    padding: 20px;
-    background-color: #f5f5f5; /* Cor de fundo do conteúdo */
+  flex: 1;
+  padding: 20px;
+  background-color: white; /*#f5f5f5*/
+  overflow-y: auto;
 }
 
 h1 {
     margin-top: 0;
+}
+/*Tabela Pedidos*/
+.tabelaPedidos{
+    width: 100%;
+    height: 10vh;
+}
+.tabelaPedidos > thead{
+    background-color: #dfdcdc;
+    text-align: left;
+    padding: 10px;
+    
+}
+.tabelaPedidos > thead > tr > th{
+    padding: 10px;
+}
+/*Secao cards com os pedidos */
+div.cardsPedidos{
+    margin-top: 10%;
 }

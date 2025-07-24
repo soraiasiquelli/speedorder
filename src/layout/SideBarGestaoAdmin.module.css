@@ -7,7 +7,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    /*box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra elegante */
     position: fixed;
     top: 0;
     left: 0;

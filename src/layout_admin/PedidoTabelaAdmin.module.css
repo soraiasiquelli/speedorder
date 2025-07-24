@@ -1,0 +1,15 @@
+/*Estilo do item da tabela dependendo do status*/
+td {
+    padding: 10px;
+}
+td.statusPendente{
+    border: 2px solid  rgb(231, 83, 83);
+}
+td.statusPronto{
+    color: white;
+    border: 2px solid rgb(80, 188, 80);
+}
+td.statusAndamento{
+    border: 2px solid rgb(250, 172, 62);;
+    color: white;
+}

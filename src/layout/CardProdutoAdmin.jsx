@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import EditarProdutoPopUp from './EditarProdutoPopUp';
 import { useState } from 'react';
 
-function CardProdutoAdmin({ src, label_title, p_preco, id_item }) {
+function CardProdutoAdmin({ src, label_title, p_preco, id_item, onDelete }) {
   const [openPopUpEdit, setPopUpEdit] = useState(false);
 
   return (
@@ -18,18 +18,14 @@ function CardProdutoAdmin({ src, label_title, p_preco, id_item }) {
         <p className={styles.p_preco}>{p_preco}</p>
 
         <div className={styles.acoesAdminProduto}>
-          {/* Ao clicar no botão de editar, abre o pop-up */}
           <button className={styles.btn_editar} onClick={() => setPopUpEdit(true)}>
             <CiEdit className={styles.icone} />
           </button>
-          <button className={styles.btn_excluir}>
+          <button className={styles.btn_excluir} onClick={onDelete}>
             <MdDelete className={styles.icone} />
           </button>
         </div>
       </div>
-
-      {/* Renderiza o pop-up quando openPopUpEdit for true */}
-     
     </div>
   );
 }

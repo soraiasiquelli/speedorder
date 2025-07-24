@@ -324,6 +324,28 @@ app.get("/cadastroprodutos", async (req, res) => {
 });
 
 
+app.delete("/cadastroprodutos/:id", async (req, res) => {
+    const {id} = req.params;
+      console.log('ID recebido para deletar:', id);
+
+
+    try {
+            const idNum = Number(id);
+            const produto = await Itens.findOne({ where: { id_item: idNum } }); // use o campo correto do seu model
+
+        
+    if(!produto){
+            return res.status(404).json({error: 'Produto não encontrado'})
+    }
+
+    await produto.destroy();
+    return res.status(200).json({message: "Produto deletado com sucesso"})
+    } catch (error) {
+         console.error('Erro ao deletar produto:', error);
+    res.status(500).json({ error: 'Erro ao deletar produto' });
+        
+    }
+})
 
 // Rota para cadastrar garçons
 app.post("/cadastrogarcons", async (req, res) => {
