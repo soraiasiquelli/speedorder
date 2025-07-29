@@ -1,34 +1,62 @@
+
 .background_style {
-    position: fixed; /* Mantém o pop-up fixo na tela */
+    position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro transparente */
+    right: 0;
+       z-index: 999;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Garante que fique acima de outros elementos */
-  }
-  
-  .secaoEdicaoProduto {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%; /* Define largura responsiva */
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .btnFecharPopUp {
-    background-color: red;
+}
+.secaoEdicaoProduto {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+    border: 2px solid  #a60000;
+        z-index: 1000;
+
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 5%;
+}
+
+.btn {
+    background-color: #d33333;
+    margin-top: 10%;
+    width: 220px;
+    font-weight: bold;
     color: white;
+    padding: 12px 20px;
     border: none;
-    padding: 10px 15px;
+    border-radius: 30px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #a60000;
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btnFecharPopUp {
     position: absolute;
     top: 10px;
     right: 10px;
-    border-radius: 5px;
-  }
-  
+    background-color: #a60000;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+}

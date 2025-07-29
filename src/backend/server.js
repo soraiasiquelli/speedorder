@@ -7,13 +7,16 @@ const db = require('./db'); // Importando a configuração do banco de dados
 const Estabelecimento = require(path.join(__dirname, 'Estabelecimento'));
 const Administrador = require(path.join(__dirname, 'Administrador'));
 const Mesa = require(path.join(__dirname, 'Mesas')); // Importando o modelo de Mesa
-const Itens = require('./Itens'); // Importa o modelo de itens
+//const Itens = require('./Itens'); // Importa o modelo de itens
 const Garcons = require("./Garcons");
-const ItensDoPedido = require("./ItensDoPedido")
+//const ItensDoPedido = require("./ItensDoPedido")
 const Pedido = require("./Pedidos")
 const { where } = require('sequelize');
 const port = 5001
-const http = require('http')
+const http = require('http');
+//const Pedidos = require('./Pedidos');
+const { Itens, Pedidos, ItensDoPedido } = require('../models/index');
+
 
 
 const app = express();
@@ -326,17 +329,30 @@ app.get("/cadastroprodutos", async (req, res) => {
 
 app.delete("/cadastroprodutos/:id", async (req, res) => {
     const {id} = req.params;
-      console.log('ID recebido para deletar:', id);
+    console.log('ID recebido para deletar:', id);
 
 
     try {
-            const idNum = Number(id);
-            const produto = await Itens.findOne({ where: { id_item: idNum } }); // use o campo correto do seu model
 
+        const idNum = Number(id);
+        //verifica se o produto existe
+        const produto = await Itens.findOne({ where: { id_item: idNum } }); 
         
-    if(!produto){
-            return res.status(404).json({error: 'Produto não encontrado'})
-    }
+        if(!produto){
+                return res.status(404).json({error: 'Produto não encontrado'})
+        }
+
+        const pedidosEmAndamento = await ItensDoPedido.findAll({
+            where: {id_produto: idNum},
+            include: [{
+                model: Pedidos,
+                as: "pedido",
+                where: {status: 'em andamento'}
+            }]
+        })
+
+        // 3. Deleta os registros de ItensDoPedido com esse produto
+    await ItensDoPedido.destroy({ where: { id_produto: idNum } });
 
     await produto.destroy();
     return res.status(200).json({message: "Produto deletado com sucesso"})
@@ -344,6 +360,31 @@ app.delete("/cadastroprodutos/:id", async (req, res) => {
          console.error('Erro ao deletar produto:', error);
     res.status(500).json({ error: 'Erro ao deletar produto' });
         
+    }
+})
+
+app.put("/cadastroprodutos_edicao/:id", async(req, res) => {
+    const {id} = req.params;
+    console.log("ID recebido para editar:", id)
+
+    try {
+        const idNum = Number(id)
+        produto = await Itens.findOne({where: {id_item: idNum}})
+
+        if(!produto){
+           return res.status(404).json({error: 'Produto não encontrado'})
+        }
+
+        await produto.update({
+            nome_item,
+            descricao,
+            preco
+        })
+
+        return res.status(200).json({message: "Produto atualizado com sucesso", produto})
+    } catch (error) {
+         console.error('Erro ao atualizar produto:', error);
+        return res.status(500).json({ error: 'Erro ao atualizar produto' });
     }
 })
 

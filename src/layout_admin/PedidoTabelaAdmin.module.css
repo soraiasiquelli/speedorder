@@ -1,9 +1,10 @@
 /*Estilo do item da tabela dependendo do status*/
 td {
-    padding: 10px;
+    padding: 0px;
 }
 td.statusPendente{
-    border: 2px solid  rgb(231, 83, 83);
+    /*border: 2px solid  rgb(231, 83, 83);*/
+    color:  rgb(231, 83, 83);
 }
 td.statusPronto{
     color: white;

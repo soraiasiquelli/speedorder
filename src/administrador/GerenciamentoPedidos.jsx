@@ -102,6 +102,7 @@ function GerenciamentoPedidos() {
                     <th>Pedido / Mesa</th>
                     <th>Total</th>
                     <th>Status</th>
+                    <th>Data</th>
                 </tr>
             </thead>
             <tbody>

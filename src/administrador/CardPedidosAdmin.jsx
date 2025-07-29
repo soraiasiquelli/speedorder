@@ -10,7 +10,7 @@ function CardPedidosAdmin({nomeGarcom, numeroPedido, status, mesa, total, itens}
                 <p className={styles.nomeGarcom}>{nomeGarcom}</p>
                 <p className={styles.numeroPedido}>Pedido - #{numeroPedido}</p>
             </div>
-            <span>{status.toUpperCase()}</span>
+            <span>{status}</span>
 
         </div>
 

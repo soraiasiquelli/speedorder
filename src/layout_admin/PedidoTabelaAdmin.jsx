@@ -14,13 +14,22 @@ function PedidoTabelaAdmin({ pedidos }) {
             ))}
           </td>
           <td className={
-            pedido.status.toUpperCase() === "PENDENTE"
+            pedido.status === "pendente"
             ? styles.statusPendente
-            : pedido.status.toUpperCase() === "PRONTO"
+            : pedido.status === "pronto"
             ? styles.statusPronto
-            ? styles.status.toUpperCase() === "EM ANDAMENTO"
+            ? styles.status === "em andamento"
             : styles.statusAndamento : ''
-            }>{pedido.status.toUpperCase()}</td>
+            }>{pedido.status}</td>
+        <td>
+          {new Date(pedido.data_pedido).toLocaleString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+          })}
+        </td>
         </tr>
       ))}
     </>

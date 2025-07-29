@@ -1,7 +1,17 @@
 import styles from './EditarProdutoPopUp.module.css'
 import Input from '../form/Input'
+import { useState, useEffect } from 'react';
 
-function EditarProdutoPopUp({ isOpen, setPopUpOpen }) {
+function EditarProdutoPopUp({ isOpen, setPopUpOpen}) {
+
+  const [nomeProduto, setNomeProduto] = useState('')
+
+  useEffect(() => {
+    if (isOpen) {
+      setNomeProduto(nomeProduto); // Quando o popup abre, preenche o campo
+    }
+  }, [isOpen, nomeProduto]);
+
   if (!isOpen) return null; 
 
   return (
@@ -15,6 +25,11 @@ function EditarProdutoPopUp({ isOpen, setPopUpOpen }) {
         </button>
         <form>
           <Input type="text" placeholder="Nome do Produto" />
+            <Input
+            type="text"
+            value={nomeProduto}
+            onChange={(e) => setNomeProduto(e.target.value)}
+            placeholder={nomeProduto}          />
         </form>
       </div>
     </div>

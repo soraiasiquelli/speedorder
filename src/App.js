@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ProdutosProvider} from './contextAPI/ProdutosContext';
 import HomePrincipal from './pages/HomePrincipal';
 import Home from './pages/Home';
 import MesaParaPedido from './garcom/MesaParaPedido';

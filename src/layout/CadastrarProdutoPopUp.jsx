@@ -13,6 +13,9 @@ function CadastrarProdutoPopUp({isOpen, setPopUpOpen}){
         const [categoria, setCategoria] = useState('');
         const [imagem, setImagem] = useState('');
         const [closePopUp, setClosePopUp] = useState(false)
+        const [tipoEdicao, setTipoEdicao] = useState("cadastrar"); // valor padrão
+
+
     
         const navigate = useNavigate();
     

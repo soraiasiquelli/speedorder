@@ -1,102 +1,162 @@
 .cardPedidoAdmin {
-    width: 30%;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
+  width: 30%;
+  min-width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease;
 }
 
-.cardPedidoAdmin > .cabecalhoPedido {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.cardPedidoAdmin:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cabecalhoPedido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .cabecalhoPedido img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
 }
 
-.cabecalhoPedido > .infoGarcom {
-    font-size: 14px;
-    color: black;
-    display: flex;
+.infoGarcom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 8px;
+  flex-grow: 1;
+}
+
+.infoGarcom > p {
+  margin: 0;
+  color: #333;
+  font-weight: 400;
+}
+
+.nomeGarcom {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.numeroPedido {
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+.cabecalhoPedido > span {
+  font-size: 11px;
+  border: 1.5px solid #28a745;
+  color: #28a745;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.detailsPedido {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.detailsPedido > div {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 10px 12px;
+  color: #444;
+  text-align: center;
+  font-weight: 600;
+  background-color: #f9f9f9;
+}
+
+.viewItens {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.viewItens::-webkit-scrollbar {
+  width: 6px;
+}
+
+.viewItens::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 3px;
+}
+
+.cadaItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.cadaItem:last-child {
+  border-bottom: none;
+}
+
+.cadaItem:hover {
+  background-color: #f0f8ff;
+}
+
+.cadaItem > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.infoProduto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nomeProduto {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.precoProduto {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Responsividade simples */
+@media (max-width: 768px) {
+  .cardPedidoAdmin {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .detailsPedido {
     flex-direction: column;
-    gap: 2px; /* Ajustado para menor espaçamento */
-    margin-left: 5px;
-}
-
-.cabecalhoPedido > .infoGarcom > p {
-    color: black;
-    text-transform: none;
-    font-size: 12px;
-    font-weight: normal;
-}
-
-.cabecalhoPedido > .infoGarcom .nomeGarcom {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.cabecalhoPedido > .infoGarcom .numeroPedido {
-    font-size: 10px;
-    color: grey;
-    margin-top: -8px; /* Ajuste no espaçamento */
-}
-
-.cardPedidoAdmin > .cabecalhoPedido > span {
-    font-size: 10px;
-    border: 1px solid green;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-.cardPedidoAdmin > .detailsPedido {
-    display: flex;
-    flex-direction: row;
-    gap: 5px; /* Reduzido para menor espaçamento */
-    margin-top: 5%; /* Ajustado */
-}
-
-.cardPedidoAdmin > .detailsPedido > div {
-    border: 1px solid grey;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 8px; /* Ajuste no padding para menor espaço */
-}
-
-.cardPedidoAdmin > .viewItens .cadaItem {
-    margin-top: 5%; /* Ajustado */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px; /* Reduzido */
-}
-
-.cardPedidoAdmin > .viewItens .cadaItem > img {
-    width: 45px; /* Ajuste no tamanho da imagem */
-    height: 45px; /* Ajuste no tamanho da imagem */
-    border-radius: 8px;
-    border: 1px solid black;
-    object-fit: cover;
-}
-
-.cardPedidoAdmin > .viewItens .cadaItem .infoProduto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.cardPedidoAdmin > .viewItens .cadaItem .infoProduto > .nomeProduto {
-    color: black;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.cardPedidoAdmin > .viewItens .cadaItem .infoProduto > .precoProduto {
-    color: grey;
-    font-size: 12px;
-    font-weight: normal;
-    margin-top: -3px; /* Ajuste no espaçamento */
+    gap: 8px;
+  }
 }

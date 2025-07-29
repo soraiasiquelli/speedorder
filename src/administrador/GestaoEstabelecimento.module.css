@@ -85,7 +85,7 @@ ul.listaBlocos li.blocoResumo {
 
 /* Status Mesas */
 .statusMesas {
-  background-color: #f0f0f0;
+  border: 3px solid  #f0f0f0;
   padding: 15px;
   border-radius: 15px;
 }
@@ -100,10 +100,9 @@ ul.listaBlocos li.blocoResumo {
 }
 
 .statusMesas li {
-  margin-bottom: 8px;
-  padding: 10px;
+  margin-bottom: 4px;
+  padding: 5px;
   border-radius: 8px;
-  font-weight: 600;
 }
 
 /* Cores diferentes para status */
@@ -129,9 +128,9 @@ ul.listaBlocos li.blocoResumo {
 
 /* Pedidos em andamento */
 .pedidosEmAndamento {
-  background-color: #f0f0f0;
   padding: 15px;
   border-radius: 15px;
+  border: 3px solid  #f0f0f0;
 }
 
 .pedidosEmAndamento h2 {
@@ -145,10 +144,18 @@ ul.listaBlocos li.blocoResumo {
 
 .pedidosEmAndamento li {
   margin-bottom: 8px;
-  padding: 10px;
   border-radius: 8px;
   background-color: white;
   box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-weight: 500;
+  border: 1px solid #9a9696;;
+
+}
+.pedidosEmAndamento li img{
+  width: 20%;
 }
 
 /* Relatórios */

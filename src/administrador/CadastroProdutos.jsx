@@ -3,7 +3,6 @@ import styles from './CadastroProdutos.module.css';
 import SideBarGestaoAdmin from '../layout/SideBarGestaoAdmin';
 import CardProdutoAdmin from '../layout/CardProdutoAdmin';
 import CadastrarProdutoPopUp from '../layout/CadastrarProdutoPopUp';
-import EditarProdutoPopUp from '../layout/EditarProdutoPopUp';
 import { useNavigate } from 'react-router-dom';
 import HeaderAdmin from '../layout_admin/HeaderAdmin';
 // ❌ Não use isso: import { use } from 'react';
@@ -12,6 +11,10 @@ function CadastroItens() {
   const [produtos, setProdutos] = useState([]);
   const [openPopUp, setOpenPopUp] = useState(false);
   const [openPopUpEdit, setPopUpEdit] = useState(false);
+  const [produtoEditado, setProdutoEditado] = useState(null);
+
+  const [dadosAtualizados, setDadosAtualizados] = useState({});
+
 
   const navigate = useNavigate();
 
@@ -39,6 +42,25 @@ function CadastroItens() {
     }
   };
 
+const editarProduto = async (id_item, dadosAtualizados) => {
+  try {
+    const response = await fetch(`http://localhost:5001/cadastroprodutos_edicao/${id_item}`, {
+      method: "PUT", 
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dadosAtualizados)
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Produto atualizado:', data.produto);
+      // Atualize o estado local conforme necessário
+    } else {
+      console.error('Erro ao atualizar produto');
+    }
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+  }
+};
+
   useEffect(() => {
     buscarProdutos();
   }, []);
@@ -57,7 +79,7 @@ function CadastroItens() {
               onClick={() => setOpenPopUp(true)}
             />
             <CadastrarProdutoPopUp isOpen={openPopUp} setPopUpOpen={setOpenPopUp} />
-            <EditarProdutoPopUp isOpen={openPopUpEdit} setPopUpOpen={setPopUpEdit} />
+          
 
             {produtos.length > 0 ? (
               produtos.map((produto) => (
@@ -68,6 +90,8 @@ function CadastroItens() {
                   label_title={produto.nome_item}
                   p_preco={produto.preco}
                   onDelete={() => deletarProduto(produto.id_item)}
+                  
+
                 />
               ))
             ) : (

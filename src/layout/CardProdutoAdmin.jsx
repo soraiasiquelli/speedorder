@@ -2,11 +2,11 @@ import styles from './CardProdutoAdmin.module.css'
 import { Link } from 'react-router-dom'
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md"; 
-import EditarProdutoPopUp from './EditarProdutoPopUp';
 import { useState } from 'react';
 
 function CardProdutoAdmin({ src, label_title, p_preco, id_item, onDelete }) {
   const [openPopUpEdit, setPopUpEdit] = useState(false);
+  
 
   return (
     <div className={styles.card_item}>
@@ -18,15 +18,17 @@ function CardProdutoAdmin({ src, label_title, p_preco, id_item, onDelete }) {
         <p className={styles.p_preco}>{p_preco}</p>
 
         <div className={styles.acoesAdminProduto}>
-          <button className={styles.btn_editar} onClick={() => setPopUpEdit(true)}>
+          <button className={styles.btn_editar}>
             <CiEdit className={styles.icone} />
           </button>
-          <button className={styles.btn_excluir} onClick={onDelete}>
+          <button className={styles.btn_excluir} onClick={onDelete} >
             <MdDelete className={styles.icone} />
           </button>
         </div>
       </div>
+       
     </div>
+    
   );
 }
 

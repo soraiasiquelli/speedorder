@@ -1,16 +1,25 @@
 import HeaderGestaoAdmin from '../layout/HeaderGestaoAdmin';
 import HeaderAdmin from '../layout_admin/HeaderAdmin';
 import SideBarGestaoAdmin from '../layout/SideBarGestaoAdmin';
+/*Importação dos context API*/
+import { ProdutosContext } from '../contextAPI/ProdutosContext';
+import { ItensPedidosContext } from '../contextAPI/ItensPedidosContext';
+
 import styles from './GestaoEstabelecimento.module.css'
 import { MdOutlineAttachMoney, MdTableRestaurant, MdPendingActions } from "react-icons/md";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function GestaoEstabelecimento(){
 
     const [mesasEstabelecimento, setMesasEstabelecimento]   = useState([])
     const [pedidosEstabelecimento, setPedidosEstabelecimento] = useState([])
+    const {produtos, loading} = useContext(ProdutosContext)
+    const{itenspedidos} = useContext(ItensPedidosContext)
+  
     
+
+
     const buscarMesas = async () => {
 
         try {
@@ -116,7 +125,7 @@ function GestaoEstabelecimento(){
             <ul>
               {mesasEstabelecimento.map((mesa) => (
                 <li key={mesa.id} className={`${styles.mesaItem} ${styles['status-'+mesa.status.replace(/\s+/g, '').toLowerCase()]}`}>
-                  Mesa {mesa.numero} - <strong>{mesa.status.toUpperCase()}</strong>
+                  Mesa {mesa.numero} - <strong>{mesa.status}</strong>
                 </li>
               ))}
             </ul>
@@ -126,7 +135,24 @@ function GestaoEstabelecimento(){
          <section className={styles.pedidosEmAndamento}>
             <h2>Últimos Itens Pedidos</h2>
             <br />
-           
+              {itenspedidos.map(itemPedido => {
+                const produtoRelacionado = produtos.find(prod => prod.id_item === itemPedido.id_produto)
+                return(
+                  
+                   <div key={itemPedido.id_item} className={styles.itensPedidos}>
+                      <li>
+                {produtoRelacionado ? (
+                  <img src={produtoRelacionado.imagem} alt={produtoRelacionado.nome_item || ""} />
+                ) : (
+                  <p>Produto não encontrado</p>
+                )}
+                {produtoRelacionado ? produtoRelacionado.nome_item : ""}
+              </li>
+                    </div>
+              
+                )
+              })}
+
             </section>
 
 
