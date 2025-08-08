@@ -10,39 +10,58 @@ import { GoHome } from "react-icons/go";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { HiOutlineChartSquareBar } from "react-icons/hi";
 import { BsPencil } from "react-icons/bs";
+import { useState } from 'react'
 
 
 
 
-function FooterOpcoes(){
+function FooterOpcoes({typeView}){
+
+    const [typeViewFooter] = useState( typeView || 'garcom')
+      console.log(typeViewFooter) // mostra 'cliente' ou 'garcom'
+
+
     return(
         <footer className={styles.footermenu}>
 
 
-        <div className={styles.topicomenu}>
-        <Link to="/homeprincipal">
-        <GoHome className={styles.iconeFooter}/>
-        </Link></div>
-
-
-        <div className={styles.topicomenu}>
-        <IoIosNotificationsOutline className={styles.iconeFooter} />
+         <div className={styles.topicomenu}>
+            <Link to={typeViewFooter === 'cliente' ? "/homecliente" : "/homeprincipal"}>
+                <GoHome className={styles.iconeFooter} />
+            </Link>
         </div>
-                
-        <div className={styles.topicomenu}>
 
-        <Link to="/mesaparapedido">
+
+    <div className={styles.topicomenu}>
+        <Link to={typeViewFooter === 'cliente' ? "/novopedido" : "/mesaparapedido"}>
         <button className={styles.btnnovopedido}> 
              + 
              
              </button>
         </Link>
-
-
         </div>
-        <div className={styles.topicomenu}> <Link to="/gestaoestabelecimento"><HiOutlineChartSquareBar className={styles.iconeFooter}/>
 
-        </Link></div>
+
+        
+         
+        {typeViewFooter != 'cliente' && (
+          
+        <div className={styles.topicomenu}>
+        <IoIosNotificationsOutline className={styles.iconeFooter} />
+        </div>
+    
+        )}
+      
+                
+    
+
+
+        {typeViewFooter != 'cliente' && (
+          
+        <div className={styles.topicomenu}> <Link to="/gestaoestabelecimento"><HiOutlineChartSquareBar className={styles.iconeFooter}/></Link></div>
+        )}
+
+       
 
         <div className={styles.topicomenu}>
             <Link to="/personalizacaoloja"><BsPencil className={styles.iconeFooter}/>

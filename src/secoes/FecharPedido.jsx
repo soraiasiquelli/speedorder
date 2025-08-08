@@ -19,12 +19,12 @@ function FecharPedido({forma_de_pagamento, total}) {
         const totalPedido = carrinhoAtual.reduce((total, item) => total + (item.total_item || 50.20), 0);
     
         const pedido = {
-            id_estabelecimento: localStorage.getItem("estabelecimento_id"),
+            id_estabelecimento: localStorage.getItem("id_estabelecimento"),
             forma_de_pagamento: forma_de_pagamento,
             total: total,
             id_mesa: localStorage.getItem("id_mesa"), // Adicionando id_mesa aqui
             itens: carrinhoAtual.map(item => ({
-                id_estabelecimento: localStorage.getItem("estabelecimento_id"),
+                id_estabelecimento: localStorage.getItem("id_estabelecimento"),
                 id_produto: item.id_item,
                 quantidade: item.quantidade || 1,
                 total_item: item.total_item || 50.20

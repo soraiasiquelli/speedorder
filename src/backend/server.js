@@ -16,7 +16,7 @@ const port = 5001
 const http = require('http');
 //const Pedidos = require('./Pedidos');
 const { Itens, Pedidos, ItensDoPedido } = require('../models/index');
-
+const Clientes = require('./Cliente')
 
 
 const app = express();
@@ -220,6 +220,56 @@ app.post("/cadastroestabelecimento", async (req, res) => {
 });
 
 
+app.post('/clientes', async(req, res) => {
+    console.log("Rota criada para o cadastro de clientes");
+    console.log("Dados recebidos", req.body)
+
+    const {nome, telefone, email_institucional, id_estabelecimento} = req.body
+
+    if (!nome || !telefone || !email_institucional || !id_estabelecimento) {
+        return res.status(400).json({ error: 'Todos os campos devem ser preenchidos' });
+    }
+
+    if(email_institucional )
+    
+    try {
+
+        
+        const estabelecimento = await Estabelecimento.findByPk(id_estabelecimento)
+        if(!estabelecimento) {
+            return res.status(400).json({error: "Estabelecimenbto informado não existe"})
+        }
+
+        const existente = await Clientes.findOne({ where: { email_institucional: req.body.email_institucional } });
+        if (existente) {
+            console.error("Erro: Email já cadastrado no sistema.");
+            return res.status(400).json({ error: "Erro: Email já cadastrado." });
+        }
+
+        const novoCliente = await Clientes.create({
+            nome,
+            telefone,
+            email_institucional,
+            id_estabelecimento
+        })
+
+        console.log("Novo cliente cadastrado com sucesso")
+
+          res.status(201).json({
+            message: "Cliente cadastrado com sucesso!"
+        });
+
+
+    } catch (error) {
+           console.error(error);
+           return res.status(500).json({ error: 'Erro interno no servidor' });
+    }
+
+
+})
+
+
+
 
 // Rota para cadastrar administrador
 app.post("/pagesforms/cadastroadmin", async (req, res) => {
@@ -313,7 +363,14 @@ app.post("/cadastroprodutos", async (req, res) => {
 
 
 app.get("/cadastroprodutos", async (req, res) => {
+
+
+
+
     try {
+
+       
+        
         // Busca todos os itens na tabela 'itens'
         const produtos = await Itens.findAll();
         console.log("Produtos encontrados:", produtos);

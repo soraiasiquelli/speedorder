@@ -1,3 +1,17 @@
 *{
     font-family: 'Helvetica';
 }
+.iconCarrinho {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  fill: #d33333;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.iconCarrinho:hover {
+  transform: scale(1.2);
+}

@@ -1,4 +1,3 @@
-// modelo/Pedidos.js
 const Sequelize = require('sequelize');
 const db = require('../backend/db');
 
@@ -18,8 +17,14 @@ const Pedidos = db.sequelize.define('pedidos', {
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   },
-  id_mesa:{
-    type: Sequelize.INTEGER
+  id_mesa: {
+    type: Sequelize.INTEGER,
+    allowNull: true
+  },
+  cliente: {
+    type: Sequelize.STRING(100),
+    allowNull: true, // torna o campo opcional
+    comment: 'Nome do aluno ou cliente que fez o pedido'
   },
   data_pedido: {
     type: Sequelize.DATE,
@@ -39,20 +44,17 @@ const Pedidos = db.sequelize.define('pedidos', {
     allowNull: false
   }
 }, {
-  timestamps: false // Desativa os campos createdAt e updatedAt
+  timestamps: false
 });
 
-// Definindo a associação com ItensDoPedido
 Pedidos.associate = (models) => {
-  // Um pedido tem muitos itens do pedido
   Pedidos.hasMany(models.ItensDoPedido, {
-    foreignKey: 'id_pedido',  // Chave estrangeira no modelo 'ItensDoPedido'
-    as: 'itens'               // Nome do relacionamento
+    foreignKey: 'id_pedido',
+    as: 'itens'
   });
 };
 
-// Sincroniza o modelo com o banco de dados
-Pedidos.sync({alter: true})
+Pedidos.sync({ alter: true })
   .then(() => {
     console.log("Tabela 'pedidos' alterada com sucesso");
   })

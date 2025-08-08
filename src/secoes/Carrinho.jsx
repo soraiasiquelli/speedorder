@@ -5,6 +5,8 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsBan } from "react-icons/bs";
 import { BsArchive } from "react-icons/bs";
 import CardCarrinho from './CardCarrinho';
+import { FaCreditCard, FaMoneyBillWave, FaQrcode } from 'react-icons/fa';
+
 
 function Carrinho() {
   // Estado para armazenar a mesa que esta atendendo
@@ -58,14 +60,13 @@ function Carrinho() {
     setFormaPagamento(e.target.value);
   };
 
-  return (
-    <div className={styles.paginaCarrinho}>
-      <header className={styles.headercarrinho}>
-        <BsArrowLeftCircle className={styles.buttonsCarrinho} onClick={voltar} />
-        <h2>Carrinho de Itens - Mesa {mesaDeAtendimento}</h2>
-        <BsBan className={styles.buttonsCarrinho} onClick={limparCarrinho} />
-      </header>
+ return (
+  <div className={styles.paginaCarrinho}>
+    <header className={styles.headercarrinho}>
+        <h2>Carrinho de Itens</h2>
+    </header>
 
+    <div className={styles.mainContent}>
       <div className={styles.carrinhoItens}>
         {itensCarrinho.length > 0 ? (
           itensCarrinho.map((item) => (
@@ -81,43 +82,42 @@ function Carrinho() {
         ) : (
           <p>Seu carrinho está vazio.</p>
         )}
+      </div>
 
-        <div className={styles.infoPagamento}>
-         
-       
-          {/* Seção de forma de pagamento */}
-          <div className={styles.formaPagamento}>
-          <p>Forma de Pagamento: </p>
-
-            <div>
-          <label>
-            <input type="radio" name="pagamento" value="cartao" onChange={handleFormaPagamento}/>
-            Cartão de Crédito
+      <aside className={styles.infoPagamento}>
+    
+      <div className={styles.formaPagamento}>
+        <p>Forma de Pagamento:</p>
+        <div>
+          <input type="radio" id="pag-cartao" name="pagamento" value="cartao" onChange={handleFormaPagamento} />
+          <label htmlFor="pag-cartao">
+            <FaCreditCard /> Cartão de Crédito
           </label>
-          <label>
-            <input type="radio" name="pagamento" value="dinheiro"  onChange={handleFormaPagamento}/>
-            Dinheiro 
-          </label>
-          <label>
-            <input type="radio" name="pagamento" value="pix" onChange={handleFormaPagamento} />
-            PIX
-          </label>
-        </div>
-          </div>
 
-          <p>----------------------------------------</p>
-          <p>Valor Total do Pedido: <span>R$ {valorTotal.toFixed(2)}</span></p>
+          <input type="radio" id="pag-dinheiro" name="pagamento" value="dinheiro" onChange={handleFormaPagamento} />
+          <label htmlFor="pag-dinheiro">
+            <FaMoneyBillWave /> Dinheiro
+          </label>
 
-          <FecharPedido
-           forma_de_pagamento={formaPagamento}
-           total={valorTotal}
-           
-           
-           />
+          <input type="radio" id="pag-pix" name="pagamento" value="pix" onChange={handleFormaPagamento} />
+          <label htmlFor="pag-pix">
+            <FaQrcode /> PIX
+          </label>
         </div>
       </div>
+
+        <div className={styles.separator}></div>
+
+        <p className={`${styles.valorTotal} valorTotal`}>
+          Valor Total do Pedido: <span>R$ {valorTotal.toFixed(2)}</span>
+        </p>
+
+        <FecharPedido forma_de_pagamento={formaPagamento} total={valorTotal} />
+      </aside>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Carrinho;

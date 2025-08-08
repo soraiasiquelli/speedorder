@@ -1,0 +1,142 @@
+/* Define a fonte padrão para o projeto */
+* {
+    font-family: "Helvetica";
+}
+
+body {
+    height: 100vh !important;
+    width: 100% !important;
+    padding: 1%;
+}
+
+.containerDashboard {
+    display: flex;
+    margin-top: 2%;
+    height: 100vh;
+}
+
+.containerDashboard {
+    display: flex;
+    height: 80%;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+.secaoprincipal {
+    display: block;
+    width: 98% !important;
+    height: 100vh;
+    text-align: center;
+}
+
+.cabecalho_page {
+    margin-top: 12% !important;
+    margin-bottom: 5%;
+}
+
+.cabecalho_page > h2 {
+    font-size: 25px;
+    color: #d33333 !important;
+    margin: 0;
+    padding: 15px;
+    margin-bottom: 5% !important;
+}
+
+.cabecalho_page > p {
+    color: black !important;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    font-weight: 500 !important;
+    font-size: 16px;
+}
+
+/* Estilo dos links */
+.plink {
+    text-decoration: underline;
+    color: rgb(56, 56, 212);
+}
+
+/* Estilo do botão de submissão */
+.btn {
+    width: 250px;
+    margin-top: 25px !important;
+    height: 50px;
+    background-color: #d33333;
+    color: white;
+    border-radius: 10px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #9e1b1b; /* Cor vermelha escura no hover */
+    transform: scale(1.1); /* Leve aumento do botão no hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */
+}
+
+/* Estilo da classe formulario */
+.formulario {
+    margin-bottom: 20%;
+}
+
+/* Mensagem de erro */
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Ajustes responsivos para dispositivos com largura até 768px (tablets) */
+@media (max-width: 768px) {
+    /* Reduz margens na seção principal */
+    .cabecalho_page {
+        margin-top: 15%;
+        margin-bottom: 7%;
+    }
+
+    /* Reduz tamanho da fonte e espaçamento dos títulos */
+    .cabecalho_page > h2 {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    /* Reduz tamanho da fonte dos parágrafos */
+    .cabecalho_page > p {
+        font-size: 14px;
+    }
+
+    /* Ajusta largura e altura dos botões */
+    .btn {
+        width: 200px;
+        height: 45px;
+        font-size: 0.9em;
+    }
+}
+
+/* Ajustes responsivos para dispositivos com largura até 480px (smartphones) */
+@media (max-width: 480px) {
+    /* Ajusta margens para telas menores */
+    .cabecalho_page {
+        margin-top: 2%;
+        margin-bottom: 10%;
+    }
+
+    /* Reduz ainda mais o tamanho da fonte e do espaçamento dos títulos */
+    .cabecalho_page > h2 {
+        font-size: 22px;
+        padding: 8px;
+    }
+
+    /* Reduz tamanho da fonte dos parágrafos para telas pequenas */
+    .cabecalho_page > p {
+        font-size: 16px;
+    }
+
+    /* Ajusta largura e altura dos botões para ocupar menos espaço */
+    .btn {
+        width: 180px;
+        height: 40px;
+        font-size: 0.8em;
+    }
+}

@@ -4,6 +4,7 @@ import CardItem from "./CardItem"; //Importacao do bloco que vai mostrar cada it
 
 function SecaoItens() {
   const [produtos, setProdutos] = useState([]);
+  const id_estabelecimento = localStorage.getItem('id_estabelecimento')
 
   // Função para adicionar item ao carrinho
 
@@ -47,7 +48,7 @@ function SecaoItens() {
             p_preco={`${produto.preco}`} // Preço do produto
             time_info="12 mins" // Exemplo de tempo de preparo
             calorias_info="121.9" // Exemplo de calorias
-            id_estabelecimento={produto.id_estabelecimento}  // Passando id_estabelecimento como prop
+            id_estabelecimento={id_estabelecimento}  // Passando id_estabelecimento como prop
 
             adicionarAoCarrinho={adicionarAoCarrinho} // Passa a função para o CardItem
           />

@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ProdutosProvider} from './contextAPI/ProdutosContext';
 import HomePrincipal from './pages/HomePrincipal';
 import Home from './pages/Home';
+import HomeCliente from './cliente/HomeCliente';
 import MesaParaPedido from './garcom/MesaParaPedido';
 import NovoPedido from './garcom/NovoPedido';
+import PerfilCliente from './cliente/PerfilCliente';
 import CriarEstabelecimento from './administrador/CriarEstabelecimento';
 import PedidoClique from './pages/PedidoClique';
 import PersonalizacaoLoja from './administrador/PersonalizacaoLoja';
@@ -27,12 +29,17 @@ import ConfirmacaoPedido from '../src/pages/ConfirmacaoPedido'
 //import Pagamento from './pages/Pagamento';
 import PainelPedidos from './cozinha/PainelPedidos'
 import PainelDeControle from './cozinha/PainelControle';
+//Pagina Cliente
+import CadastroCliente from './cliente/CadastroCliente';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/start" element={<Start />} /> 
+        <Route path="/homecliente" element={<HomeCliente />} /> 
+        <Route path="/perfilcliente" element={<PerfilCliente />} /> 
+        <Route path="/cadastrocliente" element={<CadastroCliente />} /> 
         <Route path="/cadastroestabelecimento" element={<CriarEstabelecimento/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />

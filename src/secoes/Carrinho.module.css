@@ -1,103 +1,182 @@
-body{
-    padding: 0%;
-    margin: 0%;
-    display: block !important;
-}
-/*paginaCarrinho{
-}*/
-.headercarrinho{
-    /*border: 1px solid black !important;*/
-    height: auto;
-    display: flex; /* Habilita o flexbox */
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; /* Espaço entre os elementos */
-    padding: 0 20px; /* Espaçamento interno nas laterais */
-    margin-top: 10%;
-}
-.buttonsCarrinho{
-    font-size: 30px;
-    
-}
-.headercarrinho > input{
-    width: 80px;
-    height: 50px;
-    margin-top: 20px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 15px;
-    font-weight: bold;
-    font-size: 16px;
-}
-h2{
-    font-size: 1rem;
-    padding: 20px;
-    font-weight: 500;
-
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Helvetica', Arial, sans-serif;
+  background-color: #fafafa;
+  color: #222;
 }
 
-.carrinhoItens{
-    margin-top: 10%;
-
+.paginaCarrinho {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
 }
 
+.headercarrinho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.buttonsCarrinho {
+  font-size: 32px;
+  color: #d33333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.buttonsCarrinho:hover {
+  color: #a00000;
+}
+
+.headercarrinho h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0 15px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.carrinhoItens {
+  flex-grow: 1;
+  margin-top: 20px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Mensagem carrinho vazio */
+.carrinhoItens > p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 40px;
+}
+
+/* Área infoPagamento */
 .infoPagamento {
-   /* border: 1px solid black;*/
-    display: flex;
-    flex-direction: column;
-    height: 60vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */
-    justify-content: center; /* Alinha os itens verticalmente no centro */
+  margin-top: 30px;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 400px;
+  align-self: center;
 }
 
-.infoPagamento > p {
-    text-align: left;
-    color: black;
-    font-size: 1rem;
-    text-transform: none;
-    display: flex;
-    justify-content: space-between; /* Alinha o texto e o valor nas extremidades */
-    width: 100%; /* Garantir que o conteúdo ocupe toda a largura do container */
-    font-weight: 500;
-
+/* Texto "Forma de Pagamento" */
+.formaPagamento p {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 15px;
 }
 
-span {
-    margin-left: auto; /* Coloca o valor no canto direito */
+/* Container dos botões de pagamento */
+.formaPagamento div {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.formaPagamento {
-    margin-top: 20px;
-    text-align: left; /* Alinha o conteúdo à esquerda */
-  }
-  
-  .formaPagamento h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .formaPagamento label {
-    display: flex;
-    align-items: center;
-    margin-right: 20px; /* Espaçamento entre as opções */
-  }
-  
-  .formaPagamento div {
-    display: flex; /* Flexbox para as opções ficarem lado a lado */
-    flex-wrap: wrap; /* Para permitir a quebra de linha se necessário */
-    color: black;
-    margin: auto;
-    padding: 10px;
-  }
-  .formaPagamento p{
-    color: black;
-    font-size: 1rem;
-    text-transform: none;
-    font-weight: 500;
 
-  }
+/* Esconde input radio */
+.formaPagamento input[type="radio"] {
+  display: none;
+}
 
-  
-  .formaPagamento input[type="radio"] {
-    margin-right: 5px; /* Espaçamento entre o input e o texto */
-  }
-  
+/* Estilo do label - botão de pagamento */
+.formaPagamento label {
+  flex: 1 1 120px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  box-shadow: 0 0 5px transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
+
+/* Ícones dentro dos labels (caso use react-icons) */
+.formaPagamento label svg {
+  width: 20px;
+  height: 20px;
+  fill: #d33333;
+}
+
+/* Quando selecionado */
+.formaPagamento input[type="radio"]:checked + label {
+  background-color: #d33333;
+  color: white;
+  box-shadow: 0 4px 12px rgba(211, 51, 51, 0.5);
+  border-color: #a00000;
+}
+
+/* Hover normal */
+.formaPagamento label:hover {
+  background-color: #e8e8e8;
+  color: #b33333;
+}
+
+/* Hover quando selecionado */
+.formaPagamento input[type="radio"]:checked + label:hover {
+  background-color: #b82a2a;
+  box-shadow: 0 6px 15px rgba(168, 10, 10, 0.7);
+  border-color: #7a0000;
+}
+
+/* Linha separadora */
+.infoPagamento > p.separator {
+  margin: 0;
+  color: #ccc;
+  letter-spacing: 4px;
+  user-select: none;
+  text-align: center;
+}
+
+/* Valor total */
+.infoPagamento > p.valorTotal {
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  color: #222;
+}
+
+.infoPagamento > p.valorTotal span {
+  color: #d33333;
+}
+
+/* Scroll customizado para carrinho itens */
+.carrinhoItens::-webkit-scrollbar {
+  width: 8px;
+}
+
+.carrinhoItens::-webkit-scrollbar-thumb {
+  background-color: #d33333;
+  border-radius: 10px;
+}
+
+.carrinhoItens::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}

@@ -1,0 +1,39 @@
+.container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #2c2c54;
+}
+
+.infoBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.infoBox p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.logoutBtn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.logoutBtn:hover {
+  background-color: #e43e3e;
+}

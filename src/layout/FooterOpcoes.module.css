@@ -30,13 +30,16 @@ footer img:hover {
 
 .topicomenu {
     flex: 1;
+    display: flex; /* Ativa o flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     padding: 10px;
-    text-align: center; /* Centraliza o texto ou ícone */
     font-size: 16px;
-    color: #666; /* Cor mais neutra */
-    font-weight: 600; /* Texto mais destacado */
-    transition: color 0.3s ease; /* Transição de cor para hover */
+    color: #666;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
+
 
 .topicomenu:hover {
     color: #d33333; /* Realça o texto no hover */
