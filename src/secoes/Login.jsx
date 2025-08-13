@@ -37,14 +37,26 @@ function Login() {
         
         if(!response.ok){
           alert("Usuário não encontrado")
-          navigate("/pagesforms/cadastroadmin")
           
         }else{
           localStorage.setItem("nome_usuario", data.nome )
           localStorage.setItem("nomeEstabelecimento", data.nomeEstabelecimento)
-         alert("Usuário encontrado")
+          localStorage.setItem("id_estabelecimento", data.id_estabelecimento)
+          localStorage.setItem("id_cliente", data.id_cliente)
+          alert("Usuário encontrado")
 
-          navigate("/homeprincipal");
+         // navigate("/homeprincipal");
+          if (data.tipo === "cliente") {
+            navigate("/homecliente");
+          } else if (data.tipo === "garcom") {
+            navigate("/homeprincipal"); // ajuste essa rota se existir
+          } else if (data.tipo === "administrador") {
+            navigate("/homeprincipal");
+          } else {
+            // Se vier um tipo inesperado, vá para rota padrão
+            navigate("/homeprincipal");
+        }
+         
         }
          
 

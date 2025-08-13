@@ -1,139 +1,152 @@
-* {
-    font-family: 'Helvetica';
-}
-
 .secaopedidoclique {
-    width: 100%; /* Ajuste para telas pequenas */
-    height: 100vh; /* Ajuste automático de altura para conteúdo */
-    display: flex;
-    text-align: center;
-    flex-direction: column; /* Layout em coluna para telas pequenas */
-    flex-wrap: wrap;
-    justify-content: center; /* Centralizar conteúdo em telas pequenas */
-    align-items: center;
-    box-shadow: 5px 5px 10px 5px grey;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #fafafa;
+  gap: 30px;
 }
 
-div.imagempedidoescolhido {
-    width: 100%; /* Ajuste para telas pequenas */
-    text-align: center;
+.imagempedidoescolhido {
+  width: 90%;
+  max-width: 500px;
 }
 
-div.imagempedidoescolhido > img {
-    width: 80%; /* Ajuste para telas pequenas */
-    height: auto; /* Ajuste automático de altura */
-    margin-top: 2%;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px 1px grey;
+.imagempedidoescolhido img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-div.detalhespedidoescolhido {
-    width: 100%; /* Ajuste para telas pequenas */
-    padding: 10px;
-    text-align: center;
+.detalhespedidoescolhido {
+  width: 90%;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-div.detalhespedidoescolhido > h1 {
-    font-size: 36px; /* Fonte menor para telas pequenas */
-    font-weight: 500;
+.titulo {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .p_prato_descricao {
-    font-size: 18px;
-    width: 100%; /* Ajuste para telas pequenas */
-    margin-top: 10px; /* Espaçamento superior */
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
-nav.infos{
-    
-    border: 1px solid violet;
-    text-align: center;
+
+nav.infos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.infos > ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+textarea.textareadesc {
+  width: 100%;
+  height: 150px;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: none;
+  margin-bottom: 20px;
+  transition: border 0.2s;
+}
+
+textarea.textareadesc:focus {
+  border-color: #ff9800;
+  outline: none;
+}
+
+.btnProximo {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color:#d33333;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnProximo:hover {
+  background-color: #a00000;
+}
+
+.btnVoltar {
+    background-color: transparent; /* fundo transparente */
+    border: none;                  /* sem borda */
+    color: #d33333;                /* cor principal */
+    font-size: 1.5rem;             /* ícone maior para visibilidade */
+    cursor: pointer;
+    padding: 5px;                  /* espaçamento interno pequeno */
     display: flex;
     align-items: center;
     justify-content: center;
-
-}
-.infos > ul{
-    display: flex;
-    list-style-type: none; /* Remove os marcadores da lista */
-    padding: 0;
-    margin: 0;}
-.infos > ul li´{
-    display: inline;
-}
-textarea {
-    width: 100%; /* Ajuste para telas pequenas */
-    height: 20%;
-    font-size: 16px; /* Fonte menor para telas pequenas */
-    margin-top: 2%;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-div.detalhespedidoescolhido > ::placeholder {
-    padding: 10px;
-    font-size: 16px; /* Fonte menor para telas pequenas */
+.btnVoltar:hover {
+    color: #a00000;                /* tom mais escuro ao passar o mouse */
+    transform: translateX(-3px);   /* leve movimento para indicar clique */
+    background-color: white;
 }
 
-/* Media Queries para tamanhos de tela específicos */
+
+
+/* Media Queries */
 @media (min-width: 768px) {
-    .secaopedidoclique {
-        width: 90%; /* Ajuste para telas médias */
-        height: 75vh;
-        flex-direction: row; /* Layout em linha para telas médias */
-        justify-content: space-between;
-        align-items: flex-start; /* Alinhar ao topo */
-    }
+  .secaopedidoclique {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+  }
 
-    div.imagempedidoescolhido {
-        width: 40%; /* Ajuste para telas médias */
-    }
+  .imagempedidoescolhido, .detalhespedidoescolhido {
+    width: 45%;
+  }
 
-    div.imagempedidoescolhido > img {
-        width: 100%; /* Ajuste para telas médias */
-        height: 80%; /* Altura fixa */
-        margin-left: 5%;
-    }
-
-    div.detalhespedidoescolhido {
-        width: 50%; /* Ajuste para telas médias */
-        margin-left: 2%;
-    }
-
-    div.detalhespedidoescolhido > h1 {
-        font-size: 48px; /* Fonte maior para telas médias */
-    }
-
-    .p_prato_descricao {
-        font-size: 20px; /* Fonte maior para telas médias */
-        width: 85%; /* Ajuste para telas médias */
-    }
-
-    textarea {
-        width: 70%; /* Ajuste para telas médias */
-        height: 500px !important;
-        font-size: 18px; /* Fonte maior para telas médias */
-    }
+  .p_prato_descricao {
+    text-align: left;
+  }
 }
 
 @media (min-width: 1024px) {
-    .secaopedidoclique {
-        width: 72%; /* Ajuste para telas grandes */
-    }
+  .titulo {
+    font-size: 2.5rem;
+  }
 
-    div.detalhespedidoescolhido > h1 {
-        font-size: 55px; /* Fonte maior para telas grandes */
-    }
+  .p_prato_descricao {
+    font-size: 1.2rem;
+  }
 
-    .p_prato_descricao {
-        font-size: 20px; /* Fonte maior para telas grandes */
-    }
-
-    textarea {
-        font-size: 18px; /* Fonte maior para telas grandes */
-        height: 50% !important;
-
-    }
-}
-
-.textareadesc{
-    height: 200px;
-    width: 80%;
+  .textarea.textareadesc {
+    height: 180px;
+  }
 }

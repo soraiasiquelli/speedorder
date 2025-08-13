@@ -17,6 +17,7 @@ function GestaoEstabelecimento(){
     const {produtos, loading} = useContext(ProdutosContext)
     const{itenspedidos} = useContext(ItensPedidosContext)
   
+  
     
 
 
@@ -135,23 +136,26 @@ function GestaoEstabelecimento(){
          <section className={styles.pedidosEmAndamento}>
             <h2>Últimos Itens Pedidos</h2>
             <br />
-              {itenspedidos.map(itemPedido => {
-                const produtoRelacionado = produtos.find(prod => prod.id_item === itemPedido.id_produto)
-                return(
-                  
-                   <div key={itemPedido.id_item} className={styles.itensPedidos}>
-                      <li>
-                {produtoRelacionado ? (
-                  <img src={produtoRelacionado.imagem} alt={produtoRelacionado.nome_item || ""} />
-                ) : (
-                  <p>Produto não encontrado</p>
-                )}
-                {produtoRelacionado ? produtoRelacionado.nome_item : ""}
-              </li>
-                    </div>
-              
-                )
-              })}
+            {itenspedidos?.length > 0 ? (
+            itenspedidos.map(itemPedido => {
+              const produtoRelacionado = produtos?.find(prod => prod.id_item === itemPedido.id_produto)
+              return (
+                <div key={itemPedido.id_item} className={styles.itensPedidos}>
+                  <li>
+                    {produtoRelacionado ? (
+                      <img src={produtoRelacionado.imagem} alt={produtoRelacionado.nome_item || ""} />
+                    ) : (
+                      <p>Produto não encontrado</p>
+                    )}
+                    {produtoRelacionado ? produtoRelacionado.nome_item : ""}
+                  </li>
+                </div>
+              )
+            })
+          ) : (
+            <p>Nenhum item pedido encontrado.</p>
+          )}
+
 
             </section>
 

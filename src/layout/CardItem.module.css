@@ -42,14 +42,19 @@
 .p_preco {
   font-size: 16px;
   font-weight: bold;
-  color: #ff6600;
+  color:#d33333;
   margin-bottom: 10px;
 }
 
 .divAdd {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  text-align: left;
+}
+.divAdd > p{
+  color: black;
+  text-transform: capitalize;
+  text-align: left;
+  font-weight: normal;
 }
 
 .quantItem {

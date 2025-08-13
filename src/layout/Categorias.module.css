@@ -1,0 +1,31 @@
+.divCategorias {
+  display: flex;
+  gap: 10px; /* espaço entre os botões */
+  overflow-x: auto; /* permite rolagem horizontal */
+  padding: 10px;
+  -webkit-overflow-scrolling: touch; /* suaviza scroll em iOS */
+}
+
+.btnCategoria {
+  flex: 0 0 120px; /* largura fixa para todos os botões */
+  background-color: #f5f5f5; /* cor neutra de fundo */
+  color: #333; /* texto escuro */
+  border: 2px solid #ddd; /* borda suave */
+  border-radius: 12px; /* cantos mais arredondados */
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap; /* evita quebrar o texto */
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.btnCategoria:hover {
+  background-color: #e0e0e0; /* fundo levemente mais escuro ao passar o mouse */
+}
+
+.btnCategoria.selecionada {
+  background-color: #d33333; /* cor quando selecionado */
+  color: white; /* texto branco */
+  border-color: #d33333; /* borda combinando */
+}

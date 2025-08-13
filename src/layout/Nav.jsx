@@ -1,13 +1,13 @@
-import styles from "./Nav.module.css"
+import styles from "./Nav.module.css";
 
-function Nav({nome_hotel}){
-
-    return(
-        <nav>
-            <h1>{nome_hotel}</h1>
-        </nav>
-    )
-
+function Nav({ nome_estabelecimento }) {
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <h1>{nome_estabelecimento}</h1>
+      </div>
+    </header>
+  );
 }
 
-export default Nav
+export default Nav;

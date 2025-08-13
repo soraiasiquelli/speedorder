@@ -1,44 +1,75 @@
-nav {
-    width: 80%;
-    margin: auto;
-    font-family: 'Helvetica', sans-serif;
-    color: rgb(86, 85, 85);
-    font-weight: 400 !important;
-    margin-top: 5%;
-    margin-bottom: 20px;
+/* Container geral do header */
+.header {
+  width: 100%;
+  background-color: #fff; /* Fundo branco clean */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centraliza o título e dá espaço */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Título profissional */
+.container h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #d33333; /* Cor principal */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  margin: 0;
+  padding-bottom: 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Linha discreta sob o título */
+.container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px; /* Largura da linha */
+  height: 3px;
+  background: linear-gradient(90deg, #d33333, #f07a00);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Hover discreto */
+.container h1:hover::after {
+  width: 80px;
+}
+
+.container h1:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 22px;
   }
-  
-  nav h1 {
-    padding: 20px 0;
-    font-size: 20px; /* Aumenta o tamanho da fonte */
-    font-weight: 500; /* Um peso de fonte mais forte */
-    color: #2c3e50; /* Cor mais sofisticada */
-    font-family: 'Roboto', sans-serif; /* Fonte moderna e limpa */
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
-    letter-spacing: 2px; /* Aumenta o espaçamento entre as letras */
-    text-align: center; /* Centraliza o título */
-    position: relative; /* Para permitir o uso de pseudo-elementos */
-    margin: 0; /* Remove a margem padrão */
+
+  .container h1::after {
+    width: 50px;
   }
-  
-  nav h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px; /* Aumenta a espessura da linha */
-    background: linear-gradient(90deg, #ff6b6b, #f0a500); /* Gradiente de cor vibrante */
-    transition: width 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 18px;
   }
-  
-  nav h1:hover::after {
-    width: 0; /* A linha se esconderá ao passar o mouse */
+
+  .container h1::after {
+    width: 40px;
   }
-  
-  nav h1:hover {
-    color: #ff6b6b; /* Cor vibrante ao passar o mouse */
-    transform: translateY(-5px); /* Leve elevação ao passar o mouse */
-    transition: color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
-  }
-  
+}

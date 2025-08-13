@@ -21,17 +21,22 @@ const Pedidos = db.sequelize.define('pedidos', {
     type: Sequelize.INTEGER,
     allowNull: true
   },
-  cliente: {
-    type: Sequelize.STRING(100),
-    allowNull: true, // torna o campo opcional
-    comment: 'Nome do aluno ou cliente que fez o pedido'
+  id_cliente: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'clientes',
+      key: 'id_cliente'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   },
   data_pedido: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
   },
   status: {
-    type: Sequelize.ENUM('pendente', "em andamento", 'pronto', 'entregue'),
+    type: Sequelize.ENUM('pendente', 'em andamento', 'pronto', 'entregue'),
     allowNull: false,
     defaultValue: 'pendente'
   },
@@ -42,7 +47,22 @@ const Pedidos = db.sequelize.define('pedidos', {
   forma_de_pagamento: {
     type: Sequelize.STRING(25),
     allowNull: false
+  },
+
+  // Novo campo
+  tipo_entrega: {
+    type: Sequelize.ENUM('Agora', 'Viagem', 'Agendar'),
+    allowNull: false
+  },
+  data_agendada: {
+    type: Sequelize.DATEONLY,
+    allowNull: true
+  },
+  hora_agendada: {
+    type: Sequelize.TIME,
+    allowNull: true
   }
+
 }, {
   timestamps: false
 });

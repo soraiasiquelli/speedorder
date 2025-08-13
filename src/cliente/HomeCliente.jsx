@@ -1,12 +1,14 @@
 import styles from './HomeCliente.module.css'
 import FooterOpcoes from '../layout/FooterOpcoes';
+import CardUltimosPedidos from '../layout/CardUltimosPedidos'
+import { PedidosContext } from '../contextAPI/PedidosContext';
 import { Link } from 'react-router-dom';
 import { FaUtensils, FaClock, FaUser } from 'react-icons/fa';
 
 function HomeCliente() {
 
     const nomeEstabelecimento = localStorage.getItem("nomeEstabelecimento")
-    const nomeCliente = localStorage.getItem('nome_cliente')
+    const nomeCliente = localStorage.getItem('nome_usuario')
 
   return (
     <div className={styles.container}>
@@ -14,13 +16,13 @@ function HomeCliente() {
           <h1 className={styles.title}>Bem-vindo {nomeCliente}</h1>
       </header>
 
-      <Link to="/novopedido" className={styles.novoPedidoBtn}>
+      <Link to="/tipoentrega" className={styles.novoPedidoBtn}>
         🍔 Fazer novo pedido
       </Link>
 
       <div className={styles.ultimosPedidos}>
-        <h2>Último Pedido</h2>
-        <p>Nenhum pedido recente.</p>
+        <h2>Último Pedidos</h2>
+        <CardUltimosPedidos/>
         {/* Você pode colocar aqui o último pedido com status, se houver */}
       </div>
 

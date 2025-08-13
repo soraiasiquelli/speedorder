@@ -1,18 +1,13 @@
-*{
-    font-family: 'Helvetica';
-}
-
-/* Carrinho no canto direito */
-.btnCarrinho {
+.btnVoltar {
   position: fixed;       /* Fixa o botão na tela */
   top: 20px;
-  right: 20px;
+  left: 20px;
   border: none;
   width: auto;
   color: #6a4242;
-  background-color: transparent;;
+  background-color: transparent;
   color: #d33333;
-  font-size: 40px;    /* Fonte menor */
+  font-size: 0.85rem;    /* Fonte menor */
   font-weight: 600;
   padding: 4px 10px;     /* Menor padding para compactar */
   border-radius: 6px;    /* Arredondamento suave */
@@ -23,17 +18,15 @@
 /*  box-shadow: 0 2px 4px rgba(211, 51, 51, 0.3);*/
   transition: all 0.2s ease;
   z-index: 1000;
-  min-width: 0;  
+  min-width: 0;           /* Remove largura mínima */
 }
 
-.iconCarrinho:hover {
-  transform: scale(1.2);
+.btnVoltar:hover {
+  background-color: #a00000;  
+  box-shadow: 0 4px 8px rgba(211, 51, 51, 0.5);
+  transform: translateY(-1px);
 }
 
-/* Botão voltar no canto esquerdo */
-.btnVoltarNovoPedido {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
+.icon {
+  font-size: 25px;    /* Ícone levemente menor */
 }

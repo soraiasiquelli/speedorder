@@ -31,18 +31,20 @@ import PainelPedidos from './cozinha/PainelPedidos'
 import PainelDeControle from './cozinha/PainelControle';
 //Pagina Cliente
 import CadastroCliente from './cliente/CadastroCliente';
+import TipoEntrega from './cliente/TipoEntrega';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/'>
       <Routes>
-        <Route path="/start" element={<Start />} /> 
+        <Route exact path="/" element={<Start />} /> 
         <Route path="/homecliente" element={<HomeCliente />} /> 
         <Route path="/perfilcliente" element={<PerfilCliente />} /> 
         <Route path="/cadastrocliente" element={<CadastroCliente />} /> 
         <Route path="/cadastroestabelecimento" element={<CriarEstabelecimento/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeprincipal" element={<HomePrincipal />} />
+        <Route path="/tipoentrega" element={<TipoEntrega />} />
         <Route path="/mesaparapedido" element={<MesaParaPedido />} />
         <Route path="/novopedido" element={<NovoPedido />} />
         <Route path="/pedidoclique/:id" element={<PedidoClique />} />

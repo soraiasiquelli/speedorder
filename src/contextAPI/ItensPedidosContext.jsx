@@ -17,8 +17,9 @@ export function ItensPedidosProvider({ children }) {
   }, []);
 
   return (
-    <ItensPedidosContext.Provider value={{ itenspedidos }}>
-      {children}
-    </ItensPedidosContext.Provider>
-  );
+  <ItensPedidosContext.Provider value={{ itens_do_pedido: itenspedidos }}>
+    {children}
+  </ItensPedidosContext.Provider>
+);
+
 }

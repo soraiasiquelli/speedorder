@@ -17,8 +17,7 @@ import { useState } from 'react'
 
 function FooterOpcoes({typeView}){
 
-    const [typeViewFooter] = useState( typeView || 'garcom')
-      console.log(typeViewFooter) // mostra 'cliente' ou 'garcom'
+    console.log(typeView) // mostra 'cliente' ou 'garcom'
 
 
     return(
@@ -26,14 +25,14 @@ function FooterOpcoes({typeView}){
 
 
          <div className={styles.topicomenu}>
-            <Link to={typeViewFooter === 'cliente' ? "/homecliente" : "/homeprincipal"}>
+            <Link to={typeView === 'cliente' ? "/homecliente" : "/homeprincipal"}>
                 <GoHome className={styles.iconeFooter} />
             </Link>
         </div>
 
 
     <div className={styles.topicomenu}>
-        <Link to={typeViewFooter === 'cliente' ? "/novopedido" : "/mesaparapedido"}>
+        <Link to={typeView === 'cliente' ? "/tipoentrega" : "/mesaparapedido"}>
         <button className={styles.btnnovopedido}> 
              + 
              
@@ -44,7 +43,7 @@ function FooterOpcoes({typeView}){
 
         
          
-        {typeViewFooter != 'cliente' && (
+        {typeView != 'cliente' && (
           
         <div className={styles.topicomenu}>
         <IoIosNotificationsOutline className={styles.iconeFooter} />
@@ -56,7 +55,7 @@ function FooterOpcoes({typeView}){
     
 
 
-        {typeViewFooter != 'cliente' && (
+        {typeView != 'cliente' && (
           
         <div className={styles.topicomenu}> <Link to="/gestaoestabelecimento"><HiOutlineChartSquareBar className={styles.iconeFooter}/></Link></div>
         )}
@@ -64,7 +63,7 @@ function FooterOpcoes({typeView}){
        
 
         <div className={styles.topicomenu}>
-            <Link to="/personalizacaoloja"><BsPencil className={styles.iconeFooter}/>
+            <Link to={typeView === 'cliente' ? "/perfilcliente" : "/personalizacaoloja"}><BsPencil className={styles.iconeFooter}/>
 
             </Link>
         </div>

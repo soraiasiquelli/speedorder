@@ -78,11 +78,16 @@ app.post("/login", async(req, res) =>{
 
     console.log("Rota First Log in Encontrada!");
 
+
+     
+
    try {
+
+
+    // 1 - Procura o administrador
         let usuario = await Administrador.findOne({
             where: {
-                email: email,
-                senha: senha
+                email: email
             }
         })
 
@@ -106,59 +111,65 @@ app.post("/login", async(req, res) =>{
             })
         }
 
-
-
-        if(!usuario){ //Se não encontrou na tabela de administrador procure na tabela garcons
-            usuario = await Garcons.findOne({
+        // 2 - Se não encontrou na tabela de administrador procure na tabela garcons
+         usuario = await Garcons.findOne({
                 where:{
                     email: email,
                     //senha: senha
                 }
             })
 
-        }
-
-        //Se  encontrou usuario na tabela de garcons
-
-
-         if(usuario){
-
+            
+        if (usuario) {
             let estabelecimento = await Estabelecimento.findOne({
-                    where: {
-                        email: usuario.email
-                    }
-                })
+            where: { email: usuario.email }
+        });
 
-                if (estabelecimento) {
-            return res.json({
-                mensagem: "Estabelecimento encontrado com sucesso na tabela de estabelecimentos",
-                nomeEstabelecimento: estabelecimento.nomeEstabelecimento
-            });
-        } else {
-            return res.status(404).json({
-                mensagemErro: "Estabelecimento não encontrado"
-            });
-        }
-            
-            
-            return res.json({
-                mensagem: "Usuário encontrado na tabela de garcons",
+        return res.json({
+                mensagem: "Usuário encontrado na tabela Garcons",
                 tipo: "garcom",
                 nome: usuario.nome,
                 nomeEstabelecimento: estabelecimento?.nomeEstabelecimento || null
-
-            })
+         });
         }
+
+
+
 
       
 
-   
+        //3 - Se não encontrou na tabela de garcons procure na tabela de clientes
+
+        if(!usuario){
+            usuario = await Clientes.findOne({
+                where: {
+                    email_institucional: email
+                }
+            })
+        }
+
+         if (usuario) {
+            let estabelecimento = await Estabelecimento.findOne({
+            where: { id_estabelecimento: usuario.id_estabelecimento }
+      });
+
+         return res.json({
+                mensagem: "Usuário encontrado na tabela Clientes",
+                tipo: "cliente",
+                nome: usuario.nome,
+                nomeEstabelecimento: estabelecimento?.nomeEstabelecimento || null,
+                id_estabelecimento: estabelecimento?.id_estabelecimento || null,
+                id_cliente: usuario?.id_cliente || null
+         });
+    }
 
 
     // Se não encontrou em nenhuma das tabelas
     return res.status(404).json({ mensagemErro: "Usuário não encontrado" });
 
    } catch (error) {
+        console.error("Erro no login:", error);
+        return res.status(500).json({ mensagemErro: "Erro interno no servidor" });
     
    }
 
@@ -461,6 +472,7 @@ app.post("/cadastrogarcons", async (req, res) => {
             data_contratacao: dataContratacao,
             admin_id: id_administrador, // Atribuindo o admin_id
             estabelecimento_id: estabelecimento_id // Atribuindo o estabelecimento_id
+            
         });
 
         console.log("Garçom cadastrado com sucesso:", novoGarcom); // Verifique se o garçom foi criado
@@ -479,7 +491,7 @@ app.post("/cadastrogarcons", async (req, res) => {
 /*Verificacao de Login*/
 
 app.post("/fecharpedido", async (req, res) => {
-    const { itens, id_estabelecimento, forma_de_pagamento, total } = req.body;
+    const { itens, id_estabelecimento, forma_de_pagamento, total, id_cliente, tipo_entrega, data_agendada, hora_agendada } = req.body;
 
 
     if (!itens || itens.length === 0) {
@@ -487,12 +499,19 @@ app.post("/fecharpedido", async (req, res) => {
     }
 
     try {
+    const idMesa = req.body.id_mesa === "null" || req.body.id_mesa === undefined ? null : req.body.id_mesa;
+
+
         // Criação do pedido
         const pedido = await Pedido.create({
-            id_mesa: req.body.id_mesa,
+            id_mesa: idMesa,
             id_estabelecimento,
+            id_cliente,
             forma_de_pagamento: req.body.forma_de_pagamento,
-            total: req.body.total
+            total: req.body.total,
+            tipo_entrega,
+            data_agendada, 
+            hora_agendada
         
         });
 
@@ -510,7 +529,9 @@ app.post("/fecharpedido", async (req, res) => {
                     id_estabelecimento: item.id_estabelecimento,
                     quantidade: item.quantidade,
                     total_item: item.total_item,
-                    id_mesa: req.body.id_mesa  // Acessando o id_mesa do corpo da requisição - Fazer assim
+                    id_mesa: idMesa,  // Acessando o id_mesa do corpo da requisição - Fazer assim
+                    id_cliente: id_cliente   // <-- passe o id_cliente aqui também, se o modelo pedir
+
                 });
             })
         );
@@ -518,7 +539,7 @@ app.post("/fecharpedido", async (req, res) => {
         res.status(201).json({ message: "Pedido e itens cadastrados com sucesso", pedido });
     } catch (error) {
         console.error("Erro ao criar o pedido:", error);
-        res.status(500).json({ message: "Erro ao processar o pedido." });
+        res.status(500).json({ message: "Erro ao processar o pedido.", error: error.message });
     }
 });
 

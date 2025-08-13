@@ -1,4 +1,3 @@
-// modelo/ItensDoPedido.js
 const Sequelize = require('sequelize');
 const db = require('../backend/db');
 
@@ -40,13 +39,23 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
   },
   id_mesa: {
     type: Sequelize.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: 'mesas',
       key: 'id_mesa'
     },
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE'
+  },
+  id_cliente: {   // <-- aqui está o campo novo
+    type: Sequelize.INTEGER,
+    allowNull: true,  // ou false, conforme regra de negócio
+    references: {
+      model: 'clientes',  // nome da tabela/modelo cliente no seu banco
+      key: 'id_cliente'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL' // ou CASCADE, RESTRICT, conforme necessidade
   },
   quantidade: {
     type: Sequelize.INTEGER,
@@ -63,14 +72,17 @@ const ItensDoPedido = db.sequelize.define('itens_do_pedido', {
 
 // Definindo a associação com Pedidos
 ItensDoPedido.associate = (models) => {
-  // Um item pertence a um pedido
   ItensDoPedido.belongsTo(models.Pedidos, {
-    foreignKey: 'id_pedido',  // Chave estrangeira no modelo 'ItensDoPedido'
-    as: 'pedido'              // Nome do relacionamento
+    foreignKey: 'id_pedido',
+    as: 'pedido'
+  });
+  // Se quiser, pode adicionar associação com Clientes
+  ItensDoPedido.belongsTo(models.Clientes, {
+    foreignKey: 'id_cliente',
+    as: 'cliente'
   });
 };
 
-// Sincroniza o modelo com o banco de dados
 ItensDoPedido.sync({ alter: true })
   .then(() => {
     console.log("Tabela 'itens_do_pedido' criada ou sincronizada com sucesso");

@@ -1,51 +1,48 @@
 .divpesquisa {
-    width: 100%; /* Ajuste para telas pequenas */
-    height: auto; /* Ajuste de altura automático */
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap; /* Permitir quebra de linha em telas pequenas */
-    align-items: center;
-    justify-content: center; /* Centralizar itens em telas pequenas */
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search_input {
-    width: 80%; /* Ajuste para telas pequenas */
-    height: 50px; /* Altura fixa para consistência */
-    font-size: 18px; /* Fonte menor para telas pequenas */
-    border: 1px solid rgba(0, 0, 0, 0.332);
-    background-color: rgba(28, 65, 87, 0.1);
-    border-radius: 5px;
-    margin: 10px 0; /* Espaçamento superior e inferior */
+  width: 90%;
+  max-width: 500px; /* limita o tamanho em telas grandes */
+  height: 45px;
+  font-size: 16px;
+  padding: 0 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25px; /* deixa mais arredondado */
+  background-color: rgba(28, 65, 87, 0.05);
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-::placeholder {
-    color: grey;
-    padding: 10px; /* Redução de padding para placeholder */
+.search_input::placeholder {
+  color: #999;
+  font-style: italic;
 }
 
-/* Media Queries para tamanhos de tela específicos */
+.search_input:focus {
+  border-color: #d33333;
+  background-color: rgba(28, 65, 87, 0.1);
+  box-shadow: 0 4px 8px rgba(211, 51, 51, 0.2);
+}
+
 @media (min-width: 768px) {
-    .divpesquisa {
-        width: 90%; /* Ajuste para telas médias */
-        height: 10vh;
-    }
-
-    .search_input {
-        width: 60%; /* Ajuste para telas médias */
-        height: 50%; /* Altura ajustada */
-        font-size: 22px; /* Fonte maior para telas médias */
-    }
+  .search_input {
+    width: 60%;
+    height: 50px;
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1024px) {
-    .divpesquisa {
-        width: 80%; /* Ajuste para telas grandes */
-        height: 10vh;
-    }
-
-    .search_input {
-        width: 40%; /* Ajuste para telas grandes */
-        height: 50%; /* Altura ajustada */
-        font-size: 25px; /* Fonte original para telas grandes */
-    }
+  .search_input {
+    width: 40%;
+    height: 55px;
+    font-size: 20px;
+  }
 }

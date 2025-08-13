@@ -17,7 +17,7 @@ const Mesas = db.sequelize.define('mesas', {
   },
    numero_da_mesa:{
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   capacidade: {
       type: Sequelize.INTEGER,

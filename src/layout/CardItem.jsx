@@ -26,13 +26,14 @@ function CardItem({ id_item, src, label_title, p_descricao, p_preco, adicionarAo
     <div className={styles.card_item}>
       <img src={src} alt={label_title} className={styles.card_image} />
       <div className={styles.card_content}>
-        <Link to={`/pedidoclique/${id_item}`} state={{ id_item, src, label_title, p_preco }}>
+        <Link to={`/pedidoclique/${id_item}`} state={{ id_item, id_estabelecimento, src, label_title, p_descricao, p_preco}}>
           <h3 className={styles.item_title}>{label_title}</h3>
         </Link>
         <p className={styles.p_preco}>{p_preco}</p>
-        <div className={styles.divAdd}>
-          <input type="number" min="1" defaultValue="1" className={styles.quantItem} />
-          <button className={styles.addBtnCard} onClick={addCart}>Adicionar</button>
+       <div className={styles.divAdd}>,
+        <p className={styles.p_descricao}>{p_descricao}</p>
+         {/*<input type="number" min="1" defaultValue="1" className={styles.quantItem} />
+         <button className={styles.addBtnCard}>Adicionar</button> */} 
         </div>
       </div>
     </div>
